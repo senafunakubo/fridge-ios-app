@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		410AB6DF1E83C37E00E2563B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6DE1E83C37E00E2563B /* main.m */; };
+		410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6E11E83C37E00E2563B /* AppDelegate.m */; };
+		410AB6E51E83C37E00E2563B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6E41E83C37E00E2563B /* ViewController.m */; };
+		410AB6E81E83C37E00E2563B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410AB6E61E83C37E00E2563B /* Main.storyboard */; };
+		410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410AB6E91E83C37E00E2563B /* Assets.xcassets */; };
+		410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */; };
+		41196C8A1E89C15F0085A638 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C891E89C15F0085A638 /* Product.m */; };
+		41196C8E1E89C3D10085A638 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C8D1E89C3D10085A638 /* Food.m */; };
+		41196C911E89C3DB0085A638 /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C901E89C3DB0085A638 /* Drink.m */; };
+		41A34D931E8A06690059C342 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D921E8A06690059C342 /* Fridge.m */; };
+		41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D991E8A0C670059C342 /* FridgeItemsTableViewCell.m */; };
+		41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D9C1E8A0C8D0059C342 /* FridgeItemsTableViewController.m */; };
+		41A34DA01E8A0F1D0059C342 /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */; };
+		41A34DA31E8A119A0059C342 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DA21E8A119A0059C342 /* MyTabBarViewController.m */; };
+		41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DA71E8C817B0059C342 /* FridgeCollectionViewController.m */; };
+		41A34DAC1E8C89AB0059C342 /* FridgeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DAB1E8C89AB0059C342 /* FridgeCollectionViewCell.m */; };
+		41A34DAE1E9238BA0059C342 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A34DAD1E9238BA0059C342 /* Header.xib */; };
+		41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB01E9239CB0059C342 /* HeaderView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		410AB6DA1E83C37E00E2563B /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		410AB6DE1E83C37E00E2563B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		410AB6E01E83C37E00E2563B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		410AB6E11E83C37E00E2563B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		410AB6E31E83C37E00E2563B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		410AB6E41E83C37E00E2563B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		410AB6E71E83C37E00E2563B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		410AB6E91E83C37E00E2563B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		410AB6EC1E83C37E00E2563B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		410AB6EE1E83C37E00E2563B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41196C881E89C15F0085A638 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		41196C891E89C15F0085A638 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		41196C8C1E89C3D10085A638 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		41196C8D1E89C3D10085A638 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		41196C8F1E89C3DB0085A638 /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drink.h; sourceTree = "<group>"; };
+		41196C901E89C3DB0085A638 /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drink.m; sourceTree = "<group>"; };
+		41A34D911E8A06690059C342 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
+		41A34D921E8A06690059C342 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
+		41A34D981E8A0C670059C342 /* FridgeItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeItemsTableViewCell.h; sourceTree = "<group>"; };
+		41A34D991E8A0C670059C342 /* FridgeItemsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeItemsTableViewCell.m; sourceTree = "<group>"; };
+		41A34D9B1E8A0C8D0059C342 /* FridgeItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeItemsTableViewController.h; sourceTree = "<group>"; };
+		41A34D9C1E8A0C8D0059C342 /* FridgeItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeItemsTableViewController.m; sourceTree = "<group>"; };
+		41A34D9E1E8A0F1D0059C342 /* AddProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductViewController.h; sourceTree = "<group>"; };
+		41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductViewController.m; sourceTree = "<group>"; };
+		41A34DA11E8A119A0059C342 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
+		41A34DA21E8A119A0059C342 /* MyTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
+		41A34DA61E8C817B0059C342 /* FridgeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeCollectionViewController.h; sourceTree = "<group>"; };
+		41A34DA71E8C817B0059C342 /* FridgeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeCollectionViewController.m; sourceTree = "<group>"; };
+		41A34DAA1E8C89AB0059C342 /* FridgeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeCollectionViewCell.h; sourceTree = "<group>"; };
+		41A34DAB1E8C89AB0059C342 /* FridgeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FridgeCollectionViewCell.m; sourceTree = "<group>"; };
+		41A34DAD1E9238BA0059C342 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
+		41A34DAF1E9239CB0059C342 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		41A34DB01E9239CB0059C342 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		410AB6D71E83C37E00E2563B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		410AB6D11E83C37E00E2563B = {
+			isa = PBXGroup;
+			children = (
+				410AB6DC1E83C37E00E2563B /* FinalProject */,
+				410AB6DB1E83C37E00E2563B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		410AB6DB1E83C37E00E2563B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				410AB6DA1E83C37E00E2563B /* FinalProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		410AB6DC1E83C37E00E2563B /* FinalProject */ = {
+			isa = PBXGroup;
+			children = (
+				41A34DB21E9239DE0059C342 /* Header */,
+				410AB6E01E83C37E00E2563B /* AppDelegate.h */,
+				410AB6E11E83C37E00E2563B /* AppDelegate.m */,
+				410AB6E31E83C37E00E2563B /* ViewController.h */,
+				410AB6E41E83C37E00E2563B /* ViewController.m */,
+				410AB6E61E83C37E00E2563B /* Main.storyboard */,
+				41A34DA41E8A11B10059C342 /* Tabbar */,
+				41A34DA51E8A11BF0059C342 /* ViewController */,
+				41A34D971E8A0C220059C342 /* ItemsTableController */,
+				41196C8B1E89C1990085A638 /* Product */,
+				410AB6E91E83C37E00E2563B /* Assets.xcassets */,
+				410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */,
+				410AB6EE1E83C37E00E2563B /* Info.plist */,
+				410AB6DD1E83C37E00E2563B /* Supporting Files */,
+				41A34DA91E8C81800059C342 /* ItemsCollectionViewController */,
+			);
+			path = FinalProject;
+			sourceTree = "<group>";
+		};
+		410AB6DD1E83C37E00E2563B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				410AB6DE1E83C37E00E2563B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41196C8B1E89C1990085A638 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				41A34D911E8A06690059C342 /* Fridge.h */,
+				41A34D921E8A06690059C342 /* Fridge.m */,
+				41196C881E89C15F0085A638 /* Product.h */,
+				41196C891E89C15F0085A638 /* Product.m */,
+				41196C8C1E89C3D10085A638 /* Food.h */,
+				41196C8D1E89C3D10085A638 /* Food.m */,
+				41196C8F1E89C3DB0085A638 /* Drink.h */,
+				41196C901E89C3DB0085A638 /* Drink.m */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
+		41A34D971E8A0C220059C342 /* ItemsTableController */ = {
+			isa = PBXGroup;
+			children = (
+				41A34D981E8A0C670059C342 /* FridgeItemsTableViewCell.h */,
+				41A34D991E8A0C670059C342 /* FridgeItemsTableViewCell.m */,
+				41A34D9B1E8A0C8D0059C342 /* FridgeItemsTableViewController.h */,
+				41A34D9C1E8A0C8D0059C342 /* FridgeItemsTableViewController.m */,
+			);
+			name = ItemsTableController;
+			sourceTree = "<group>";
+		};
+		41A34DA41E8A11B10059C342 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				41A34DA11E8A119A0059C342 /* MyTabBarViewController.h */,
+				41A34DA21E8A119A0059C342 /* MyTabBarViewController.m */,
+			);
+			name = Tabbar;
+			sourceTree = "<group>";
+		};
+		41A34DA51E8A11BF0059C342 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41A34D9E1E8A0F1D0059C342 /* AddProductViewController.h */,
+				41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		41A34DA91E8C81800059C342 /* ItemsCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41A34DA61E8C817B0059C342 /* FridgeCollectionViewController.h */,
+				41A34DA71E8C817B0059C342 /* FridgeCollectionViewController.m */,
+				41A34DAA1E8C89AB0059C342 /* FridgeCollectionViewCell.h */,
+				41A34DAB1E8C89AB0059C342 /* FridgeCollectionViewCell.m */,
+			);
+			name = ItemsCollectionViewController;
+			sourceTree = "<group>";
+		};
+		41A34DB21E9239DE0059C342 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				41A34DAD1E9238BA0059C342 /* Header.xib */,
+				41A34DAF1E9239CB0059C342 /* HeaderView.h */,
+				41A34DB01E9239CB0059C342 /* HeaderView.m */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		410AB6D91E83C37E00E2563B /* FinalProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 410AB6F11E83C37E00E2563B /* Build configuration list for PBXNativeTarget "FinalProject" */;
+			buildPhases = (
+				410AB6D61E83C37E00E2563B /* Sources */,
+				410AB6D71E83C37E00E2563B /* Frameworks */,
+				410AB6D81E83C37E00E2563B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinalProject;
+			productName = FinalProject;
+			productReference = 410AB6DA1E83C37E00E2563B /* FinalProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		410AB6D21E83C37E00E2563B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = CICCCa;
+				TargetAttributes = {
+					410AB6D91E83C37E00E2563B = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 410AB6D51E83C37E00E2563B /* Build configuration list for PBXProject "FinalProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 410AB6D11E83C37E00E2563B;
+			productRefGroup = 410AB6DB1E83C37E00E2563B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				410AB6D91E83C37E00E2563B /* FinalProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		410AB6D81E83C37E00E2563B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41A34DAE1E9238BA0059C342 /* Header.xib in Resources */,
+				410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */,
+				410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */,
+				410AB6E81E83C37E00E2563B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		410AB6D61E83C37E00E2563B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
+				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
+				41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */,
+				41A34DAC1E8C89AB0059C342 /* FridgeCollectionViewCell.m in Sources */,
+				41196C8E1E89C3D10085A638 /* Food.m in Sources */,
+				41A34DA31E8A119A0059C342 /* MyTabBarViewController.m in Sources */,
+				41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */,
+				41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */,
+				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
+				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,
+				41196C8A1E89C15F0085A638 /* Product.m in Sources */,
+				410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */,
+				41A34DA01E8A0F1D0059C342 /* AddProductViewController.m in Sources */,
+				410AB6DF1E83C37E00E2563B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		410AB6E61E83C37E00E2563B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				410AB6E71E83C37E00E2563B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				410AB6EC1E83C37E00E2563B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		410AB6EF1E83C37E00E2563B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		410AB6F01E83C37E00E2563B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		410AB6F21E83C37E00E2563B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = FinalProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.CICCC.FinalProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FinalProject/FinalProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		410AB6F31E83C37E00E2563B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = FinalProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.CICCC.FinalProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FinalProject/FinalProject-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		410AB6D51E83C37E00E2563B /* Build configuration list for PBXProject "FinalProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				410AB6EF1E83C37E00E2563B /* Debug */,
+				410AB6F01E83C37E00E2563B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		410AB6F11E83C37E00E2563B /* Build configuration list for PBXNativeTarget "FinalProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				410AB6F21E83C37E00E2563B /* Debug */,
+				410AB6F31E83C37E00E2563B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 410AB6D21E83C37E00E2563B /* Project object */;
+}
