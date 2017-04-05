@@ -20,7 +20,7 @@
     
     //when textfield is tapped datepicker show
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
-    [datePicker setDate:[NSDate date]];
+    [datePicker setDate:[NSDate dateWithTimeIntervalSinceNow:86400*730]];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.addProductBestBeforeTextField setInputView:datePicker];
