@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FridgeCollectionViewCell.h"
 #import "Product.h"
+#import "HeaderView.h"
 
 @protocol FridgeItemCVDelegate
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,HeaderDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *fridgeCollectionView;
 

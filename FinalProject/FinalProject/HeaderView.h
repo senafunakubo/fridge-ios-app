@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol HeaderDelegate
+-(void)sortButtonPressed;
+-(void)addButtonPressed;
+@end
 
 @interface HeaderView : UIView
+@property (weak,nonatomic)id<HeaderDelegate>headerDelegate;
+- (IBAction)sortFoodButton:(id)sender;
+- (IBAction)addFoodButton:(id)sender;
 
-- (IBAction)addButton:(id)sender;
 
 @end

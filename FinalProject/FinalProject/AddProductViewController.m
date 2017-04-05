@@ -64,4 +64,14 @@
     //self.addProductIsFavouriteSwitch = ;
     self.addProductMemoTextView.text = @"";
 }
+//header delegate method
+-(void)sortButtonPressed
+{
+    NSLog(@"sort!!!");
+}
+-(void)addButtonPressed
+{
+    NSLog(@"add!!!");
+}
+
 @end
