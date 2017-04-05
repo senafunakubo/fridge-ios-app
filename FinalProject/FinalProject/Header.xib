@@ -20,7 +20,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Sort"/>
                     <connections>
-                        <action selector="addButton:" destination="-1" eventType="touchUpInside" id="rAf-jb-bje"/>
+                        <action selector="sortFoodButton:" destination="-1" eventType="touchUpInside" id="Znr-hb-Kdt"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-fi-v5s">
@@ -29,12 +29,11 @@
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <state key="normal" title="+"/>
                     <connections>
-                        <action selector="addButton:" destination="-1" eventType="touchUpInside" id="Prd-cx-JXB"/>
-                        <action selector="addFoodButton:" destination="-1" eventType="touchUpInside" id="5ja-dQ-zZl"/>
+                        <action selector="addFoodButton:" destination="-1" eventType="touchUpInside" id="rL2-YT-UuF"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="53.5" y="422"/>
         </view>
