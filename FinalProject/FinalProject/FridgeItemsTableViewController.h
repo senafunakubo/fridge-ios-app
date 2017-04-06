@@ -10,6 +10,7 @@
 #import "Product.h"
 #import "FridgeItemsTableViewCell.h"
 #import "HeaderView.h"
+#import "HeaderCollectionReusableView.h"
 
 @protocol FridgeItemDelegate
 

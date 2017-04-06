@@ -82,21 +82,27 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 }
 
-
 -(void)fridgeCVDidSelect
 {
     self.productArray = [self.fridgeItemCVDelegate fridgeItemCVDidCreate];
     [self.fridgeCollectionView reloadData];
 }
 
--(void)sortButtonPressed
+//HeaderCollectionReusableView @implementation
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
+    UICollectionReusableView *reusableview = nil;
     
+    if (kind == UICollectionElementKindSectionHeader) {
+        HeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        //NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
+        //headerView.title.text = title;
+        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
+        //headerView.backgroundImage.image = headerImage;
+        
+        reusableview = headerView;
+    }
+    return reusableview;
 }
--(void)addButtonPressed
-{
-    
-}
-
 
 @end
