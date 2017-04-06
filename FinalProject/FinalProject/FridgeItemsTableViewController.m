@@ -46,6 +46,25 @@
     }
     Product * product = [self.productArray objectAtIndex:indexPath.row];
     cell.fridgeItemNameLabel.text = product.productName;
+    cell.fridgeBestBefore.text = product.productBestBefore;
+    
+    //    NSDate *d = [[NSDate alloc]init];
+    //    NSComparisonResult result = [d compare:product.productBestBefore];
+    //    switch (result)
+    //    {
+    //        case NSOrderedSame:
+    //            //  Till Today
+    //            break;
+    //
+    //        case NSOrderedAscending:
+    //            //  The food is fine.
+    //            break;
+    //
+    //        case NSOrderedDescending:
+    //            //  The food is expired.
+    //            break;
+    //    }
+    
     return cell;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
