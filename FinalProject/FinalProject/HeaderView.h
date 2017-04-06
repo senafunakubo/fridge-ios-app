@@ -14,6 +14,8 @@
 
 @interface HeaderView : UIView
 @property (weak,nonatomic)id<HeaderDelegate>headerDelegate;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+
 - (IBAction)sortFoodButton:(id)sender;
 - (IBAction)addFoodButton:(id)sender;
 

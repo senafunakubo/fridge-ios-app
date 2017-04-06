@@ -89,5 +89,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.fridgeCollectionView reloadData];
 }
 
+-(void)sortButtonPressed
+{
+    
+}
+-(void)addButtonPressed
+{
+    
+}
+
 
 @end

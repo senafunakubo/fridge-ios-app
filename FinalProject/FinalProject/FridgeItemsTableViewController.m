@@ -62,4 +62,28 @@
     [self.fridgeItemsTableView reloadData];
 }
 
+-(void)sortButtonPressed
+{
+    
+}
+-(void)addButtonPressed
+{
+    
+}
+
+-(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 150);
+    HeaderView* headerView = [[HeaderView alloc] initWithFrame:frame];
+    //headerView.headerImageView.image = [UIImage imageNamed:@"food"];
+    //headerView.contentView.backgroundColor = [UIColor lightGrayColor];
+    
+    return headerView;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 100;
+}
+
 @end
