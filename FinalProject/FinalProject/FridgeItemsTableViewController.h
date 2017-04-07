@@ -10,6 +10,8 @@
 #import "Product.h"
 #import "FridgeItemsTableViewCell.h"
 #import "AddProductViewController.h"
+#import "HeaderView.h"
+#import "HeaderCollectionReusableView.h"
 
 @protocol FridgeItemDelegate
 
@@ -17,7 +19,7 @@
 
 @end
 
-@interface FridgeItemsTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface FridgeItemsTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,HeaderDelegate>
 
 @property(weak,nonatomic)id<FridgeItemDelegate> fridgeItemDelegate;
 @property (weak, nonatomic) IBOutlet UITableView *fridgeItemsTableView;
