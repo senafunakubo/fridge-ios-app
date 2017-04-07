@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Product.h"
 #import "FridgeItemsTableViewCell.h"
-//#import "MyTabBarViewController.h"
+#import "AddProductViewController.h"
 
 @protocol FridgeItemDelegate
 

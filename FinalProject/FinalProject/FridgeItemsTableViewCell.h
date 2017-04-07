@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *fridgeItemImageView;
 @property (weak, nonatomic) IBOutlet UILabel *fridgeItemNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fridgeBestBefore;
-@property (weak, nonatomic) IBOutlet UILabel *fridgeWeastOrNot;
+@property (weak, nonatomic) IBOutlet UIImageView *fridgeWasteOrNot;
+
 
 @end
