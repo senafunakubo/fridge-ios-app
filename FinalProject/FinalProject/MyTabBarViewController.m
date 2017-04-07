@@ -18,9 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.delegate = self;
-    
-    NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
-    self.fridgeInTabbar = [[Fridge alloc]initWithFridgeItemsArray:fridgeItemsArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,20 +25,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSMutableArray<Product*>*)fridgeItemsDidCreate
-{
-    return self.fridgeInTabbar.fridgeItemsArrayinFridge;
-}
-
--(NSMutableArray<Product*>*)fridgeItemCVDidCreate
-{
-    return self.fridgeInTabbar.fridgeItemsArrayinFridge;
-}
-
--(void)productDidCreate:(Product*)product
-{
-    [self.fridgeInTabbar addFridge:product];
-}
 
 - (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
@@ -51,14 +34,9 @@
         
         [(FridgeItemsTableViewController*)viewController fridgeListDidSelect];
     }
-    else if([viewController isMemberOfClass:[AddProductViewController class]]) {
-        ((AddProductViewController*)viewController).addProductDelegate = self;
-    }
     else if([viewController isMemberOfClass:[FridgeCollectionViewController class]]) {
         ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
         ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
-        
-        [(FridgeCollectionViewController*)viewController fridgeCVDidSelect];
     }
 }
 

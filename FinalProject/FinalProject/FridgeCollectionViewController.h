@@ -10,6 +10,8 @@
 #import "FridgeCollectionViewCell.h"
 #import "Product.h"
 #import "HeaderCollectionReusableView.h"
+#import "AddProductViewController.h"
+#import "Fridge.h"
 
 @protocol FridgeItemCVDelegate
 
@@ -17,11 +19,12 @@
 
 @end
 
-@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *fridgeCollectionView;
 
 @property(weak,nonatomic)id<FridgeItemCVDelegate> fridgeItemCVDelegate;
+@property (strong, nonatomic)Fridge* fridgeInCV;
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
 

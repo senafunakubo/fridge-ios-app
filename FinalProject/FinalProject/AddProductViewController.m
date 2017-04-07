@@ -74,6 +74,7 @@
     self.product.isFavourite = self.addProductIsFavouriteSwitch;
     self.product.productMemo = self.addProductMemoTextView.text;
     
+    //TODO have to change
     [self.addProductDelegate productDidCreate:self.product];
     self.addProductNameTextField.text = @"";
     self.addProductTypeTextField.text = @"";
@@ -82,6 +83,10 @@
     self.addProductSuperMarketTextField.text = @"";
     //self.addProductIsFavouriteSwitch = ;
     self.addProductMemoTextView.text = @"";
+   
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 //header delegate method
 -(void)sortButtonPressed
