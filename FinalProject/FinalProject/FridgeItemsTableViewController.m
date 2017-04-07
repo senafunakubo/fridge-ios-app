@@ -45,7 +45,33 @@
         cell = [[FridgeItemsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FridgeItemsTableViewID"];
     }
     Product * product = [self.productArray objectAtIndex:indexPath.row];
-    cell.fridgeItemNameLabel.text = product.productName;
+     cell.fridgeItemNameLabel.text = product.productName;
+    
+    NSDate *bestBeforeDate = product.productBestBefore;
+    cell.fridgeBestBefore.text = [NSString stringWithFormat:@"%@",[bestBeforeDate description]];
+    
+    
+//        NSDate *Today = [[NSDate alloc]init];
+//        NSComparisonResult result = [Today compare:product.productBestBefore];
+    
+//        switch (result)
+//        {
+//            case NSOrderedSame:
+//                //  Till Today
+//             cell.fridgeWasteOrNot.image = [UIImage imageNamed:@"caution"];
+//                break;
+//    
+//            case NSOrderedAscending:
+//                //  The food is fine.
+//             cell.fridgeWasteOrNot.image = [UIImage imageNamed:@"check"];
+//                break;
+//    
+//            case NSOrderedDescending:
+//                //  The food is expired.
+//             cell.fridgeWasteOrNot.image = [UIImage imageNamed:@"cross"];
+//                break;
+//        }
+    
     return cell;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

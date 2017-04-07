@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Product.h"
 #import "FridgeItemsTableViewCell.h"
+#import "AddProductViewController.h"
 #import "HeaderView.h"
 #import "HeaderCollectionReusableView.h"
 
