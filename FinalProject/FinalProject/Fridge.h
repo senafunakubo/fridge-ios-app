@@ -17,6 +17,6 @@
 
 -(id)initWithFridgeItemsArray:(NSMutableArray<Product*>*) fridgeItemsArrayinFridge;
 
--(void)addFridge:(Product*)product;
+-(NSMutableArray<Product*>*)addFridge:(Product*)product;
 
 @end

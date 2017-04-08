@@ -24,7 +24,7 @@
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.addProductBestBeforeTextField setInputView:datePicker];
-
+    
     UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     [toolbar setTintColor:[UIColor grayColor]];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(showSelectedDate)];
@@ -63,7 +63,7 @@
 }
 
 - (IBAction)doneButton:(id)sender {
-
+    
     self.product = [[Product alloc]init];
     
     self.product.productName = self.addProductNameTextField.text;
@@ -82,7 +82,10 @@
     self.addProductSuperMarketTextField.text = @"";
     //self.addProductIsFavouriteSwitch = ;
     self.addProductMemoTextView.text = @"";
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 //header delegate method
 -(void)sortButtonPressed
 {

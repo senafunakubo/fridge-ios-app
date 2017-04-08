@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "FridgeCollectionViewController.h"
 #import "FridgeItemsTableViewController.h"
-#import "AddProductViewController.h"
+//#import "AddProductViewController.h"
 #import "ViewController.h"
 
 #import "Fridge.h"
 #import "Product.h"
 
-@interface MyTabBarViewController : UITabBarController<UITabBarControllerDelegate,AddProductDelegate,FridgeItemDelegate,FridgeItemCVDelegate>
+@interface MyTabBarViewController : UITabBarController<UITabBarControllerDelegate,FridgeItemDelegate,FridgeItemCVDelegate>
 
-@property (strong, nonatomic)Fridge* fridgeInTabbar;
+//@property (strong, nonatomic)Fridge* fridgeInTabbar;
 
 @end

@@ -97,10 +97,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="oY4-dQ-Gvt" kind="relationship" relationship="viewControllers" id="he6-cM-61a"/>
-                        <segue destination="ye4-Fb-Zak" kind="relationship" relationship="viewControllers" id="Yy3-YM-T1n"/>
                         <segue destination="UnT-bl-ph7" kind="relationship" relationship="viewControllers" id="1J9-UM-fOL"/>
                         <segue destination="fkO-8s-j2I" kind="relationship" relationship="viewControllers" id="c3U-GI-4Ug"/>
-                        <segue destination="wY6-MD-5YJ" kind="relationship" relationship="viewControllers" id="1wt-aq-Unf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yct-gg-elT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sd5-H8-xiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="385.5" y="-166.5"/>
+            <point key="canvasLocation" x="1269" y="-134"/>
         </scene>
         <!--Item-->
         <scene sceneID="UFk-gu-jqy">
@@ -315,6 +313,7 @@
                                     </state>
                                     <connections>
                                         <action selector="addFoodButton:" destination="fxG-Se-PO8" eventType="touchUpInside" id="C5h-yU-COo"/>
+                                        <segue destination="ye4-Fb-Zak" kind="modal" identifier="addProductViewSegue" id="oW7-rE-wjc"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -328,65 +327,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26j-ie-Vbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-97"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="PYg-fk-bvo">
-            <objects>
-                <collectionViewController id="wY6-MD-5YJ" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="znC-4I-Ulz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lBw-68-o7l">
-                            <size key="itemSize" width="105" height="97"/>
-                            <size key="headerReferenceSize" width="50" height="64"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="pjE-Mv-CQI">
-                                <rect key="frame" x="0.0" y="64" width="105" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="105" height="97"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="do6-FZ-VMB">
-                                            <rect key="frame" x="31" y="8" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="x2J-uh-cwZ">
-                                            <rect key="frame" x="22" y="32" width="61" height="61"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="REd-yj-kMV">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="mOa-SM-qFF">
-                                    <rect key="frame" x="308" y="21" width="22" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </button>
-                            </subviews>
-                        </collectionReusableView>
-                        <connections>
-                            <outlet property="dataSource" destination="wY6-MD-5YJ" id="SDk-37-miO"/>
-                            <outlet property="delegate" destination="wY6-MD-5YJ" id="7YL-JK-1A7"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="43B-E6-tiu"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f1M-qQ-NDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1448.5" y="-57.5"/>
+            <point key="canvasLocation" x="644" y="-133"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

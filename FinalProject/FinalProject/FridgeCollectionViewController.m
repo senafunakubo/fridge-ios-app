@@ -26,6 +26,15 @@ static NSString * const reuseIdentifier = @"Cell";
     self.productArray = [[NSMutableArray<Product*> alloc]init];
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"fridge"]];
+    
+    NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
+    self.fridgeInCV = [[Fridge alloc]initWithFridgeItemsArray:fridgeItemsArray];
+    
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    //test
+    [self.fridgeCollectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,11 +64,6 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
-//TODO
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cell cliced");
-}
-
  //Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
@@ -82,10 +86,14 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 }
 
--(void)fridgeCVDidSelect
+-(void)productDidCreate:(Product *)product
 {
-    self.productArray = [self.fridgeItemCVDelegate fridgeItemCVDidCreate];
-    [self.fridgeCollectionView reloadData];
+    self.productArray = [self.fridgeInCV addFridge:product];
+}
+
+//TODO
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cell cliced");
 }
 
 //HeaderCollectionReusableView @implementation
@@ -103,6 +111,14 @@ static NSString * const reuseIdentifier = @"Cell";
         reusableview = headerView;
     }
     return reusableview;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addProductViewSegue"])
+    {
+        ((AddProductViewController*)segue.destinationViewController).addProductDelegate = self;
+    }
 }
 
 @end

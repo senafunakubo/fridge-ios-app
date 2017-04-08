@@ -20,9 +20,10 @@
     return self;
 }
 
--(void)addFridge:(Product *)product
+-(NSMutableArray<Product*>*)addFridge:(Product *)product
 {
     [self.fridgeItemsArrayinFridge addObject:product];
+    return self.fridgeItemsArrayinFridge;
 }
 
 @end
