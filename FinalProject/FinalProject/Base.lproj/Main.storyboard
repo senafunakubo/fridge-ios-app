@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--History-->
+        <!--Fridge Items Table View Controller-->
         <scene sceneID="4cy-Io-caN">
             <objects>
                 <tableViewController id="UnT-bl-ph7" customClass="FridgeItemsTableViewController" sceneMemberID="viewController">
@@ -53,7 +53,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="History" id="gr7-Sg-mJ6"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="gr7-Sg-mJ6"/>
                     <connections>
                         <outlet property="fridgeItemsTableView" destination="1ZC-QZ-8ZY" id="cVr-Mz-gs0"/>
                     </connections>
@@ -235,7 +235,7 @@
             </objects>
             <point key="canvasLocation" x="-503" y="706"/>
         </scene>
-        <!--Favourite-->
+        <!--Fridge View Controller-->
         <scene sceneID="l6j-f2-YYU">
             <objects>
                 <viewController id="m1M-an-iWo" customClass="FridgeViewController" sceneMemberID="viewController">
@@ -333,7 +333,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourite" id="CHB-3P-sO3"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="CHB-3P-sO3"/>
                     <connections>
                         <outlet property="fridgeCollectionView" destination="Kqv-bE-0q2" id="0JG-0r-79Z"/>
                         <outlet property="fridgeTableView" destination="Snf-gt-v0s" id="cDL-EE-4tZ"/>
@@ -388,37 +388,40 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OrN-e3-0hP">
-                                    <rect key="frame" x="269" y="12" width="30" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ADm-kp-l2w">
+                                    <rect key="frame" x="51" y="16" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                    <state key="normal" title="+">
-                                        <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Sort"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OrN-e3-0hP">
+                                    <rect key="frame" x="291" y="7" width="49" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="+" image="add-icon">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="addFoodButton:" destination="fxG-Se-PO8" eventType="touchUpInside" id="C5h-yU-COo"/>
                                         <segue destination="ye4-Fb-Zak" kind="modal" identifier="addProductViewSegue" id="oW7-rE-wjc"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ADm-kp-l2w">
-                                    <rect key="frame" x="51" y="16" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Sort"/>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         </collectionReusableView>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Fridge List" id="6JP-c3-Fts"/>
+                    <tabBarItem key="tabBarItem" title="Fridge List" image="fridge-icon" id="6JP-c3-Fts"/>
                     <connections>
                         <outlet property="fridgeCollectionView" destination="zBu-fn-uK9" id="0my-Mk-wIh"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26j-ie-Vbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-753" y="-127"/>
+            <point key="canvasLocation" x="-753.5" y="-127.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-icon" width="512" height="512"/>
+        <image name="fridge-icon" width="16" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
