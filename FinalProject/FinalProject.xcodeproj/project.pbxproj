@@ -26,6 +26,7 @@
 		41A34DAE1E9238BA0059C342 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A34DAD1E9238BA0059C342 /* Header.xib */; };
 		41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB01E9239CB0059C342 /* HeaderView.m */; };
 		41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */; };
+		41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		41A34DB01E9239CB0059C342 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		41A34DB31E9628BC0059C342 /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
+		41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				41A34DA71E8C817B0059C342 /* FridgeCollectionViewController.m */,
 				41A34DAA1E8C89AB0059C342 /* FridgeCollectionViewCell.h */,
 				41A34DAB1E8C89AB0059C342 /* FridgeCollectionViewCell.m */,
+				41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */,
+				41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */,
 			);
 			name = ItemsCollectionViewController;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */,
+				41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */,
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
 				41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */,

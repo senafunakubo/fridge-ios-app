@@ -84,7 +84,7 @@
     
     //Check!
     //NSMutableArray<Product*>* productsArray = [[NSMutableArray<Product*> alloc]init];
-    self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
+    //self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
     [self.fridgeItemsTableView reloadData];
 }
 
