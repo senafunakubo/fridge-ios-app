@@ -32,12 +32,23 @@
     [toolbar setItems:[NSArray arrayWithObjects:space,doneButton,nil]];
     [self.addProductBestBeforeTextField setInputAccessoryView:toolbar];
     
+    //when typetextfield is tapped picker view show
+    self.pickerView = [[UIPickerView alloc] init];
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
+    
+    self.addProductTypeTextField.inputView = self.pickerView;
+    
+    self.pickerNames = @[ @"fruit", @"meet", @"fish", @"Other"];
+    
+    [self.view addSubview:self.addProductTypeTextField];
+    
     //for take photo
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"My Alert"
-                                                                              message:@"This is an alert."
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                                                        message:@"This is an alert."
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {}];
@@ -108,6 +119,7 @@
 {
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
+
 - (IBAction)doneButton:(id)sender {
 
     self.product = [[Product alloc]init];
@@ -134,6 +146,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
 //header delegate method
 -(void)sortButtonPressed
 {
@@ -142,6 +155,35 @@
 -(void)addButtonPressed
 {
     NSLog(@"add!!!");
+}
+
+//textfield to pickerview
+#pragma mark - UIPickerViewDataSource
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    if (pickerView == self.pickerView) {
+        return 1;
+    }
+    
+    return 0;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (pickerView == self.pickerView) {
+        return [self.pickerNames count];
+    }
+    
+    return 0;
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (pickerView == self.pickerView) {
+        return self.pickerNames[row];
+    }
+    
+    return nil;
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (pickerView == self.pickerView) {
+        self.addProductTypeTextField.text = self.pickerNames[row];
+    }
 }
 
 @end

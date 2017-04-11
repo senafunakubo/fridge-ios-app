@@ -15,7 +15,7 @@
 
 @end
 
-@interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) id<AddProductDelegate> addProductDelegate;
 @property (strong,nonatomic) Product* product;
@@ -28,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *addProductSuperMarketTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *addProductIsFavouriteSwitch;
 @property (weak, nonatomic) IBOutlet UITextView *addProductMemoTextView;
+
+@property (nonatomic, strong) UIPickerView *pickerView;
+@property (nonatomic, strong) NSArray *pickerNames;
 
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
