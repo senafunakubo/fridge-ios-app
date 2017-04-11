@@ -31,6 +31,32 @@
     UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolbar setItems:[NSArray arrayWithObjects:space,doneButton,nil]];
     [self.addProductBestBeforeTextField setInputAccessoryView:toolbar];
+    
+    //when typetextfield is tapped picker view show
+    self.pickerView = [[UIPickerView alloc] init];
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
+    
+    self.addProductTypeTextField.inputView = self.pickerView;
+    
+    self.pickerNames = @[ @"fruit", @"meet", @"fish", @"Other"];
+    
+    [self.view addSubview:self.addProductTypeTextField];
+    
+    //for take photo
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+                                                                        message:@"This is an alert."
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
 }
 
 
@@ -60,6 +86,38 @@
     
     NSString *dateString = [dateFormat stringFromDate:eventDate];
     self.addProductBestBeforeTextField.text = [NSString stringWithFormat:@"%@",dateString];
+}
+
+//take photo (only for Using a Physical Device with a camera)
+- (IBAction)takePhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)selectPhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.addProductImageView.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+//if it is canceled
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)doneButton:(id)sender {
@@ -96,6 +154,35 @@
 -(void)addButtonPressed
 {
     NSLog(@"add!!!");
+}
+
+//textfield to pickerview
+#pragma mark - UIPickerViewDataSource
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    if (pickerView == self.pickerView) {
+        return 1;
+    }
+    
+    return 0;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (pickerView == self.pickerView) {
+        return [self.pickerNames count];
+    }
+    
+    return 0;
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (pickerView == self.pickerView) {
+        return self.pickerNames[row];
+    }
+    
+    return nil;
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (pickerView == self.pickerView) {
+        self.addProductTypeTextField.text = self.pickerNames[row];
+    }
 }
 
 @end

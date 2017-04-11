@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Jf9-xe-ifi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Jf9-xe-ifi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--History-->
+        <!--Fridge Items Table View Controller-->
         <scene sceneID="4cy-Io-caN">
             <objects>
                 <tableViewController id="UnT-bl-ph7" customClass="FridgeItemsTableViewController" sceneMemberID="viewController">
@@ -53,7 +53,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="History" id="gr7-Sg-mJ6"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="gr7-Sg-mJ6"/>
                     <connections>
                         <outlet property="fridgeItemsTableView" destination="1ZC-QZ-8ZY" id="cVr-Mz-gs0"/>
                     </connections>
@@ -216,6 +216,22 @@
                                     <action selector="doneButton:" destination="ye4-Fb-Zak" eventType="touchUpInside" id="nRf-DJ-N9j"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R4L-Oz-Idv">
+                                <rect key="frame" x="266" y="20" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="ye4-Fb-Zak" eventType="touchUpInside" id="fHM-RA-p8Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n9y-w3-znK">
+                                <rect key="frame" x="266" y="58" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Photo"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="ye4-Fb-Zak" eventType="touchUpInside" id="KSZ-TP-dCg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -234,9 +250,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sd5-H8-xiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-503" y="706"/>
+            <point key="canvasLocation" x="-503.5" y="705.5"/>
         </scene>
-        <!--Favourite-->
+        <!--Fridge View Controller-->
         <scene sceneID="l6j-f2-YYU">
             <objects>
                 <viewController id="m1M-an-iWo" customClass="FridgeViewController" sceneMemberID="viewController">
@@ -334,7 +350,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourite" id="CHB-3P-sO3"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="CHB-3P-sO3"/>
                     <connections>
                         <outlet property="fridgeCollectionView" destination="Kqv-bE-0q2" id="0JG-0r-79Z"/>
                         <outlet property="fridgeTableView" destination="Snf-gt-v0s" id="cDL-EE-4tZ"/>
@@ -460,14 +476,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YNc-1F-j1n">
-                                            <rect key="frame" x="8" y="8" width="80" height="21"/>
+                                            <rect key="frame" x="8" y="0.0" width="80" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="6g9-jq-rzL">
-                                            <rect key="frame" x="16" y="35" width="65" height="59"/>
+                                            <rect key="frame" x="5" y="20" width="86" height="85"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -482,37 +498,40 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OrN-e3-0hP">
-                                    <rect key="frame" x="269" y="12" width="30" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ADm-kp-l2w">
+                                    <rect key="frame" x="51" y="16" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                    <state key="normal" title="+">
-                                        <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Sort"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OrN-e3-0hP">
+                                    <rect key="frame" x="291" y="7" width="49" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="add-icon">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="addFoodButton:" destination="fxG-Se-PO8" eventType="touchUpInside" id="C5h-yU-COo"/>
                                         <segue destination="ye4-Fb-Zak" kind="modal" identifier="addProductViewSegue" id="oW7-rE-wjc"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ADm-kp-l2w">
-                                    <rect key="frame" x="51" y="16" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Sort"/>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         </collectionReusableView>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Fridge List" id="6JP-c3-Fts"/>
+                    <tabBarItem key="tabBarItem" title="Fridge List" image="fridge-icon" id="6JP-c3-Fts"/>
                     <connections>
                         <outlet property="fridgeCollectionView" destination="zBu-fn-uK9" id="0my-Mk-wIh"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26j-ie-Vbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-753" y="-127"/>
+            <point key="canvasLocation" x="-753.5" y="-127.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-icon" width="512" height="512"/>
+        <image name="fridge-icon" width="24" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
