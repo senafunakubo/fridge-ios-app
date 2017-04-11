@@ -83,15 +83,9 @@
     self.addProductSuperMarketTextField.text = @"";
     //self.addProductIsFavouriteSwitch = ;
     self.addProductMemoTextView.text = @"";
-<<<<<<< HEAD
     
     [self dismissViewControllerAnimated:YES completion:nil];
-=======
-   
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
->>>>>>> ai230/master
+
 }
 
 //header delegate method

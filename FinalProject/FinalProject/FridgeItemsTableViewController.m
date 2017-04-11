@@ -84,14 +84,8 @@
 -(void)fridgeListDidSelect
 {
     
-    //Check!
-<<<<<<< HEAD
 //    NSMutableArray<Product*>* productsArray = [[NSMutableArray<Product*> alloc]init];
     self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
-=======
-    //NSMutableArray<Product*>* productsArray = [[NSMutableArray<Product*> alloc]init];
-    //self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
->>>>>>> ai230/master
     [self.fridgeItemsTableView reloadData];
 }
 

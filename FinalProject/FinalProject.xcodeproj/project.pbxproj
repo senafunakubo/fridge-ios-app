@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167A600A1E9BFEB400202FAA /* Main.storyboard */; };
+		167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60181E9C169800202FAA /* ShoppingListViewController.m */; };
+		167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */; };
+		167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60221E9C7BB400202FAA /* addShoppingListViewController.m */; };
 		410AB6DF1E83C37E00E2563B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6DE1E83C37E00E2563B /* main.m */; };
 		410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6E11E83C37E00E2563B /* AppDelegate.m */; };
 		410AB6E51E83C37E00E2563B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6E41E83C37E00E2563B /* ViewController.m */; };
-		410AB6E81E83C37E00E2563B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410AB6E61E83C37E00E2563B /* Main.storyboard */; };
 		410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410AB6E91E83C37E00E2563B /* Assets.xcassets */; };
 		410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */; };
 		41196C8A1E89C15F0085A638 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C891E89C15F0085A638 /* Product.m */; };
@@ -30,13 +33,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		167A600A1E9BFEB400202FAA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		167A60171E9C169800202FAA /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListViewController.h; path = FinalProject/ShoppingListViewController.h; sourceTree = "<group>"; };
+		167A60181E9C169800202FAA /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingListViewController.m; path = FinalProject/ShoppingListViewController.m; sourceTree = "<group>"; };
+		167A601D1E9C174E00202FAA /* ShoppingListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListTableViewCell.h; path = FinalProject/ShoppingListTableViewCell.h; sourceTree = "<group>"; };
+		167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingListTableViewCell.m; path = FinalProject/ShoppingListTableViewCell.m; sourceTree = "<group>"; };
+		167A60211E9C7BB400202FAA /* addShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addShoppingListViewController.h; path = FinalProject/addShoppingListViewController.h; sourceTree = "<group>"; };
+		167A60221E9C7BB400202FAA /* addShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addShoppingListViewController.m; path = FinalProject/addShoppingListViewController.m; sourceTree = "<group>"; };
 		410AB6DA1E83C37E00E2563B /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		410AB6DE1E83C37E00E2563B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		410AB6E01E83C37E00E2563B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		410AB6E11E83C37E00E2563B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		410AB6E31E83C37E00E2563B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		410AB6E41E83C37E00E2563B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		410AB6E71E83C37E00E2563B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		410AB6E91E83C37E00E2563B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		410AB6EC1E83C37E00E2563B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		410AB6EE1E83C37E00E2563B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +89,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		167A60201E9C677D00202FAA /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				167A60171E9C169800202FAA /* ShoppingListViewController.h */,
+				167A60181E9C169800202FAA /* ShoppingListViewController.m */,
+				167A601D1E9C174E00202FAA /* ShoppingListTableViewCell.h */,
+				167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */,
+				167A60211E9C7BB400202FAA /* addShoppingListViewController.h */,
+				167A60221E9C7BB400202FAA /* addShoppingListViewController.m */,
+			);
+			name = ShoppingList;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		410AB6D11E83C37E00E2563B = {
 			isa = PBXGroup;
 			children = (
@@ -104,14 +127,15 @@
 				410AB6E11E83C37E00E2563B /* AppDelegate.m */,
 				410AB6E31E83C37E00E2563B /* ViewController.h */,
 				410AB6E41E83C37E00E2563B /* ViewController.m */,
-				410AB6E61E83C37E00E2563B /* Main.storyboard */,
 				41A34DA41E8A11B10059C342 /* Tabbar */,
 				41A34DA51E8A11BF0059C342 /* ViewController */,
 				41A34D971E8A0C220059C342 /* ItemsTableController */,
 				41196C8B1E89C1990085A638 /* Product */,
 				410AB6E91E83C37E00E2563B /* Assets.xcassets */,
+				167A600A1E9BFEB400202FAA /* Main.storyboard */,
 				410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */,
 				410AB6EE1E83C37E00E2563B /* Info.plist */,
+				167A60201E9C677D00202FAA /* ShoppingList */,
 				410AB6DD1E83C37E00E2563B /* Supporting Files */,
 				41A34DA91E8C81800059C342 /* ItemsCollectionViewController */,
 			);
@@ -257,7 +281,7 @@
 				41A34DAE1E9238BA0059C342 /* Header.xib in Resources */,
 				410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */,
 				410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */,
-				410AB6E81E83C37E00E2563B /* Main.storyboard in Resources */,
+				167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +295,7 @@
 				41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */,
 				41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */,
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
+				167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */,
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
 				41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */,
 				41A34DAC1E8C89AB0059C342 /* FridgeCollectionViewCell.m in Sources */,
@@ -278,6 +303,8 @@
 				41A34DA31E8A119A0059C342 /* MyTabBarViewController.m in Sources */,
 				41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */,
 				41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */,
+				167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */,
+				167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */,
 				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
 				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,
 				41196C8A1E89C15F0085A638 /* Product.m in Sources */,
@@ -290,14 +317,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		410AB6E61E83C37E00E2563B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				410AB6E71E83C37E00E2563B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
