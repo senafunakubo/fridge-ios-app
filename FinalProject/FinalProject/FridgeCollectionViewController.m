@@ -61,6 +61,12 @@ static NSString * const reuseIdentifier = @"Cell";
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
     foodImage.image = [UIImage imageNamed:@"apple"];
+    
+    [foodImage.badgeView setBadgeValue:10];
+    [foodImage.badgeView setOutlineWidth:0.0];
+    [foodImage.badgeView setPosition:MGBadgePositionBest];
+    [foodImage.badgeView setBadgeColor:[UIColor blueColor]];
+
     return cell;
 }
 

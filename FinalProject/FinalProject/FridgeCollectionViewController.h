@@ -13,6 +13,8 @@
 #import "AddProductViewController.h"
 #import "Fridge.h"
 
+#import "UIView+MGBadgeView.h"
+
 @protocol FridgeItemCVDelegate
 
 -(NSMutableArray<Product*>*)fridgeItemCVDidCreate;

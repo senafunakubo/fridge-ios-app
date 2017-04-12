@@ -30,6 +30,7 @@
 		41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB01E9239CB0059C342 /* HeaderView.m */; };
 		41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */; };
 		41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */; };
+		41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
+		41BB15251E9EE06C00ECCF9B /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
+		41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 				167A60201E9C677D00202FAA /* ShoppingList */,
 				410AB6DD1E83C37E00E2563B /* Supporting Files */,
 				41A34DA91E8C81800059C342 /* ItemsCollectionViewController */,
+				41BB15281E9EE0E100ECCF9B /* BadgeView */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -219,6 +223,15 @@
 			name = Header;
 			sourceTree = "<group>";
 		};
+		41BB15281E9EE0E100ECCF9B /* BadgeView */ = {
+			isa = PBXGroup;
+			children = (
+				41BB15251E9EE06C00ECCF9B /* UIView+MGBadgeView.h */,
+				41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */,
+			);
+			name = BadgeView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +310,7 @@
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
 				167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */,
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
+				41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */,
 				41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */,
 				41A34DAC1E8C89AB0059C342 /* FridgeCollectionViewCell.m in Sources */,
 				41196C8E1E89C3D10085A638 /* Food.m in Sources */,
