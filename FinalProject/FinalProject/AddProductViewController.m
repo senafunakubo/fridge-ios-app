@@ -24,13 +24,25 @@
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.addProductBestBeforeTextField setInputView:datePicker];
-
+    
+    //Done button of picker
     UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     [toolbar setTintColor:[UIColor grayColor]];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(showSelectedDate)];
     UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolbar setItems:[NSArray arrayWithObjects:space,doneButton,nil]];
     [self.addProductBestBeforeTextField setInputAccessoryView:toolbar];
+    
+    
+    //Done button for Type
+//    UIToolbar *toolbarForType = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+//    [toolbarForType setTintColor:[UIColor grayColor]];
+//    UIBarButtonItem *doneButtonForType = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(showSelectedType)];
+//    UIBarButtonItem *spaceForType = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//    [toolbarForType setItems:[NSArray arrayWithObjects:spaceForType,doneButtonForType,nil]];
+//    [self.addProductTypeTextField setInputAccessoryView:toolbarForType];
+// ほぼ上と同じコード、最初のfruitsを選んでもFieldに表示されない、もう一度picker開くと何も表示されなくなる、多分DatePickerにも影響？
+    
     
     //when typetextfield is tapped picker view show
     self.pickerView = [[UIPickerView alloc] init];
@@ -65,6 +77,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)showSelectedType
+{
+    self.pickerView = [[UIPickerView alloc] init];
+    self.addProductTypeTextField.inputView = self.pickerView;
+    [self.addProductTypeTextField resignFirstResponder];
+}
 
 -(void)showSelectedDate
 {
@@ -121,7 +139,7 @@
 }
 
 - (IBAction)doneButton:(id)sender {
-
+    
     self.product = [[Product alloc]init];
     
     self.product.productName = self.addProductNameTextField.text;
@@ -141,10 +159,9 @@
     self.addProductSuperMarketTextField.text = @"";
     //self.addProductIsFavouriteSwitch = ;
     self.addProductMemoTextView.text = @"";
-   
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+
 }
 
 //header delegate method

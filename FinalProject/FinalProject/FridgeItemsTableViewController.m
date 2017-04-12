@@ -47,13 +47,15 @@
     Product * product = [self.productArray objectAtIndex:indexPath.row];
      cell.fridgeItemNameLabel.text = product.productName;
     
+    
     NSDate *bestBeforeDate = product.productBestBefore;
     cell.fridgeBestBefore.text = [NSString stringWithFormat:@"%@",[bestBeforeDate description]];
-    
-    
-//        NSDate *Today = [[NSDate alloc]init];
-//        NSComparisonResult result = [Today compare:product.productBestBefore];
-    
+
+
+//    NSDate *Today = [[NSDate alloc]init];
+//    
+//        NSComparisonResult result = [Today compare:bestBeforeDate];
+//    
 //        switch (result)
 //        {
 //            case NSOrderedSame:
@@ -82,9 +84,8 @@
 -(void)fridgeListDidSelect
 {
     
-    //Check!
-    //NSMutableArray<Product*>* productsArray = [[NSMutableArray<Product*> alloc]init];
-    //self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
+//    NSMutableArray<Product*>* productsArray = [[NSMutableArray<Product*> alloc]init];
+    self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
     [self.fridgeItemsTableView reloadData];
 }
 
