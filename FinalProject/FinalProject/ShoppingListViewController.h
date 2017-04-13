@@ -21,6 +21,7 @@
 @property (weak, nonatomic) id<shoppingListDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *shoppingListTableView;
 @property (nonatomic) NSMutableArray *items;
+@property (nonatomic) NSArray *categories;
 
 //-(void)caculatePrice;
 

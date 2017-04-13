@@ -23,19 +23,21 @@
     self.shoppingListTableView.dataSource = self;
     [self.shoppingListTableView reloadData];
     
-    self.items = @[@{@"name" : @"Product",@"category" : @"Home"}].mutableCopy;
+    self.items = @[@{@"name" : @"Product",@"category" : @"Fridge"}].mutableCopy;
+    self.categories = @[@"Fruits",@"Vegitables"];
     
     self.navigationItem.title = @"Shopping List";
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
     
-//    UIView *navBorder = [[UIView alloc]initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.navigationController.navigationBar.frame.size.width, 2)];
-//    
-//    NSString *pathline = [[NSBundle mainBundle] pathForResource:@"separate_ip6" ofType:@"png"];
- 
     
-// add button
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
+    //For a bar
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.84 green:0.97 blue:0.94 alpha:1.0];
+    
+    //For check marks
+    self.shoppingListTableView.tintColor =  [UIColor colorWithRed:0.52 green:0.74 blue:0.65 alpha:1.0];
+    
+    //For an add button
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.34 green:0.66 blue:0.84 alpha:1.0];
 }
 
@@ -45,59 +47,95 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.categories.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.items.count;
-    return 3;
+    return [self numberOfItemsInTheCategory:self.categories[section]];
 }
 
-#pragma mark - Adding Items
+#pragma mark - Datasourse helper method
 
--(void)addNewItem:(UIBarButtonItem *)sender
+-(NSArray *)ItemsInCategory:(NSString *)targetCategory
 {
+    NSPredicate *matchingPredicate = [NSPredicate predicateWithFormat:@"category == %@",targetCategory];
+    NSArray *categoryItems = [self.items filteredArrayUsingPredicate:matchingPredicate];
     
-//    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"New item" message:@"Please enter the name of the item" preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    [alertController addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
-//    {
-//        [self doneButtonPushed];
-//    }
-//                                ]];
-//                                
-//    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        [self cancelButtonPushed];
-//    }
-//                                ]];
-//    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-//        textField.placeholder = @"text";
-//    }];
-//  [self presentViewController:alertController animated:YES completion:nil];
+    return categoryItems;
 }
 
-                                
-- (void)doneButtonPushed
+-(NSInteger)numberOfItemsInTheCategory:(NSString *)targetCategory
 {
-
+    return [self ItemsInCategory:targetCategory].count;
 }
 
-- (void)cancelButtonPushed {}
-                                
+-(NSDictionary *)itemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *category = self.categories[indexPath.section];
+    NSArray *categoryItems = [self ItemsInCategory:category];
+    NSDictionary *item = categoryItems[indexPath.row];
+    
+    return item;
+}
+
+-(NSInteger)itemIndexForIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *item = [self itemAtIndexPath:indexPath];
+    NSInteger index = [self.items indexOfObjectIdenticalTo:item];
+    
+    return index;
+}
+
+-(void)removeItemsAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger index = [self itemIndexForIndexPath:indexPath];
+    [self.items removeObjectAtIndex:index];
+    
+}
+
+
+#pragma mark - TableView datasourse
                                 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShoppingListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"shoppingListTableView"];
+    ShoppingListTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"shoppingListTableView" forIndexPath:indexPath];
     
     if(!cell)
     {
         cell = [[ShoppingListTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shoppingListTableView"];
     }
     
-//    NSDictionary *items = self.items[indexPath.row];
-    cell.productName.text = @"abc";
+    NSDictionary *item = [self itemAtIndexPath:indexPath];
+    cell.productName.text = @"Test";
+
+    if([item[@"completed"]boolValue])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableDictionary *item = [self.items[indexPath.row]mutableCopy];
+    
+    //For putting bool in a dictionary, we have to wrap it as a NSNumber.
+    BOOL completed = [item[@"completed"]boolValue];
+    
+    //As it is the NSNumber, we will get some errors if we don't use @() here.
+    item[@"completed"] = @(!completed);
+    
+    self.items[indexPath.row] = item;
+    
+    UITableViewCell *cell=[self.shoppingListTableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = ([item[@"completed"] boolValue]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    
+    [self.shoppingListTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
