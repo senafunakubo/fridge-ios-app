@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>A</key>
+	<array>
+		<string>Apples</string>
+		<string>Asparagus</string>
+	</array>
+	<key>B</key>
+	<array>
+		<string>Bagels</string>
+		<string>Butter</string>
+	</array>
+	<key>C</key>
+	<array>
+		<string>Cake</string>
+		<string>Carrots</string>
+		<string>Cheese</string>
+		<string>Chicken</string>
+	</array>
+	<key>D</key>
+	<array>
+		<string>Dried fruit</string>
+	</array>
+	<key>E</key>
+	<array>
+		<string>Eggplant</string>
+		<string>Eggs</string>
+	</array>
+	<key>F</key>
+	<array>
+		<string>Fruit juice</string>
+	</array>
+	<key>G</key>
+	<array>
+		<string>Grapefruit</string>
+		<string>Grapes</string>
+		<string>Ground beef</string>
+	</array>
+	<key>H</key>
+	<array>
+		<string>Ham</string>
+		<string>Hot sauce</string>
+	</array>
+	<key>I</key>
+	<array/>
+	<key>J</key>
+	<array>
+		<string>Jam</string>
+	</array>
+	<key>K</key>
+	<array>
+		<string>Ketchup</string>
+		<string>Kiwis</string>
+	</array>
+	<key>L</key>
+	<array>
+		<string>Lemon juice</string>
+		<string>Lemons</string>
+		<string>Lettuce</string>
+		<string>Lime juice</string>
+		<string>Limes</string>
+		<string>Lobster</string>
+	</array>
+</dict>
+</plist>

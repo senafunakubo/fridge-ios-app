@@ -12,6 +12,8 @@
 // NSString comparison
 // http://qiita.com/ktysne/items/bfb313df8c7e3d62f688
 
+// 検索で見つからない時に自分で書けるようにするのも欲しい
+
 #import "addShoppingListViewController.h"
 
 @interface addShoppingListViewController ()

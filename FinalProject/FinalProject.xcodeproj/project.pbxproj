@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161843161E9F07E100A20F70 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 161843151E9F07E100A20F70 /* Property List.plist */; };
 		167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167A600A1E9BFEB400202FAA /* Main.storyboard */; };
 		167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60181E9C169800202FAA /* ShoppingListViewController.m */; };
 		167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161843151E9F07E100A20F70 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Property List.plist"; path = "FinalProject/Property List.plist"; sourceTree = "<group>"; };
 		167A600A1E9BFEB400202FAA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		167A60171E9C169800202FAA /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListViewController.h; path = FinalProject/ShoppingListViewController.h; sourceTree = "<group>"; };
 		167A60181E9C169800202FAA /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingListViewController.m; path = FinalProject/ShoppingListViewController.m; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */,
 				167A60211E9C7BB400202FAA /* addShoppingListViewController.h */,
 				167A60221E9C7BB400202FAA /* addShoppingListViewController.m */,
+				161843151E9F07E100A20F70 /* Property List.plist */,
 			);
 			name = ShoppingList;
 			path = ..;
@@ -281,6 +284,7 @@
 				41A34DAE1E9238BA0059C342 /* Header.xib in Resources */,
 				410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */,
 				410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */,
+				161843161E9F07E100A20F70 /* Property List.plist in Resources */,
 				167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
