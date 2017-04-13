@@ -32,6 +32,8 @@
 		41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */; };
 		41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */; };
 		41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */; };
+		41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */; };
+		41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,10 @@
 		41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		41BB15251E9EE06C00ECCF9B /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
 		41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
+		41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewController.h; sourceTree = "<group>"; };
+		41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewController.m; sourceTree = "<group>"; };
+		41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewCell.h; sourceTree = "<group>"; };
+		41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +203,10 @@
 			children = (
 				41A34D9E1E8A0F1D0059C342 /* AddProductViewController.h */,
 				41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */,
+				41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */,
+				41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */,
+				41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */,
+				41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -312,6 +322,7 @@
 				41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */,
 				41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */,
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
+				41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */,
 				167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */,
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
 				41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */,
@@ -323,6 +334,7 @@
 				41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */,
 				167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */,
 				167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */,
+				41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */,
 				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
 				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,
 				41196C8A1E89C15F0085A638 /* Product.m in Sources */,
