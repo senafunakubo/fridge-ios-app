@@ -23,6 +23,8 @@
     self.favouriteCollectionView.dataSource =self;
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
+    //self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+    self.foodImageArray = [[NSMutableArray alloc]init];
     
     NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
     self.fridgeInCV = [[Fridge alloc]initWithFridgeItemsArray:fridgeItemsArray];
@@ -31,10 +33,14 @@
     self.favouriteTableView.delegate = self;
     self.favouriteTableView.dataSource =self;
     
+    //hide collectionview
+    [self.favouriteTableView setHidden:YES];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
     [self.favouriteCollectionView reloadData];
 }
 
@@ -54,21 +60,23 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FridgeCollectionViewCell" forIndexPath:indexPath];
+    //self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FavouriteCollectionViewCell" forIndexPath:indexPath];
     
     Product * product = [self.productArray objectAtIndex:indexPath.row];
     
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     nameLabel.text = product.productName;
-    UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
-    foodImage.image = [UIImage imageNamed:@"apple"];
+//    UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
+//    foodImage.image = [UIImage imageNamed:@"apple"];
     return cell;
 }
 
--(void)productDidCreate:(Product *)product
-{
-    self.productArray = [self.fridgeInCV addFridge:product];
-}
+//-(void)productDidCreate:(Product *)product
+//{
+//    self.productArray = [self.fridgeInCV addFridge:product];
+//}
 
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,17 +119,22 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FridgeItemsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"FridgeItemsTableViewID"];
+    FavouriteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"FavouriteTableViewCell"];
     
     if(!cell)
     {
-        cell = [[FridgeItemsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FridgeItemsTableViewID"];
+        cell = [[FavouriteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavouriteTableViewCell"];
     }
     Product * product = [self.productArray objectAtIndex:indexPath.row];
-    cell.fridgeItemNameLabel.text = product.productName;
+    cell.foodNameLabel.text = product.productName;
     
-    NSDate *bestBeforeDate = product.productBestBefore;
-    cell.fridgeBestBefore.text = [NSString stringWithFormat:@"%@",[bestBeforeDate description]];
+//    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+//    nameLabel.text = product.productName;
+//    UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
+//    foodImage.image = [UIImage imageNamed:self.foodImageArray[indexPath.row]];
+    
+    //NSDate *bestBeforeDate = product.productBestBefore;
+    //cell.fridgeBestBefore.text = [NSString stringWithFormat:@"%@",[bestBeforeDate description]];
     
     
     //        NSDate *Today = [[NSDate alloc]init];
@@ -152,49 +165,30 @@
     return 100;
 }
 
--(void)fridgeListDidSelect
-{
-    
-    //Check!
-    //NSMutableArray<Product*>* productsArray = [[NSMutableArray<Product*> alloc]init];
-    //self.productArray = [self.fridgeItemDelegate fridgeItemsDidCreate];
-    [self.favouriteTableView reloadData];
-}
-
--(void)sortButtonPressed
-{
-    
-}
--(void)addButtonPressed
-{
-    
-}
-
--(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 150);
-    HeaderView* headerView = [[HeaderView alloc] initWithFrame:frame];
-    //headerView.headerImageView.image = [UIImage imageNamed:@"food"];
-    //headerView.contentView.backgroundColor = [UIColor lightGrayColor];
-    
-    return headerView;
-}
-
--(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 100;
-}
 
 - (IBAction)Swich:(id)sender {
     if([self.favouriteCollectionView isHidden])
     {
         [self.favouriteCollectionView setHidden:NO];
         [self.favouriteTableView setHidden:YES];
+        
+        [self.favouriteTableView reloadData];
     }
     else
     {
         [self.favouriteCollectionView setHidden:YES];
         [self.favouriteTableView setHidden:NO];
+        
+        [self.favouriteCollectionView reloadData];
     }
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addProductViewSegue"])
+    {
+        ((AddProductViewController*)segue.destinationViewController).addProductDelegate = self;
+    }
+}
+
 @end

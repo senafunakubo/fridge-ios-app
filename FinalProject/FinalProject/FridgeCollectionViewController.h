@@ -12,6 +12,7 @@
 #import "HeaderCollectionReusableView.h"
 #import "AddProductViewController.h"
 #import "Fridge.h"
+#import "MyTabBarViewController.h"
 
 #import "UIView+MGBadgeView.h"
 
@@ -21,7 +22,7 @@
 
 @end
 
-@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductDelegate>
+@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductDelegate,UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *fridgeCollectionView;
 
@@ -29,7 +30,7 @@
 @property (strong, nonatomic)Fridge* fridgeInCV;
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
-
+@property (strong,nonatomic) NSMutableArray* foodImageArray;
 -(void)fridgeCVDidSelect;
 
 @end

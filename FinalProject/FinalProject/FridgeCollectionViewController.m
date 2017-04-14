@@ -13,7 +13,7 @@
 @end
 
 @implementation FridgeCollectionViewController
-@synthesize fridgeCollectionView;
+//@synthesize fridgeCollectionView;
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -24,11 +24,19 @@ static NSString * const reuseIdentifier = @"Cell";
     self.fridgeCollectionView.dataSource =self;
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
-    
+    self.foodImageArray = [[NSMutableArray alloc]init];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"fridge"]];
     
     NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
     self.fridgeInCV = [[Fridge alloc]initWithFridgeItemsArray:fridgeItemsArray];
+ 
+    UILongPressGestureRecognizer *lpgr
+    = [[UILongPressGestureRecognizer alloc]
+       initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.delegate = self;
+    lpgr.delaysTouchesBegan = YES;
+    [self.collectionView addGestureRecognizer:lpgr];
+    
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -56,13 +64,12 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FridgeCollectionViewCell" forIndexPath:indexPath];
 
     Product * product = [self.productArray objectAtIndex:indexPath.row];
-    
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
-    foodImage.image = [UIImage imageNamed:@"apple"];
+    foodImage.image = [UIImage imageNamed:self.foodImageArray[indexPath.row]];
     
-    [foodImage.badgeView setBadgeValue:10];
+    [foodImage.badgeView setBadgeValue:product.productAmount];
     [foodImage.badgeView setOutlineWidth:0.0];
     [foodImage.badgeView setPosition:MGBadgePositionBest];
     [foodImage.badgeView setBadgeColor:[UIColor blueColor]];
@@ -95,8 +102,13 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)productDidCreate:(Product *)product
 {
     self.productArray = [self.fridgeInCV addFridge:product];
+    [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
 }
 
+-(void)imageDidChoice:(NSString*)foodImage
+{
+    [self.foodImageArray addObject:foodImage];
+}
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
@@ -126,5 +138,25 @@ static NSString * const reuseIdentifier = @"Cell";
         ((AddProductViewController*)segue.destinationViewController).addProductDelegate = self;
     }
 }
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    if (indexPath == nil){
+        NSLog(@"couldn't find index path");
+    } else {
+        // get the cell at indexPath (the one you long pressed)
+        UICollectionViewCell* cell =
+        [self.collectionView cellForItemAtIndexPath:indexPath];
+        // do stuff with the cell
+    }
+    
+}
+
 
 @end

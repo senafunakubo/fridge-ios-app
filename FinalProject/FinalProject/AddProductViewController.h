@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Product.h"
+#import "SelectFoodImageTableViewController.h"
 
 @protocol AddProductDelegate
 
 -(void)productDidCreate:(Product*)product;
-
+-(void)imageDidChoice:(NSString*)foodImage;
 @end
 
-@interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>
+@interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource,SelectFoodImageDelegate>
 
 @property (weak, nonatomic) id<AddProductDelegate> addProductDelegate;
 @property (strong,nonatomic) Product* product;
@@ -28,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addProductSuperMarketTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *addProductIsFavouriteSwitch;
 @property (weak, nonatomic) IBOutlet UITextView *addProductMemoTextView;
-
+@property (strong,nonatomic) NSString* foodImage;
 @property (nonatomic, strong) UIPickerView *pickerView;
 @property (nonatomic, strong) NSArray *pickerNames;
 

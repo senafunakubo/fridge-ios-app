@@ -58,8 +58,8 @@
     //for take photo
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"My Alert"
-                                                                        message:@"This is an alert."
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Alert"
+                                                                        message:@"'Take Photo' button doesn't work."
                                                                  preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
@@ -107,6 +107,9 @@
 }
 
 //take photo (only for Using a Physical Device with a camera)
+- (IBAction)selectFoodImage:(id)sender {
+}
+
 - (IBAction)takePhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -142,9 +145,12 @@
     
     self.product = [[Product alloc]init];
     
+    [self.addProductDelegate imageDidChoice:self.foodImage];
+    
     self.product.productName = self.addProductNameTextField.text;
     self.product.productType = self.addProductTypeTextField.text;
     self.product.productPrice = self.addProductPriceTextField.text.floatValue;
+    self.product.productAmount = self.addProductAmoutTextField.text.integerValue;
     self.product.productBestBefore = self.addProductBestBeforeTextField.text;
     self.product.productSuperMarket = self.addProductSuperMarketTextField.text;
     self.product.isFavourite = self.addProductIsFavouriteSwitch;
@@ -160,18 +166,7 @@
     //self.addProductIsFavouriteSwitch = ;
     self.addProductMemoTextView.text = @"";
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}
-
-//header delegate method
--(void)sortButtonPressed
-{
-    NSLog(@"sort!!!");
-}
--(void)addButtonPressed
-{
-    NSLog(@"add!!!");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //textfield to pickerview
@@ -203,4 +198,19 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"SelectFoodImageSegue"])
+    {
+        UIViewController* uvc = segue.destinationViewController;
+        
+        ((SelectFoodImageTableViewController*)uvc).selectFoodImageDelegate = self;
+    }
+}
+
+-(void)imageDidSelect:(NSString*)foodImage
+{
+    self.foodImage = foodImage;
+    self.addProductImageView.image = [UIImage imageNamed:foodImage];
+}
 @end

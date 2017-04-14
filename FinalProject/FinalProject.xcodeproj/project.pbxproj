@@ -20,6 +20,8 @@
 		41196C8A1E89C15F0085A638 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C891E89C15F0085A638 /* Product.m */; };
 		41196C8E1E89C3D10085A638 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C8D1E89C3D10085A638 /* Food.m */; };
 		41196C911E89C3DB0085A638 /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C901E89C3DB0085A638 /* Drink.m */; };
+		41904D471EA05435004750A2 /* FavouriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D461EA05435004750A2 /* FavouriteTableViewCell.m */; };
+		41904D4A1EA05467004750A2 /* FavouriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */; };
 		41A34D931E8A06690059C342 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D921E8A06690059C342 /* Fridge.m */; };
 		41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D991E8A0C670059C342 /* FridgeItemsTableViewCell.m */; };
 		41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D9C1E8A0C8D0059C342 /* FridgeItemsTableViewController.m */; };
@@ -32,6 +34,8 @@
 		41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */; };
 		41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */; };
 		41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */; };
+		41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */; };
+		41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		41196C8D1E89C3D10085A638 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		41196C8F1E89C3DB0085A638 /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drink.h; sourceTree = "<group>"; };
 		41196C901E89C3DB0085A638 /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drink.m; sourceTree = "<group>"; };
+		41904D451EA05435004750A2 /* FavouriteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteTableViewCell.h; sourceTree = "<group>"; };
+		41904D461EA05435004750A2 /* FavouriteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteTableViewCell.m; sourceTree = "<group>"; };
+		41904D481EA05467004750A2 /* FavouriteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCollectionViewCell.h; sourceTree = "<group>"; };
+		41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteCollectionViewCell.m; sourceTree = "<group>"; };
 		41A34D911E8A06690059C342 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		41A34D921E8A06690059C342 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		41A34D981E8A0C670059C342 /* FridgeItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeItemsTableViewCell.h; sourceTree = "<group>"; };
@@ -81,6 +89,10 @@
 		41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		41BB15251E9EE06C00ECCF9B /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
 		41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
+		41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewController.h; sourceTree = "<group>"; };
+		41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewController.m; sourceTree = "<group>"; };
+		41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewCell.h; sourceTree = "<group>"; };
+		41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +146,6 @@
 				410AB6E31E83C37E00E2563B /* ViewController.h */,
 				410AB6E41E83C37E00E2563B /* ViewController.m */,
 				41A34DA41E8A11B10059C342 /* Tabbar */,
-				41A34DA51E8A11BF0059C342 /* ViewController */,
 				41A34D971E8A0C220059C342 /* ItemsTableController */,
 				41196C8B1E89C1990085A638 /* Product */,
 				410AB6E91E83C37E00E2563B /* Assets.xcassets */,
@@ -144,6 +155,8 @@
 				167A60201E9C677D00202FAA /* ShoppingList */,
 				410AB6DD1E83C37E00E2563B /* Supporting Files */,
 				41A34DA91E8C81800059C342 /* ItemsCollectionViewController */,
+				41A34DA51E8A11BF0059C342 /* ViewController */,
+				41904D441EA053E7004750A2 /* Favourite */,
 				41BB15281E9EE0E100ECCF9B /* BadgeView */,
 			);
 			path = FinalProject;
@@ -172,6 +185,19 @@
 			name = Product;
 			sourceTree = "<group>";
 		};
+		41904D441EA053E7004750A2 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */,
+				41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */,
+				41904D451EA05435004750A2 /* FavouriteTableViewCell.h */,
+				41904D461EA05435004750A2 /* FavouriteTableViewCell.m */,
+				41904D481EA05467004750A2 /* FavouriteCollectionViewCell.h */,
+				41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */,
+			);
+			name = Favourite;
+			sourceTree = "<group>";
+		};
 		41A34D971E8A0C220059C342 /* ItemsTableController */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +223,10 @@
 			children = (
 				41A34D9E1E8A0F1D0059C342 /* AddProductViewController.h */,
 				41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */,
+				41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */,
+				41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */,
+				41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */,
+				41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -208,8 +238,6 @@
 				41A34DA71E8C817B0059C342 /* FridgeCollectionViewController.m */,
 				41A34DAA1E8C89AB0059C342 /* FridgeCollectionViewCell.h */,
 				41A34DAB1E8C89AB0059C342 /* FridgeCollectionViewCell.m */,
-				41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */,
-				41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */,
 			);
 			name = ItemsCollectionViewController;
 			sourceTree = "<group>";
@@ -312,6 +340,8 @@
 				41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */,
 				41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */,
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
+				41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */,
+				41904D4A1EA05467004750A2 /* FavouriteCollectionViewCell.m in Sources */,
 				167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */,
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
 				41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */,
@@ -323,12 +353,14 @@
 				41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */,
 				167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */,
 				167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */,
+				41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */,
 				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
 				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,
 				41196C8A1E89C15F0085A638 /* Product.m in Sources */,
 				410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */,
 				41A34DA01E8A0F1D0059C342 /* AddProductViewController.m in Sources */,
 				410AB6DF1E83C37E00E2563B /* main.m in Sources */,
+				41904D471EA05435004750A2 /* FavouriteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
