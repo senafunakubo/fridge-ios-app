@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		161843161E9F07E100A20F70 /* groceryList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 161843151E9F07E100A20F70 /* groceryList.plist */; };
-		167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167A600A1E9BFEB400202FAA /* Main.storyboard */; };
+		1618433D1EA07E3500A20F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1618433C1EA07E3500A20F70 /* Main.storyboard */; };
 		167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60181E9C169800202FAA /* ShoppingListViewController.m */; };
 		167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */; };
 		167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60221E9C7BB400202FAA /* addShoppingListViewController.m */; };
@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		161843151E9F07E100A20F70 /* groceryList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = groceryList.plist; path = FinalProject/groceryList.plist; sourceTree = "<group>"; };
-		167A600A1E9BFEB400202FAA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1618433C1EA07E3500A20F70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		167A60171E9C169800202FAA /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListViewController.h; path = FinalProject/ShoppingListViewController.h; sourceTree = "<group>"; };
 		167A60181E9C169800202FAA /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingListViewController.m; path = FinalProject/ShoppingListViewController.m; sourceTree = "<group>"; };
 		167A601D1E9C174E00202FAA /* ShoppingListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListTableViewCell.h; path = FinalProject/ShoppingListTableViewCell.h; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				41A34D971E8A0C220059C342 /* ItemsTableController */,
 				41196C8B1E89C1990085A638 /* Product */,
 				410AB6E91E83C37E00E2563B /* Assets.xcassets */,
-				167A600A1E9BFEB400202FAA /* Main.storyboard */,
+				1618433C1EA07E3500A20F70 /* Main.storyboard */,
 				410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */,
 				410AB6EE1E83C37E00E2563B /* Info.plist */,
 				167A60201E9C677D00202FAA /* ShoppingList */,
@@ -323,10 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A34DAE1E9238BA0059C342 /* Header.xib in Resources */,
+				1618433D1EA07E3500A20F70 /* Main.storyboard in Resources */,
 				410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */,
 				410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */,
 				161843161E9F07E100A20F70 /* groceryList.plist in Resources */,
-				167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
