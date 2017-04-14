@@ -5,8 +5,10 @@
 //  Created by Sena Funakubo on 2017-04-10.
 //  Copyright © 2017 CICCCa. All rights reserved.
 //
-//  http://qiita.com/Night___/items/f2877236a4182c566eed
-//  http://iphone-app-developer.seesaa.net/article/406225155.html
+//  About NSDictionary
+//  http://qiita.com/satoshi0212/items/d67058bcf252f4c840ed
+//  http://iphone-tora.sakura.ne.jp/nsdictionary.html
+
 
 #import "ShoppingListViewController.h"
 
@@ -23,12 +25,11 @@
     self.shoppingListTableView.dataSource = self;
     [self.shoppingListTableView reloadData];
     
-    self.items = @[@{@"name" : @"Product",@"category" : @"Fridge"}].mutableCopy;
-    self.categories = @[@"Fruits",@"Vegitables"];
+//  NSDictionary          key          content
+    self.items = @[@{@"ProductName" : @"Apple"}].mutableCopy;
     
     self.navigationItem.title = @"Shopping List";
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
     
     
     //For a bar
@@ -47,50 +48,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.categories.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self numberOfItemsInTheCategory:self.categories[section]];
-}
-
-#pragma mark - Datasourse helper method
-
--(NSArray *)ItemsInCategory:(NSString *)targetCategory
-{
-    NSPredicate *matchingPredicate = [NSPredicate predicateWithFormat:@"category == %@",targetCategory];
-    NSArray *categoryItems = [self.items filteredArrayUsingPredicate:matchingPredicate];
-    
-    return categoryItems;
-}
-
--(NSInteger)numberOfItemsInTheCategory:(NSString *)targetCategory
-{
-    return [self ItemsInCategory:targetCategory].count;
-}
-
--(NSDictionary *)itemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *category = self.categories[indexPath.section];
-    NSArray *categoryItems = [self ItemsInCategory:category];
-    NSDictionary *item = categoryItems[indexPath.row];
-    
-    return item;
-}
-
--(NSInteger)itemIndexForIndexPath:(NSIndexPath *)indexPath
-{
-    NSDictionary *item = [self itemAtIndexPath:indexPath];
-    NSInteger index = [self.items indexOfObjectIdenticalTo:item];
-    
-    return index;
-}
-
--(void)removeItemsAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger index = [self itemIndexForIndexPath:indexPath];
-    [self.items removeObjectAtIndex:index];
-    
+    return self.items.count;
 }
 
 
@@ -105,8 +67,9 @@
         cell = [[ShoppingListTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shoppingListTableView"];
     }
     
-    NSDictionary *item = [self itemAtIndexPath:indexPath];
-    cell.productName.text = @"Test";
+    NSDictionary *item = self.items[indexPath.row];
+    cell.productName.text = [item objectForKey:@"ProductName"];
+//    cell.productPrice.text = ;
 
     if([item[@"completed"]boolValue])
     {
@@ -122,6 +85,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSMutableDictionary *item = [self.items[indexPath.row]mutableCopy];
     
     //For putting bool in a dictionary, we have to wrap it as a NSNumber.
@@ -137,6 +101,29 @@
     
     [self.shoppingListTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+   if(editingStyle == UITableViewCellEditingStyleDelete)
+   {
+       [self.items removeObjectAtIndex:indexPath.row];
+       [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+   }
+}
+
+
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

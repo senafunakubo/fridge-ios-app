@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>A</key>
+	<array>
+		<string>Apples</string>
+		<string>Asparagus</string>
+	</array>
+	<key>B</key>
+	<array>
+		<string>Bagels</string>
+		<string>Blackberries</string>
+		<string>Butter</string>
+	</array>
+	<key>C</key>
+	<array>
+		<string>Cake</string>
+		<string>Carrots</string>
+		<string>Cereal</string>
+		<string>Chickpea</string>
+		<string>Chicken</string>
+		<string>Coke</string>
+	</array>
+	<key>D</key>
+	<array>
+		<string>Dried fruit</string>
+	</array>
+	<key>E</key>
+	<array>
+		<string>Eggplant</string>
+		<string>Eggs</string>
+	</array>
+	<key>F</key>
+	<array>
+		<string>Fruit juice</string>
+	</array>
+	<key>G</key>
+	<array>
+		<string>Grapefruit</string>
+		<string>Grapes</string>
+		<string>Ground beef</string>
+	</array>
+	<key>H</key>
+	<array>
+		<string>Ham</string>
+		<string>Hot sauce</string>
+	</array>
+	<key>I</key>
+	<array/>
+	<key>J</key>
+	<array>
+		<string>Jam</string>
+	</array>
+	<key>K</key>
+	<array>
+		<string>Ketchup</string>
+		<string>Kiwis</string>
+	</array>
+	<key>L</key>
+	<array>
+		<string>Lemon juice</string>
+		<string>Lemons</string>
+		<string>Lettuce</string>
+		<string>Lime juice</string>
+		<string>Limes</string>
+		<string>Lobster</string>
+	</array>
+	<key>M</key>
+	<array>
+		<string>Maggi hot sauces</string>
+		<string>Mayonnaise</string>
+		<string>Milk</string>
+		<string>Mushrooms</string>
+		<string>Mustard</string>
+	</array>
+	<key>N</key>
+	<array>
+		<string>Naan</string>
+	</array>
+	<key>O</key>
+	<array>
+		<string>Oatmeal</string>
+		<string>Onions</string>
+		<string>Oranges</string>
+		<string>Oysters</string>
+	</array>
+	<key>P</key>
+	<array>
+		<string>Paprika</string>
+		<string>Parmesan cheese</string>
+		<string>Pasta</string>
+		<string>Peaches</string>
+		<string>Peanut butter</string>
+		<string>Pears</string>
+		<string>Pickles</string>
+		<string>Pizza</string>
+		<string>Plums</string>
+		<string>Potato</string>
+	</array>
+	<key>Q</key>
+	<array/>
+	<key>R</key>
+	<array>
+		<string>Rasberries</string>
+		<string>Red pepper</string>
+		<string>Red wine</string>
+		<string>Rice</string>
+		<string>Ricotta cheese</string>
+	</array>
+	<key>S</key>
+	<array>
+		<string>Saké</string>
+		<string>Salad dressing</string>
+		<string>Salmon</string>
+		<string>Salsa</string>
+		<string>Shrimp</string>
+		<string>Soy sauce</string>
+		<string>Spinach</string>
+		<string>Syrup</string>
+	</array>
+	<key>T</key>
+	<array>
+		<string>Tofu</string>
+		<string>Tomatoes</string>
+		<string>Tortillas</string>
+		<string>Tuna</string>
+		<string>Turkey</string>
+	</array>
+	<key>U</key>
+	<array>
+		<string>Udon</string>
+	</array>
+	<key>V</key>
+	<array>
+		<string>Vanilla</string>
+		<string>Vinegar</string>
+	</array>
+	<key>W</key>
+	<array>
+		<string>Whipped cream</string>
+		<string>Whiskey</string>
+	</array>
+	<key>X</key>
+	<array/>
+	<key>Y</key>
+	<array>
+		<string>Yogurt</string>
+	</array>
+	<key>Z</key>
+	<array>
+		<string>Zucchini</string>
+	</array>
+</dict>
+</plist>
