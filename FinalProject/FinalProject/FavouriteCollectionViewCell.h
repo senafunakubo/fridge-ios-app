@@ -10,5 +10,6 @@
 
 @interface FavouriteCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *foodNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *foodImage;
 
 @end

@@ -30,7 +30,7 @@
 @property (strong, nonatomic)Fridge* fridgeInCV;
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
-@property (strong,nonatomic) NSMutableArray* foodImageArray;
+
 -(void)fridgeCVDidSelect;
 
 @end
