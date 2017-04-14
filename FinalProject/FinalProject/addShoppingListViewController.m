@@ -11,6 +11,10 @@
 
 // NSString comparison
 // http://qiita.com/ktysne/items/bfb313df8c7e3d62f688
+//
+// NSBundle
+// http://iphone-tora.sakura.ne.jp/nsbundle.html
+
 
 // 検索で見つからない時に自分で書けるようにするのも欲しい
 
@@ -22,11 +26,22 @@
 
 @implementation addShoppingListViewController
 
+//@synthesize groceryList,keys;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.AddSPLView.delegate = self;
     self.AddSPLView.dataSource = self;
     self.searchBar.delegate = self;
+    
+    //////////
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"groceryList" ofType:@"plist"];
+    
+    self.groceryList = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    self.keys = [[self.groceryList allKeys]sortedArrayUsingSelector:@selector(compare:)];
+    
+    /////////
     
     //Datasource which I wanna show up at table but this is for test
     self.totalString = [[NSMutableArray alloc]initWithObjects:@"Udon",@"Milk",@"Spinach",@"Chickpea",nil];
@@ -68,12 +83,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    // return 1 ->
+    return [self.keys count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //////////
+    NSString* key = self.keys[section];
+    NSArray* keyValue = self.groceryList[key];
+    //////////
     
       if(self.isFilltered)
       {
@@ -81,8 +101,13 @@
           return [self.filteredString count];
       }
    
+    //////////
+//    return [keyValue count];
+    //////////
+    
+    
     // We need to define the number of rows even there is no concerted item.
-    return [self.totalString count];
+        return [self.totalString count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
