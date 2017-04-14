@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.delegate = self;
+    self.productArray = [[NSMutableArray<Product*> alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,19 +27,22 @@
 }
 
 
-- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    // setting delegate
-    if([viewController isMemberOfClass:[FridgeItemsTableViewController class]]) {
-        ((FridgeItemsTableViewController*)viewController).fridgeItemDelegate = self;
-        
-        [(FridgeItemsTableViewController*)viewController fridgeListDidSelect];
-    }
-    else if([viewController isMemberOfClass:[FridgeCollectionViewController class]]) {
-        ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
-        ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
-    }
-}
+//- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+//{
+//    // setting delegate
+//    if([viewController isMemberOfClass:[FridgeItemsTableViewController class]]) {
+//        ((FridgeItemsTableViewController*)viewController).fridgeItemDelegate = self;
+//        [(FridgeItemsTableViewController*)viewController fridgeListDidSelect];
+//    }
+//    else if([viewController isMemberOfClass:[FridgeCollectionViewController class]]) {
+//        ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
+//        ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
+//    }
+//}
 
+-(void)addFood:(NSMutableArray<Product*>*)productArray
+{
+    self.productArray = productArray;
+}
 
 @end

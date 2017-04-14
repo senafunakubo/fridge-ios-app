@@ -12,6 +12,7 @@
 #import "HeaderCollectionReusableView.h"
 #import "AddProductViewController.h"
 #import "Fridge.h"
+#import "MyTabBarViewController.h"
 
 #import "UIView+MGBadgeView.h"
 

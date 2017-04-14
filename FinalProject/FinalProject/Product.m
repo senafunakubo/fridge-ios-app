@@ -10,12 +10,13 @@
 
 @implementation Product
 
--(id)initWithProductName:(NSString *)productName productType:(NSString*)productType productPrice:(float)productPrice productAmount:(NSInteger)productAmount ProductBestBefore:(NSDate *)productBestBefor  productSuperMaket:(NSString *)productSuperMarket isFavourite:(BOOL)isFavourite productMemo:(NSString *)productMemo
+-(id)initWithProductName:(NSString *)productName productImageName:(NSString*)productImageName productType:(NSString*)productType productPrice:(float)productPrice productAmount:(NSInteger)productAmount ProductBestBefore:(NSDate *)productBestBefor  productSuperMaket:(NSString *)productSuperMarket isFavourite:(BOOL)isFavourite productMemo:(NSString *)productMemo
 {
     self= [super init];
     if(self)
     {
         self.productName = productName;
+        self.productImageName = productImageName;
         self.productType = productType;
         self.productPrice = productPrice;
         self.productAmount = productAmount;

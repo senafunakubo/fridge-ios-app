@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "FridgeCollectionViewController.h"
 #import "FridgeItemsTableViewController.h"
-//#import "AddProductViewController.h"
+#import "FavouriteViewController.h"
 #import "ViewController.h"
 
 #import "Fridge.h"
 #import "Product.h"
 
-@interface MyTabBarViewController : UITabBarController<UITabBarControllerDelegate,FridgeItemDelegate,FridgeItemCVDelegate>
+@interface MyTabBarViewController : UITabBarController
+////<UITabBarControllerDelegate,FridgeItemDelegate,FridgeItemCVDelegate,FavouriteVCDelegate>
 
 //@property (strong, nonatomic)Fridge* fridgeInTabbar;
-
+@property (strong,nonatomic) NSMutableArray<Product*>* productArray;
+-(void)addFood:(NSMutableArray<Product*>*)productArray;
 @end

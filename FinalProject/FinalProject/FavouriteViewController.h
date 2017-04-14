@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FridgeCollectionViewCell.h"
-#import "FridgeItemsTableViewCell.h"
+#import "FavouriteCollectionViewCell.h"
+#import "FavouriteTableViewCell.h"
 #import "Product.h"
+#import "MyTabBarViewController.h"
+
 #import "HeaderCollectionReusableView.h"
 #import "AddProductViewController.h"
 #import "Fridge.h"
@@ -31,6 +33,7 @@
 @property (strong, nonatomic)Fridge* fridgeInCV;
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
+@property (strong,nonatomic) NSMutableArray* foodImageArray;
 
 -(void)fridgeCVDidSelect;
 

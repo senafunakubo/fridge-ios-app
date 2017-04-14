@@ -13,7 +13,7 @@
 @end
 
 @implementation FridgeCollectionViewController
-@synthesize fridgeCollectionView;
+//@synthesize fridgeCollectionView;
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -36,6 +36,7 @@ static NSString * const reuseIdentifier = @"Cell";
     lpgr.delegate = self;
     lpgr.delaysTouchesBegan = YES;
     [self.collectionView addGestureRecognizer:lpgr];
+    
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -101,6 +102,7 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)productDidCreate:(Product *)product
 {
     self.productArray = [self.fridgeInCV addFridge:product];
+    [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
 }
 
 -(void)imageDidChoice:(NSString*)foodImage
