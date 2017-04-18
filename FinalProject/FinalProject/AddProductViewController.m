@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.isSwichToggled = NO;
+    
+    self.addProductImageView.image = [UIImage imageNamed:@"noimage"];
     //when textfield is tapped datepicker show
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDate:[NSDate date]];
@@ -67,8 +70,8 @@
         
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
-        
     }
+
 }
 
 
@@ -107,9 +110,6 @@
 }
 
 //take photo (only for Using a Physical Device with a camera)
-- (IBAction)selectFoodImage:(id)sender {
-}
-
 - (IBAction)takePhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -144,29 +144,40 @@
 - (IBAction)doneButton:(id)sender {
     
     self.product = [[Product alloc]init];
-    
-    [self.addProductDelegate imageDidChoice:self.foodImage];
-    
+
+    //if foodName is not empty done button is enabled
+    if(!(self.addProductNameTextField.text.length == 0))
+    {
     self.product.productName = self.addProductNameTextField.text;
+    self.product.productImageName = self.foodImage;
     self.product.productType = self.addProductTypeTextField.text;
     self.product.productPrice = self.addProductPriceTextField.text.floatValue;
     self.product.productAmount = self.addProductAmoutTextField.text.integerValue;
     self.product.productBestBefore = self.addProductBestBeforeTextField.text;
     self.product.productSuperMarket = self.addProductSuperMarketTextField.text;
-    self.product.isFavourite = self.addProductIsFavouriteSwitch;
+        
+    if(!self.isSwichToggled)
+    {
+        self.product.isFavourite = YES;
+    }
     self.product.productMemo = self.addProductMemoTextView.text;
     
-    //TODO have to change
-    [self.addProductDelegate productDidCreate:self.product];
-    self.addProductNameTextField.text = @"";
-    self.addProductTypeTextField.text = @"";
-    self.addProductPriceTextField.text = @"";
-    self.addProductBestBeforeTextField.text = @"";
-    self.addProductSuperMarketTextField.text = @"";
-    //self.addProductIsFavouriteSwitch = ;
-    self.addProductMemoTextView.text = @"";
+    //if foodImage is not selected
+    if(self.product.productImageName.length == 0)
+    {
+        self.product.productImageName = @"noimage";
+    }
     
+    [self.addProductDelegate productDidCreate:self.product];
+    
+    //close
     [self.navigationController popViewControllerAnimated:YES];
+    }
+    //if foodName is empty show alert
+    else
+    {
+        [self showAlertForDoneButtone];
+    }
 }
 
 //textfield to pickerview
@@ -213,4 +224,27 @@
     self.foodImage = foodImage;
     self.addProductImageView.image = [UIImage imageNamed:foodImage];
 }
+
+-(void)showAlertForDoneButtone
+{
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Alert"message:@"Please input name!" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)toggleSwich:(UISwitch *)sender {
+    self.isSwichToggled = YES;
+    if (sender.on) {
+        //self.label.text = @"ON";
+        self.product.isFavourite = YES;
+    } else {
+        //self.label.text = @"OFF";
+        self.product.isFavourite = NO;
+    }
+}
+
+
 @end

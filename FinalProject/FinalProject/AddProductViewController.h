@@ -13,7 +13,7 @@
 @protocol AddProductDelegate
 
 -(void)productDidCreate:(Product*)product;
--(void)imageDidChoice:(NSString*)foodImage;
+-(void)imageArrayDidCreate:(NSString*)foodImage;
 @end
 
 @interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource,SelectFoodImageDelegate>
@@ -32,13 +32,14 @@
 @property (strong,nonatomic) NSString* foodImage;
 @property (nonatomic, strong) UIPickerView *pickerView;
 @property (nonatomic, strong) NSArray *pickerNames;
-
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (nonatomic) BOOL isSwichToggled;
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
 
-
+- (IBAction)toggleSwich:(id)sender;
 - (IBAction)doneButton:(id)sender;
-
+-(void)showAlertForDoneButtone;
 
 
 @end

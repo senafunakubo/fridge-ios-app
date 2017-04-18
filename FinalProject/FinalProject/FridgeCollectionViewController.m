@@ -13,7 +13,6 @@
 @end
 
 @implementation FridgeCollectionViewController
-//@synthesize fridgeCollectionView;
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -24,7 +23,6 @@ static NSString * const reuseIdentifier = @"Cell";
     self.fridgeCollectionView.dataSource =self;
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
-    self.foodImageArray = [[NSMutableArray alloc]init];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"fridge"]];
     
     NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
@@ -41,7 +39,6 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    //test
     [self.fridgeCollectionView reloadData];
 }
 
@@ -67,7 +64,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
-    foodImage.image = [UIImage imageNamed:self.foodImageArray[indexPath.row]];
+    foodImage.image = [UIImage imageNamed:product.productImageName];
     
     [foodImage.badgeView setBadgeValue:product.productAmount];
     [foodImage.badgeView setOutlineWidth:0.0];
@@ -105,31 +102,27 @@ static NSString * const reuseIdentifier = @"Cell";
     [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
 }
 
--(void)imageDidChoice:(NSString*)foodImage
-{
-    [self.foodImageArray addObject:foodImage];
-}
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
 }
 
-//HeaderCollectionReusableView @implementation
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionReusableView *reusableview = nil;
-    
-    if (kind == UICollectionElementKindSectionHeader) {
-        HeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        //NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
-        //headerView.title.text = title;
-        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
-        //headerView.backgroundImage.image = headerImage;
-        
-        reusableview = headerView;
-    }
-    return reusableview;
-}
+////HeaderCollectionReusableView @implementation
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+//{
+//    UICollectionReusableView *reusableview = nil;
+//    
+//    if (kind == UICollectionElementKindSectionHeader) {
+//        HeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+//        //NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
+//        //headerView.title.text = title;
+//        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
+//        //headerView.backgroundImage.image = headerImage;
+//        
+//        reusableview = headerView;
+//    }
+//    return reusableview;
+//}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

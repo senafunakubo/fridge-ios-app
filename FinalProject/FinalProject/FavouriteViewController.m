@@ -17,14 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.lastNumberOfproductArray = 0;
     //collectionView
     self.favouriteCollectionView.delegate = self;
     self.favouriteCollectionView.dataSource =self;
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
-    //self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
-    self.foodImageArray = [[NSMutableArray alloc]init];
+    self.favouriteArray = [[NSMutableArray<Product*> alloc]init];
+    self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+    //self.foodImageArray = [[NSMutableArray alloc]init];
     
     NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
     self.fridgeInCV = [[Fridge alloc]initWithFridgeItemsArray:fridgeItemsArray];
@@ -41,7 +42,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+    if(!(self.lastNumberOfproductArray == self.productArray.count))
+    {
+        [self addFavouriteArray:self.productArray];
+        self.lastNumberOfproductArray = self.productArray.count;
+    }
     [self.favouriteCollectionView reloadData];
+    [self.favouriteTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,58 +62,25 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.productArray.count;
+    return self.favouriteArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    //self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
-    
+    Product * product = [self.favouriteArray objectAtIndex:indexPath.row];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FavouriteCollectionViewCell" forIndexPath:indexPath];
     
-    Product * product = [self.productArray objectAtIndex:indexPath.row];
-    
-    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
-    nameLabel.text = product.productName;
-//    UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
-//    foodImage.image = [UIImage imageNamed:@"apple"];
-    return cell;
+        UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+        nameLabel.text = product.productName;
+        UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
+        foodImage.image = [UIImage imageNamed:product.productImageName];
+        return cell;
 }
-
-//-(void)productDidCreate:(Product *)product
-//{
-//    self.productArray = [self.fridgeInCV addFridge:product];
-//}
 
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
 }
-
-//HeaderCollectionReusableView @implementation
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionReusableView *reusableview = nil;
-    
-    if (kind == UICollectionElementKindSectionHeader) {
-        HeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        //NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
-        //headerView.title.text = title;
-        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
-        //headerView.backgroundImage.image = headerImage;
-        
-        reusableview = headerView;
-    }
-    return reusableview;
-}
-
-//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if([[segue identifier] isEqualToString:@"addProductViewSegue"])
-//    {
-//        ((AddProductViewController*)segue.destinationViewController).addProductDelegate = self;
-//    }
-//}
 
 //TableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -114,7 +88,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.productArray.count;
+    return self.favouriteArray.count;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,17 +99,12 @@
     {
         cell = [[FavouriteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavouriteTableViewCell"];
     }
-    Product * product = [self.productArray objectAtIndex:indexPath.row];
-    cell.foodNameLabel.text = product.productName;
-    
-//    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
-//    nameLabel.text = product.productName;
-//    UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
-//    foodImage.image = [UIImage imageNamed:self.foodImageArray[indexPath.row]];
-    
-    //NSDate *bestBeforeDate = product.productBestBefore;
-    //cell.fridgeBestBefore.text = [NSString stringWithFormat:@"%@",[bestBeforeDate description]];
-    
+    Product * product = [self.favouriteArray objectAtIndex:indexPath.row];
+    if(product.isFavourite == YES)
+    {
+        cell.foodNameLabel.text = product.productName;
+        cell.foodImage.image = [UIImage imageNamed:product.productImageName];
+    }
     
     //        NSDate *Today = [[NSDate alloc]init];
     //        NSComparisonResult result = [Today compare:product.productBestBefore];
@@ -162,7 +131,7 @@
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 80;
 }
 
 
@@ -189,6 +158,23 @@
     {
         ((AddProductViewController*)segue.destinationViewController).addProductDelegate = self;
     }
+}
+
+-(void)addFavouriteArray:(NSMutableArray<Product*>*)productArray
+{
+    [self.productArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+    {
+        Product * product = [self.productArray objectAtIndex:idx + self.lastNumberOfproductArray];
+
+        if(product.isFavourite == YES)
+        {
+            [self.favouriteArray addObject:product];
+        }
+        if (idx + self.lastNumberOfproductArray == self.productArray.count - 1) {
+            // *stop=YES break
+            *stop = YES;
+        }
+    }];
 }
 
 @end

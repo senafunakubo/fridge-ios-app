@@ -33,8 +33,11 @@
 @property (strong, nonatomic)Fridge* fridgeInCV;
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
+@property (nonatomic) NSUInteger lastNumberOfproductArray;
+@property (strong,nonatomic) NSMutableArray<Product*>* favouriteArray;
 @property (strong,nonatomic) NSMutableArray* foodImageArray;
 
 -(void)fridgeCVDidSelect;
+-(void)addFavouriteArray:(NSMutableArray<Product*>*)productArray;
 
 @end
