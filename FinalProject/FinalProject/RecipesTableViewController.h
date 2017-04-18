@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "RecipesTableViewCell.h"
 #import "Recipe.h"
+#import "RecipeWebViewController.h"
+#import "RecipeWebView.h"
 
-@interface RecipesTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+@interface RecipesTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,RecipeWebViewDelegate>
 
 @property (strong,nonatomic) NSArray * recipeItems;
 @property (strong,nonatomic) Recipe * recipe;
@@ -19,4 +21,6 @@
 @property (strong,nonatomic) NSArray * objLabel;
 @property (strong,nonatomic) NSArray * objImageUrl;
 @property (strong,nonatomic) NSArray * objUrlShareAs;
+@property (strong, nonatomic) NSString * clickedUrl;
+
 @end

@@ -89,7 +89,6 @@
     return self.objLabel.count;
 }
 
-// テーブルセルの内容を設定
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RecipesTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell"];
@@ -100,6 +99,7 @@
     }
     self.recipe.recipeLabel = self.objLabel[indexPath.row];
     self.recipe.recipeImageUrl = self.objImageUrl[indexPath.row];
+    self.recipe.recipeUrl = self.objUrlShareAs[indexPath.row];
     
     NSURL *url = [NSURL URLWithString:self.recipe.recipeImageUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -108,6 +108,26 @@
     cell.recipeLabel.text = self.recipe.recipeLabel;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    RecipeWebViewController* webView = (RecipeWebViewController*)[storyboard instantiateViewControllerWithIdentifier:@"RecipeWebViewID"];
+    
+    webView.recipeWebViewDelegate = self;
+    
+    self.clickedUrl = self.objUrlShareAs[indexPath.row];
+    //self.recipe.recipeUrl[indexPath.row];
+    [self.navigationController pushViewController:webView animated:YES];
+
+    
+}
+
+-(NSString*)url
+{
+    return self.clickedUrl;
 }
 
 @end
