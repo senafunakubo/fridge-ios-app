@@ -22,6 +22,9 @@
 		41196C911E89C3DB0085A638 /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C901E89C3DB0085A638 /* Drink.m */; };
 		41904D471EA05435004750A2 /* FavouriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D461EA05435004750A2 /* FavouriteTableViewCell.m */; };
 		41904D4A1EA05467004750A2 /* FavouriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */; };
+		41904D731EA41748004750A2 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D721EA41748004750A2 /* RecipesTableViewController.m */; };
+		41904D761EA51ADC004750A2 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D751EA51ADC004750A2 /* Recipe.m */; };
+		41904D791EA57D1B004750A2 /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D781EA57D1B004750A2 /* RecipesTableViewCell.m */; };
 		41A34D931E8A06690059C342 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D921E8A06690059C342 /* Fridge.m */; };
 		41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D991E8A0C670059C342 /* FridgeItemsTableViewCell.m */; };
 		41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D9C1E8A0C8D0059C342 /* FridgeItemsTableViewController.m */; };
@@ -66,6 +69,12 @@
 		41904D461EA05435004750A2 /* FavouriteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteTableViewCell.m; sourceTree = "<group>"; };
 		41904D481EA05467004750A2 /* FavouriteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCollectionViewCell.h; sourceTree = "<group>"; };
 		41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteCollectionViewCell.m; sourceTree = "<group>"; };
+		41904D711EA41748004750A2 /* RecipesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewController.h; sourceTree = "<group>"; };
+		41904D721EA41748004750A2 /* RecipesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewController.m; sourceTree = "<group>"; };
+		41904D741EA51ADC004750A2 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		41904D751EA51ADC004750A2 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		41904D771EA57D1B004750A2 /* RecipesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewCell.h; sourceTree = "<group>"; };
+		41904D781EA57D1B004750A2 /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
 		41A34D911E8A06690059C342 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		41A34D921E8A06690059C342 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		41A34D981E8A0C670059C342 /* FridgeItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeItemsTableViewCell.h; sourceTree = "<group>"; };
@@ -158,6 +167,7 @@
 				41A34DA51E8A11BF0059C342 /* ViewController */,
 				41904D441EA053E7004750A2 /* Favourite */,
 				41BB15281E9EE0E100ECCF9B /* BadgeView */,
+				41904D7A1EA5B8BE004750A2 /* Recipe */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -196,6 +206,19 @@
 				41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */,
 			);
 			name = Favourite;
+			sourceTree = "<group>";
+		};
+		41904D7A1EA5B8BE004750A2 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				41904D711EA41748004750A2 /* RecipesTableViewController.h */,
+				41904D721EA41748004750A2 /* RecipesTableViewController.m */,
+				41904D771EA57D1B004750A2 /* RecipesTableViewCell.h */,
+				41904D781EA57D1B004750A2 /* RecipesTableViewCell.m */,
+				41904D741EA51ADC004750A2 /* Recipe.h */,
+				41904D751EA51ADC004750A2 /* Recipe.m */,
+			);
+			name = Recipe;
 			sourceTree = "<group>";
 		};
 		41A34D971E8A0C220059C342 /* ItemsTableController */ = {
@@ -339,10 +362,12 @@
 			files = (
 				41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */,
 				41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */,
+				41904D731EA41748004750A2 /* RecipesTableViewController.m in Sources */,
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
 				41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */,
 				41904D4A1EA05467004750A2 /* FavouriteCollectionViewCell.m in Sources */,
 				167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */,
+				41904D791EA57D1B004750A2 /* RecipesTableViewCell.m in Sources */,
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
 				41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */,
 				41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */,
@@ -353,6 +378,7 @@
 				41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */,
 				167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */,
 				167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */,
+				41904D761EA51ADC004750A2 /* Recipe.m in Sources */,
 				41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */,
 				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
 				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,

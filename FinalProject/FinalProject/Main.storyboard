@@ -76,6 +76,7 @@
                         <segue destination="UnT-bl-ph7" kind="relationship" relationship="viewControllers" id="1J9-UM-fOL"/>
                         <segue destination="Wgj-EL-r8g" kind="relationship" relationship="viewControllers" id="HVc-Sq-FBH"/>
                         <segue destination="bz4-TU-eFH" kind="relationship" relationship="viewControllers" id="SX2-OU-ZH5"/>
+                        <segue destination="0lm-7k-IAR" kind="relationship" relationship="viewControllers" id="79y-jj-s2N"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yct-gg-elT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,6 +603,72 @@
             </objects>
             <point key="canvasLocation" x="1172" y="-106"/>
         </scene>
+        <!--Recipe-->
+        <scene sceneID="2Bq-KP-WoC">
+            <objects>
+                <navigationController id="0lm-7k-IAR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recipe" id="fSA-bS-aE7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vjI-W8-bvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uO7-KS-Qsb" kind="relationship" relationship="rootViewController" id="TT7-MH-CUd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsS-hE-i9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="-893"/>
+        </scene>
+        <!--Recipes Table View Controller-->
+        <scene sceneID="1aV-9x-yhq">
+            <objects>
+                <tableViewController id="uO7-KS-Qsb" customClass="RecipesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" id="dMk-fP-o0c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipesTableViewCell" rowHeight="107" id="Igv-V3-Y2h" customClass="RecipesTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igv-V3-Y2h" id="dew-x0-Bd6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="MHp-9X-HfW">
+                                            <rect key="frame" x="20" y="4" width="112" height="99"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xzc-gd-hoJ">
+                                            <rect key="frame" x="167" y="43" width="168" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="recipeImage" destination="MHp-9X-HfW" id="4PW-iL-bvp"/>
+                                    <outlet property="recipeLabel" destination="Xzc-gd-hoJ" id="My8-mH-iaH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uO7-KS-Qsb" id="wcE-LS-AfJ"/>
+                            <outlet property="delegate" destination="uO7-KS-Qsb" id="HEq-Pj-NCy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Nh4-4B-6vN"/>
+                    <connections>
+                        <outlet property="recipesTableView" destination="dMk-fP-o0c" id="8b5-Er-jvZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FWa-RE-E5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1767" y="-894"/>
+        </scene>
         <!--Fridge List-->
         <scene sceneID="UFk-gu-jqy">
             <objects>
@@ -671,7 +738,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yFC-Gn-MlC"/>
+        <segue reference="le7-hP-fz3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.79078469600000001" green="0.91440889319999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
