@@ -11,16 +11,19 @@
 #import "Recipe.h"
 #import "RecipeWebViewController.h"
 #import "RecipeWebView.h"
+#import "MyTabBarViewController.h"
+#import "Product.h"
 
 @interface RecipesTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,RecipeWebViewDelegate>
 
-@property (strong,nonatomic) NSArray * recipeItems;
-@property (strong,nonatomic) Recipe * recipe;
 @property (strong, nonatomic) IBOutlet UITableView *recipesTableView;
-
+@property (strong,nonatomic) Recipe * recipe;
 @property (strong,nonatomic) NSArray * objLabel;
 @property (strong,nonatomic) NSArray * objImageUrl;
 @property (strong,nonatomic) NSArray * objUrlShareAs;
 @property (strong, nonatomic) NSString * clickedUrl;
+@property (strong, nonatomic) NSMutableArray<Product*>* productArray;
+
+- (void)getJSON:(NSString*)productNameStr;
 
 @end
