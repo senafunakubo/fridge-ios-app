@@ -34,14 +34,11 @@
     self.AddSPLView.dataSource = self;
     self.searchBar.delegate = self;
     
-    //////////
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"groceryList" ofType:@"plist"];
+    //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
+    NSBundle *bundle = [NSBundle mainBundle];
     
-    self.groceryList = [NSDictionary dictionaryWithContentsOfFile:path];
-    
-    self.keys = [[self.groceryList allKeys]sortedArrayUsingSelector:@selector(compare:)];
-    
-    /////////
+    //To read the plist file
+    NSString *path = [bundle pathForResource:@"groceryList" ofType:@"plist"];
     
     //Datasource which I wanna show up at table but this is for test
     self.totalString = [[NSMutableArray alloc]initWithObjects:@"Udon",@"Milk",@"Spinach",@"Chickpea",nil];
@@ -83,27 +80,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // return 1 ->
-    return [self.keys count];
+     return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //////////
-    NSString* key = self.keys[section];
-    NSArray* keyValue = self.groceryList[key];
-    //////////
     
       if(self.isFilltered)
       {
           // Only show up the concerted item when we search a word or words.
           return [self.filteredString count];
       }
-   
-    //////////
-//    return [keyValue count];
-    //////////
     
     
     // We need to define the number of rows even there is no concerted item.
@@ -115,7 +103,8 @@
     // Defined a local variable to omit adding following stuff.
     static NSString *cellIdentifier = @"cell";
     
-     UITableViewCell *cell = [self.AddSPLView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [self.AddSPLView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
     
      if(!cell)
      {

@@ -8,6 +8,9 @@
 //  About NSDictionary
 //  http://qiita.com/satoshi0212/items/d67058bcf252f4c840ed
 //  http://iphone-tora.sakura.ne.jp/nsdictionary.html
+//
+//  UIColor-Picker
+//  https://briangrinstead.com/blog/ios-uicolor-picker/
 
 
 #import "ShoppingListViewController.h"
@@ -33,7 +36,7 @@
     
     
     //For a bar
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.84 green:0.97 blue:0.94 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.76 green:0.89 blue:1.00 alpha:1.0];
     
     //For check marks
     self.shoppingListTableView.tintColor =  [UIColor colorWithRed:0.52 green:0.74 blue:0.65 alpha:1.0];

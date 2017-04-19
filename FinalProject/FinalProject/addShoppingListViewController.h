@@ -24,8 +24,8 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 //For A-Z index
-@property (copy,nonatomic)NSDictionary *groceryList;
-@property (copy,nonatomic)NSArray *keys;
+//@property (copy,nonatomic)NSDictionary *groceryList;
+//@property (copy,nonatomic)NSArray *keys;
 
 //This code is to put the result of reserching
 @property (strong,nonatomic) NSMutableArray *totalString;
