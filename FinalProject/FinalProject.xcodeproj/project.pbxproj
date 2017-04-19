@@ -25,6 +25,8 @@
 		41904D731EA41748004750A2 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D721EA41748004750A2 /* RecipesTableViewController.m */; };
 		41904D761EA51ADC004750A2 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D751EA51ADC004750A2 /* Recipe.m */; };
 		41904D791EA57D1B004750A2 /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D781EA57D1B004750A2 /* RecipesTableViewCell.m */; };
+		41904D7D1EA5C1C3004750A2 /* RecipeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D7C1EA5C1C3004750A2 /* RecipeWebView.m */; };
+		41904D801EA5C38D004750A2 /* RecipeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D7F1EA5C38D004750A2 /* RecipeWebViewController.m */; };
 		41A34D931E8A06690059C342 /* Fridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D921E8A06690059C342 /* Fridge.m */; };
 		41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D991E8A0C670059C342 /* FridgeItemsTableViewCell.m */; };
 		41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A34D9C1E8A0C8D0059C342 /* FridgeItemsTableViewController.m */; };
@@ -75,6 +77,10 @@
 		41904D751EA51ADC004750A2 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		41904D771EA57D1B004750A2 /* RecipesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewCell.h; sourceTree = "<group>"; };
 		41904D781EA57D1B004750A2 /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
+		41904D7B1EA5C1C3004750A2 /* RecipeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWebView.h; sourceTree = "<group>"; };
+		41904D7C1EA5C1C3004750A2 /* RecipeWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeWebView.m; sourceTree = "<group>"; };
+		41904D7E1EA5C38D004750A2 /* RecipeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeWebViewController.h; sourceTree = "<group>"; };
+		41904D7F1EA5C38D004750A2 /* RecipeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeWebViewController.m; sourceTree = "<group>"; };
 		41A34D911E8A06690059C342 /* Fridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fridge.h; sourceTree = "<group>"; };
 		41A34D921E8A06690059C342 /* Fridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fridge.m; sourceTree = "<group>"; };
 		41A34D981E8A0C670059C342 /* FridgeItemsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FridgeItemsTableViewCell.h; sourceTree = "<group>"; };
@@ -215,6 +221,10 @@
 				41904D721EA41748004750A2 /* RecipesTableViewController.m */,
 				41904D771EA57D1B004750A2 /* RecipesTableViewCell.h */,
 				41904D781EA57D1B004750A2 /* RecipesTableViewCell.m */,
+				41904D7E1EA5C38D004750A2 /* RecipeWebViewController.h */,
+				41904D7F1EA5C38D004750A2 /* RecipeWebViewController.m */,
+				41904D7B1EA5C1C3004750A2 /* RecipeWebView.h */,
+				41904D7C1EA5C1C3004750A2 /* RecipeWebView.m */,
 				41904D741EA51ADC004750A2 /* Recipe.h */,
 				41904D751EA51ADC004750A2 /* Recipe.m */,
 			);
@@ -371,6 +381,7 @@
 				41A34D931E8A06690059C342 /* Fridge.m in Sources */,
 				41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */,
 				41A34DA81E8C817B0059C342 /* FridgeCollectionViewController.m in Sources */,
+				41904D7D1EA5C1C3004750A2 /* RecipeWebView.m in Sources */,
 				41A34DAC1E8C89AB0059C342 /* FridgeCollectionViewCell.m in Sources */,
 				41196C8E1E89C3D10085A638 /* Food.m in Sources */,
 				41A34DA31E8A119A0059C342 /* MyTabBarViewController.m in Sources */,
@@ -382,6 +393,7 @@
 				41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */,
 				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
 				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,
+				41904D801EA5C38D004750A2 /* RecipeWebViewController.m in Sources */,
 				41196C8A1E89C15F0085A638 /* Product.m in Sources */,
 				410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */,
 				41A34DA01E8A0F1D0059C342 /* AddProductViewController.m in Sources */,

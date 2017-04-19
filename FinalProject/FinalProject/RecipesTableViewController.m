@@ -20,10 +20,13 @@
     self.recipesTableView.delegate = self;
     self.recipesTableView.dataSource = self;
     
-    self.recipeItems = [[NSMutableArray alloc]init];
     self.recipe = [[Recipe alloc]init];
     
-    [self getJSON];
+    self.productArray = [[NSMutableArray<Product*> alloc]init];
+    self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+
+    NSString * productNameStr = [[self.productArray valueForKey:@"_productName"] componentsJoinedByString:@","];
+    [self getJSON:productNameStr];
     
 }
 
@@ -32,10 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)getJSON
+- (void)getJSON:productNameStr
 {
-    NSString *urlAsString = [NSString stringWithFormat:@"https://api.edamam.com/search?q=chicken&app_id=74546fbb&app_key=072ca3c517204af6aa46935287f2ed60&from=0&to=10"];
-    
+    NSString *url = [NSString stringWithFormat:@"https://api.edamam.com/search?app_id=74546fbb&app_key=072ca3c517204af6aa46935287f2ed60&from=0&to=10&q="];
+    NSString *urlAsString = [NSString stringWithFormat:@"%@%@", url, productNameStr];
     
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     NSString *encodedUrlAsString = [urlAsString stringByAddingPercentEncodingWithAllowedCharacters:set];
@@ -89,7 +92,6 @@
     return self.objLabel.count;
 }
 
-// テーブルセルの内容を設定
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RecipesTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"RecipesTableViewCell"];
@@ -100,6 +102,7 @@
     }
     self.recipe.recipeLabel = self.objLabel[indexPath.row];
     self.recipe.recipeImageUrl = self.objImageUrl[indexPath.row];
+    self.recipe.recipeUrl = self.objUrlShareAs[indexPath.row];
     
     NSURL *url = [NSURL URLWithString:self.recipe.recipeImageUrl];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -108,6 +111,24 @@
     cell.recipeLabel.text = self.recipe.recipeLabel;
     
     return cell;
+}
+
+//When its cell is clicked webview show
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    RecipeWebViewController* webView = (RecipeWebViewController*)[storyboard instantiateViewControllerWithIdentifier:@"RecipeWebViewID"];
+    
+    webView.recipeWebViewDelegate = self;
+    
+    self.clickedUrl = self.objUrlShareAs[indexPath.row];
+    [self.navigationController pushViewController:webView animated:YES];
+}
+
+-(NSString*)url
+{
+    return self.clickedUrl;
 }
 
 @end
