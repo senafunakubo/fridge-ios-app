@@ -32,7 +32,15 @@
     [super viewDidLoad];
     self.AddSPLView.delegate = self;
     self.AddSPLView.dataSource = self;
-    self.searchBar.delegate = self;
+//    self.searchBar.delegate = self;
+    
+    //For changing the color of a section index
+    UIColor *tintColor = [UIColor colorWithRed:0.28 green:0.64 blue:0.91 alpha:1.0];
+    UIColor *trakingBackgroundColor = [UIColor colorWithRed:206.f/255.f green:203.f/255.f blue:198.f/255.f alpha:1.f];
+    
+    self.tableView.sectionIndexColor = tintColor;
+    self.tableView.sectionIndexBackgroundColor = [UIColor whiteColor];
+    self.tableView.sectionIndexTrackingBackgroundColor = trakingBackgroundColor;
     
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
     NSBundle *bundle = [NSBundle mainBundle];
@@ -40,8 +48,12 @@
     //To read the plist file
     NSString *path = [bundle pathForResource:@"groceryList" ofType:@"plist"];
     
-    //Datasource which I wanna show up at table but this is for test
-    self.totalString = [[NSMutableArray alloc]initWithObjects:@"Udon",@"Milk",@"Spinach",@"Chickpea",nil];
+    self.groceryList = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    self.keys = [[self.groceryList allKeys]sortedArrayUsingSelector:@selector(compare:)];
+    
+//    self.totalString = [[NSMutableArray alloc]initWithObjects:@"Udon",@"Milk",@"Spinach",@"Chickpea",nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,77 +61,97 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self.AddSPLView resignFirstResponder];
-}
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if(searchText.length ==0)
-    {
-        self.isFilltered = NO;
-    }
-    else
-    {
-        self.isFilltered = YES;
-        self.filteredString = [[NSMutableArray alloc]init];
-        for(NSString *str in self.totalString)
-        {
-            // Partial match(doesn't matter if it's the capital or not)
-            NSRange StringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            
-            if(StringRange.location != NSNotFound)
-            {
-                [self.filteredString addObject:str];
-            }
-        }
-    }
-    [self.AddSPLView reloadData];
-}
+//-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    [self.AddSPLView resignFirstResponder];
+//}
+//
+//-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+//{
+//    if(searchText.length ==0)
+//    {
+//        self.isFilltered = NO;
+//    }
+//    else
+//    {
+//        self.isFilltered = YES;
+//        self.filteredString = [[NSMutableArray alloc]init];
+//        for(NSString *str in self.totalString)
+//        {
+//            // Partial match(doesn't matter if it's the capital or not)
+//            NSRange StringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+//            
+//            if(StringRange.location != NSNotFound)
+//            {
+//                [self.filteredString addObject:str];
+//            }
+//        }
+//    }
+//    [self.AddSPLView reloadData];
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-     return 1;
+//     return 1;
+    return [self.keys count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSString *key =self.keys[section];
     
-      if(self.isFilltered)
-      {
-          // Only show up the concerted item when we search a word or words.
-          return [self.filteredString count];
-      }
+    NSArray *keyValues = self.groceryList[key];
     
+    return [keyValues count];
     
-    // We need to define the number of rows even there is no concerted item.
-        return [self.totalString count];
+//      if(self.isFilltered)
+//      {
+//          // Only show up the concerted item when we search a word or words.
+//          return [self.filteredString count];
+//      }
+//    
+//    
+//    // We need to define the number of rows even there is no concerted item.
+//        return [self.totalString count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Defined a local variable to omit adding following stuff.
-    static NSString *cellIdentifier = @"cell";
+//    static NSString *cellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [self.AddSPLView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     
-     if(!cell)
-     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-     }
+    NSString *key = self.keys[indexPath.section];
     
-     if(!self.isFilltered) //searchText.length == 0
-     {
-        cell.textLabel.text = [self.totalString objectAtIndex:indexPath.row];
-     }
-     else
-     {
-        cell.textLabel.text = [self.filteredString objectAtIndex:indexPath.row];
-     }
+    NSArray *keyValues = self.groceryList[key];
+    
+    cell.textLabel.text = keyValues[indexPath.row];
+    
+    
+    
+//     if(!cell)
+//     {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//     }
+//    
+//     if(!self.isFilltered) //searchText.length == 0
+//     {
+//        cell.textLabel.text = [self.totalString objectAtIndex:indexPath.row];
+//     }
+//     else
+//     {
+//        cell.textLabel.text = [self.filteredString objectAtIndex:indexPath.row];
+//     }
+    
     return cell;
+}
+
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.keys;
 }
 
 @end
