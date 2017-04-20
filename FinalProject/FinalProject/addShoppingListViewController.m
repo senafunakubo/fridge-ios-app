@@ -19,6 +19,7 @@
 // 検索で見つからない時に自分で書けるようにするのも欲しい
 
 #import "addShoppingListViewController.h"
+#import "ShoppingListViewController.h"
 
 @interface addShoppingListViewController ()
 
@@ -26,13 +27,17 @@
 
 @implementation addShoppingListViewController
 
-//@synthesize groceryList,keys;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.AddSPLView.delegate = self;
     self.AddSPLView.dataSource = self;
-//    self.searchBar.delegate = self;
+    self.searchBar.delegate = self;
+    
+    UITableView *tableView = (id)[self.view viewWithTag:1];
+    
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+
     
     //For changing the color of a section index
     UIColor *tintColor = [UIColor colorWithRed:0.28 green:0.64 blue:0.91 alpha:1.0];
@@ -41,6 +46,7 @@
     self.tableView.sectionIndexColor = tintColor;
     self.tableView.sectionIndexBackgroundColor = [UIColor whiteColor];
     self.tableView.sectionIndexTrackingBackgroundColor = trakingBackgroundColor;
+    
     
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
     NSBundle *bundle = [NSBundle mainBundle];
@@ -52,20 +58,118 @@
     
     self.keys = [[self.groceryList allKeys]sortedArrayUsingSelector:@selector(compare:)];
     
-//    self.totalString = [[NSMutableArray alloc]initWithObjects:@"Udon",@"Milk",@"Spinach",@"Chickpea",nil];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-//-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-//{
-//    [self.AddSPLView resignFirstResponder];
-//}
-//
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if(tableView.tag ==1)
+    {
+      return [self.keys count];
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView.tag == 1)
+    {
+        NSString *key =self.keys[section];
+        
+        NSArray *keyValues = self.groceryList[key];
+        
+        return [keyValues count];
+    }
+    else
+    {
+        return [self.filteredString count];
+    }
+    
+}
+
+
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    
+    if(tableView.tag == 1)
+    {
+        if(!self.isFilltered) //searchText.length == 0
+        {
+            cell.textLabel.text = [self.keys objectAtIndex:indexPath.row];
+        }
+        
+        NSString *key = self.keys[indexPath.section];
+        
+        NSArray *keyValues = self.groceryList[key];
+        
+        cell.textLabel.text = keyValues[indexPath.row];
+    }
+    else
+    {
+        cell.textLabel.text = [self.filteredString objectAtIndex:indexPath.row];
+    }
+    return cell;
+
+}
+
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if(tableView.tag ==1)
+    {
+      return self.keys;
+    }
+    else
+    {
+        return  nil;
+    }
+    
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(tableView.tag == 1)
+    {
+        return self.keys[section];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+
+#pragma mark Search Display Delegate Methods
+
+-(void)searchController:(UISearchController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
+{
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.tableView resignFirstResponder];
+}
+
+
 //-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 //{
 //    if(searchText.length ==0)
@@ -76,82 +180,54 @@
 //    {
 //        self.isFilltered = YES;
 //        self.filteredString = [[NSMutableArray alloc]init];
-//        for(NSString *str in self.totalString)
+//        
+//        for(NSString *key in self.keys)
 //        {
 //            // Partial match(doesn't matter if it's the capital or not)
-//            NSRange StringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-//            
+//            NSRange StringRange = [key rangeOfString:searchText options:NSCaseInsensitiveSearch];
+//
 //            if(StringRange.location != NSNotFound)
 //            {
-//                [self.filteredString addObject:str];
+//                [self.filteredString addObject:key];
 //            }
 //        }
 //    }
 //    [self.AddSPLView reloadData];
 //}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-//     return 1;
-    return [self.keys count];
+
+-(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    
+    [self.filteredString removeAllObjects];
+    
+    if (searchString.length > 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains [search] %@", self.searchBar.text];
+        
+       for(NSString *key in self.keys)
+       {
+         NSArray *matches = [self.groceryList[key]filteredArrayUsingPredicate:predicate];
+        
+         [self.filteredString addObjectsFromArray:matches];
+        
+       }
+    }
+    return YES;
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark For Seque
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *key =self.keys[section];
     
-    NSArray *keyValues = self.groceryList[key];
+//    AppDelegate *ap = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    return [keyValues count];
+    ShoppingListViewController *shoppingListView = [self.storyboard instantiateViewControllerWithIdentifier:@"shoppingList"];
     
-//      if(self.isFilltered)
-//      {
-//          // Only show up the concerted item when we search a word or words.
-//          return [self.filteredString count];
-//      }
-//    
-//    
-//    // We need to define the number of rows even there is no concerted item.
-//        return [self.totalString count];
+    [self.navigationController pushViewController:shoppingListView animated:YES];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Defined a local variable to omit adding following stuff.
-//    static NSString *cellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    
-    NSString *key = self.keys[indexPath.section];
-    
-    NSArray *keyValues = self.groceryList[key];
-    
-    cell.textLabel.text = keyValues[indexPath.row];
-    
-    
-    
-//     if(!cell)
-//     {
-//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//     }
-//    
-//     if(!self.isFilltered) //searchText.length == 0
-//     {
-//        cell.textLabel.text = [self.totalString objectAtIndex:indexPath.row];
-//     }
-//     else
-//     {
-//        cell.textLabel.text = [self.filteredString objectAtIndex:indexPath.row];
-//     }
-    
-    return cell;
-}
 
--(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    return self.keys;
-}
 
 @end

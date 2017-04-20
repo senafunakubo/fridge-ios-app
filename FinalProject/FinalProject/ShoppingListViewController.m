@@ -14,6 +14,7 @@
 
 
 #import "ShoppingListViewController.h"
+#import "ShoppingListTableViewCell.h"
 
 @interface ShoppingListViewController ()
 
@@ -28,12 +29,10 @@
     self.shoppingListTableView.dataSource = self;
     [self.shoppingListTableView reloadData];
     
-//  NSDictionary          key          content
-    self.items = @[@{@"ProductName" : @"Apple"}].mutableCopy;
+    self.items = [[NSMutableArray alloc]init];
     
     self.navigationItem.title = @"Shopping List";
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    
     
     //For a bar
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.76 green:0.89 blue:1.00 alpha:1.0];
@@ -72,7 +71,6 @@
     
     NSDictionary *item = self.items[indexPath.row];
     cell.productName.text = [item objectForKey:@"ProductName"];
-//    cell.productPrice.text = ;
 
     if([item[@"completed"]boolValue])
     {
@@ -123,17 +121,6 @@
        [self.items removeObjectAtIndex:indexPath.row];
        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
    }
-}
-
-
-
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"addShoppingListSegue"])
-    {
-        ((addShoppingListViewController*)segue.destinationViewController).addSHPDelegate = self;
-    }
 }
 
 

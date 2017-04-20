@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Hl-QC-K4A" id="oxv-hR-hOg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxt-7X-Nt7">
@@ -306,7 +306,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QbJ-Au-TQs" id="qbK-Ab-plH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="22v-2r-UYH">
@@ -399,7 +399,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="InV-qk-zdm" id="L1v-2g-xA4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Tq1-uA-7d3">
@@ -473,7 +473,7 @@
         <!--shoppingList-->
         <scene sceneID="hxf-uQ-N2f">
             <objects>
-                <viewController id="CIA-hw-fKr" userLabel="shoppingList" customClass="ShoppingListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoppingList" id="CIA-hw-fKr" userLabel="shoppingList" customClass="ShoppingListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xqZ-Ex-Vbx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -487,7 +487,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKm-Ex-2hh" id="VQj-LT-Ud8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LVe-hm-nig">
@@ -525,7 +525,7 @@
                     <navigationItem key="navigationItem" id="6jp-Qm-mJl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="REq-ks-2Yx">
                             <connections>
-                                <segue destination="nAp-fV-qws" kind="push" id="SMb-mQ-X75"/>
+                                <segue destination="nAp-fV-qws" kind="push" identifier="addShoppingListSegue" id="SMb-mQ-X75"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -545,12 +545,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search a product name" id="4nT-cn-Yj8">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="5jM-4g-bcP">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="nAp-fV-qws" id="Ffs-Fj-hhU"/>
+                                <outlet property="delegate" destination="nAp-fV-qws" id="WAC-zG-Ps4"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -570,17 +570,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Udt-Qq-WHK"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="f69-wv-GOK" id="upm-qP-piN"/>
+                        <outlet property="searchBar" destination="5jM-4g-bcP" id="4xw-Zy-ePw"/>
+                        <outlet property="searchController" destination="lWO-1h-GGL" id="YXM-mR-oEa"/>
+                        <outlet property="searchDisplayController" destination="lWO-1h-GGL" id="vfe-Fp-vys"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOD-hW-qoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="f69-wv-GOK">
+                <searchDisplayController id="lWO-1h-GGL">
                     <connections>
-                        <outlet property="delegate" destination="nAp-fV-qws" id="hz5-s1-5K8"/>
-                        <outlet property="searchBar" destination="4nT-cn-Yj8" id="iH6-Uv-KWU"/>
-                        <outlet property="searchContentsController" destination="nAp-fV-qws" id="VIg-jw-gcJ"/>
-                        <outlet property="searchResultsDataSource" destination="nAp-fV-qws" id="kXh-HC-ExT"/>
-                        <outlet property="searchResultsDelegate" destination="nAp-fV-qws" id="Llm-bS-Xqp"/>
+                        <outlet property="delegate" destination="nAp-fV-qws" id="CPD-87-1Uf"/>
+                        <outlet property="searchBar" destination="5jM-4g-bcP" id="3UE-Zi-fJD"/>
+                        <outlet property="searchContentsController" destination="nAp-fV-qws" id="tE3-m7-hYc"/>
+                        <outlet property="searchResultsDataSource" destination="nAp-fV-qws" id="YCJ-gc-Jov"/>
+                        <outlet property="searchResultsDelegate" destination="nAp-fV-qws" id="yRA-9h-wIE"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -633,7 +635,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igv-V3-Y2h" id="dew-x0-Bd6">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="106"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="106.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="MHp-9X-HfW">
