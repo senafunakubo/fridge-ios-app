@@ -1,4 +1,19 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.21.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.21.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.21.0):
+    - FBSDKCoreKit
+  - Firebase/Auth (3.16.0):
+    - Firebase/Core
+    - FirebaseAuth (= 3.1.1)
   - Firebase/Core (3.16.0):
     - FirebaseAnalytics (= 3.8.0)
     - FirebaseCore (= 3.6.0)
@@ -12,6 +27,10 @@ PODS:
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseAuth (3.1.1):
+    - FirebaseAnalytics (~> 3.7)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (3.6.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseCrash (1.1.6):
@@ -24,28 +43,46 @@ PODS:
     - FirebaseAnalytics (~> 3.7)
   - FirebaseInstanceID (1.0.10):
     - FirebaseCore (~> 3.6)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMSessionFetcher/Core (1.1.9)
   - Protobuf (3.2.1)
 
 DEPENDENCIES:
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - Firebase/Auth
   - Firebase/Core
   - Firebase/Crash
   - Firebase/Database
 
 SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
+  FBSDKLoginKit: a1a5f4b4ac445823a020fbeeaf5f03714a67ff9c
+  FBSDKShareKit: 649a7acfd01a3e056a33994c1bfbb997814cc8a2
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
+  FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseCrash: db4c05d9c75baa050744d31b36357c8f1efba481
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
 
-PODFILE CHECKSUM: 1d2dab4e8e3d9f09e583cbda16d8ba0e92c6454e
+PODFILE CHECKSUM: dc4de13b452c9ab075ff596844ae300a178f4cf4
 
 COCOAPODS: 1.2.1
