@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Jf9-xe-ifi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Jf9-xe-ifi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+<<<<<<< HEAD
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+>>>>>>> master
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -476,7 +480,7 @@
         <!--shoppingList-->
         <scene sceneID="hxf-uQ-N2f">
             <objects>
-                <viewController id="CIA-hw-fKr" userLabel="shoppingList" customClass="ShoppingListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoppingList" id="CIA-hw-fKr" userLabel="shoppingList" customClass="ShoppingListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xqZ-Ex-Vbx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -490,16 +494,9 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKm-Ex-2hh" id="VQj-LT-Ud8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LVe-hm-nig">
-                                                    <rect key="frame" x="217" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="KVf-Cf-SdX">
                                                     <rect key="frame" x="295" y="-2" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -515,7 +512,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="productName" destination="iNu-f9-3sv" id="7AC-0D-Zk6"/>
-                                            <outlet property="productPrice" destination="LVe-hm-nig" id="l81-Ri-syE"/>
                                             <outlet property="storeLogo" destination="KVf-Cf-SdX" id="lrm-Dm-d2x"/>
                                         </connections>
                                     </tableViewCell>
@@ -528,7 +524,7 @@
                     <navigationItem key="navigationItem" id="6jp-Qm-mJl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="REq-ks-2Yx">
                             <connections>
-                                <segue destination="nAp-fV-qws" kind="push" id="SMb-mQ-X75"/>
+                                <segue destination="nAp-fV-qws" kind="push" identifier="addShoppingListSegue" id="SMb-mQ-X75"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -544,24 +540,24 @@
         <scene sceneID="glh-up-J17">
             <objects>
                 <tableViewController id="nAp-fV-qws" customClass="addShoppingListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ig9-vb-9P6">
+                    <tableView key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ig9-vb-9P6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search a product name" id="4nT-cn-Yj8">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="5jM-4g-bcP">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="nAp-fV-qws" id="Ffs-Fj-hhU"/>
+                                <outlet property="delegate" destination="nAp-fV-qws" id="WAC-zG-Ps4"/>
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zMZ-Tk-urM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="zMZ-Tk-urM">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zMZ-Tk-urM" id="8Pl-iq-tR2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -573,17 +569,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Udt-Qq-WHK"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="f69-wv-GOK" id="upm-qP-piN"/>
+                        <outlet property="searchBar" destination="5jM-4g-bcP" id="4xw-Zy-ePw"/>
+                        <outlet property="searchController" destination="lWO-1h-GGL" id="YXM-mR-oEa"/>
+                        <outlet property="searchDisplayController" destination="lWO-1h-GGL" id="vfe-Fp-vys"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOD-hW-qoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="f69-wv-GOK">
+                <searchDisplayController id="lWO-1h-GGL">
                     <connections>
-                        <outlet property="delegate" destination="nAp-fV-qws" id="hz5-s1-5K8"/>
-                        <outlet property="searchBar" destination="4nT-cn-Yj8" id="iH6-Uv-KWU"/>
-                        <outlet property="searchContentsController" destination="nAp-fV-qws" id="VIg-jw-gcJ"/>
-                        <outlet property="searchResultsDataSource" destination="nAp-fV-qws" id="kXh-HC-ExT"/>
-                        <outlet property="searchResultsDelegate" destination="nAp-fV-qws" id="Llm-bS-Xqp"/>
+                        <outlet property="delegate" destination="nAp-fV-qws" id="CPD-87-1Uf"/>
+                        <outlet property="searchBar" destination="5jM-4g-bcP" id="3UE-Zi-fJD"/>
+                        <outlet property="searchContentsController" destination="nAp-fV-qws" id="tE3-m7-hYc"/>
+                        <outlet property="searchResultsDataSource" destination="nAp-fV-qws" id="YCJ-gc-Jov"/>
+                        <outlet property="searchResultsDelegate" destination="nAp-fV-qws" id="yRA-9h-wIE"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -636,7 +634,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igv-V3-Y2h" id="dew-x0-Bd6">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="106.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="106.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="MHp-9X-HfW">

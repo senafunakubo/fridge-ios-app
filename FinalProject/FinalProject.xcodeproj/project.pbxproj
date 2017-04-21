@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		161843161E9F07E100A20F70 /* groceryList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 161843151E9F07E100A20F70 /* groceryList.plist */; };
-		167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167A600A1E9BFEB400202FAA /* Main.storyboard */; };
+		1618433D1EA07E3500A20F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1618433C1EA07E3500A20F70 /* Main.storyboard */; };
 		167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60181E9C169800202FAA /* ShoppingListViewController.m */; };
 		167A601F1E9C174E00202FAA /* ShoppingListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */; };
 		167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A60221E9C7BB400202FAA /* addShoppingListViewController.m */; };
+		1688614E1EA85410001B542F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1688614D1EA85410001B542F /* GoogleService-Info.plist */; };
+		168861501EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json in Resources */ = {isa = PBXBuildFile; fileRef = 1688614F1EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json */; };
 		410AB6DF1E83C37E00E2563B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6DE1E83C37E00E2563B /* main.m */; };
 		410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6E11E83C37E00E2563B /* AppDelegate.m */; };
 		410AB6E51E83C37E00E2563B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410AB6E41E83C37E00E2563B /* ViewController.m */; };
@@ -41,17 +43,22 @@
 		41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */; };
 		41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */; };
 		41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */; };
+		68D0B1891BC52DD4536339EF /* libPods-FinalProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3448929A0C350CD07A1E4B /* libPods-FinalProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		161843151E9F07E100A20F70 /* groceryList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = groceryList.plist; path = FinalProject/groceryList.plist; sourceTree = "<group>"; };
-		167A600A1E9BFEB400202FAA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1618433C1EA07E3500A20F70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		167A60171E9C169800202FAA /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListViewController.h; path = FinalProject/ShoppingListViewController.h; sourceTree = "<group>"; };
 		167A60181E9C169800202FAA /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingListViewController.m; path = FinalProject/ShoppingListViewController.m; sourceTree = "<group>"; };
 		167A601D1E9C174E00202FAA /* ShoppingListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShoppingListTableViewCell.h; path = FinalProject/ShoppingListTableViewCell.h; sourceTree = "<group>"; };
 		167A601E1E9C174E00202FAA /* ShoppingListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShoppingListTableViewCell.m; path = FinalProject/ShoppingListTableViewCell.m; sourceTree = "<group>"; };
 		167A60211E9C7BB400202FAA /* addShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = addShoppingListViewController.h; path = FinalProject/addShoppingListViewController.h; sourceTree = "<group>"; };
 		167A60221E9C7BB400202FAA /* addShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = addShoppingListViewController.m; path = FinalProject/addShoppingListViewController.m; sourceTree = "<group>"; };
+		1688614D1EA85410001B542F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1688614F1EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json"; sourceTree = "<group>"; };
+		3CE32A5E77166F17024282EB /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		3DE46BA5258110A9A59CB25A /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		410AB6DA1E83C37E00E2563B /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		410AB6DE1E83C37E00E2563B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		410AB6E01E83C37E00E2563B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +115,7 @@
 		41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewController.m; sourceTree = "<group>"; };
 		41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewCell.h; sourceTree = "<group>"; };
 		41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewCell.m; sourceTree = "<group>"; };
+		DE3448929A0C350CD07A1E4B /* libPods-FinalProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinalProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D0B1891BC52DD4536339EF /* libPods-FinalProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,11 +145,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		2A2A5B7ACBC1EE219BAE9630 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CE32A5E77166F17024282EB /* Pods-FinalProject.debug.xcconfig */,
+				3DE46BA5258110A9A59CB25A /* Pods-FinalProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		410AB6D11E83C37E00E2563B = {
 			isa = PBXGroup;
 			children = (
+				1688614F1EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json */,
 				410AB6DC1E83C37E00E2563B /* FinalProject */,
 				410AB6DB1E83C37E00E2563B /* Products */,
+				2A2A5B7ACBC1EE219BAE9630 /* Pods */,
+				43768FB27DF042FB0CE47CB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +176,7 @@
 		410AB6DC1E83C37E00E2563B /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				1688614D1EA85410001B542F /* GoogleService-Info.plist */,
 				41A34DB21E9239DE0059C342 /* Header */,
 				410AB6E01E83C37E00E2563B /* AppDelegate.h */,
 				410AB6E11E83C37E00E2563B /* AppDelegate.m */,
@@ -164,7 +186,7 @@
 				41A34D971E8A0C220059C342 /* ItemsTableController */,
 				41196C8B1E89C1990085A638 /* Product */,
 				410AB6E91E83C37E00E2563B /* Assets.xcassets */,
-				167A600A1E9BFEB400202FAA /* Main.storyboard */,
+				1618433C1EA07E3500A20F70 /* Main.storyboard */,
 				410AB6EB1E83C37E00E2563B /* LaunchScreen.storyboard */,
 				410AB6EE1E83C37E00E2563B /* Info.plist */,
 				167A60201E9C677D00202FAA /* ShoppingList */,
@@ -296,6 +318,14 @@
 			name = BadgeView;
 			sourceTree = "<group>";
 		};
+		43768FB27DF042FB0CE47CB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE3448929A0C350CD07A1E4B /* libPods-FinalProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,9 +333,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410AB6F11E83C37E00E2563B /* Build configuration list for PBXNativeTarget "FinalProject" */;
 			buildPhases = (
+				0E03B9EED02A053D873FE52F /* [CP] Check Pods Manifest.lock */,
 				410AB6D61E83C37E00E2563B /* Sources */,
 				410AB6D71E83C37E00E2563B /* Frameworks */,
 				410AB6D81E83C37E00E2563B /* Resources */,
+				B5E47A27946162187F0ED4FE /* [CP] Embed Pods Frameworks */,
+				EB9847D08B26954EC1DB97D3 /* [CP] Copy Pods Resources */,
+				1614539B1EA842AD00E2C715 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -356,14 +390,77 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A34DAE1E9238BA0059C342 /* Header.xib in Resources */,
+				1618433D1EA07E3500A20F70 /* Main.storyboard in Resources */,
 				410AB6ED1E83C37E00E2563B /* LaunchScreen.storyboard in Resources */,
 				410AB6EA1E83C37E00E2563B /* Assets.xcassets in Resources */,
 				161843161E9F07E100A20F70 /* groceryList.plist in Resources */,
-				167A600B1E9BFEB400202FAA /* Main.storyboard in Resources */,
+				168861501EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json in Resources */,
+				1688614E1EA85410001B542F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E03B9EED02A053D873FE52F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1614539B1EA842AD00E2C715 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GOOGLE_APP_ID=1:435361327781:ios:01416a5759a1d3d6\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json\"";
+		};
+		B5E47A27946162187F0ED4FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB9847D08B26954EC1DB97D3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		410AB6D61E83C37E00E2563B /* Sources */ = {
@@ -506,12 +603,13 @@
 		};
 		410AB6F21E83C37E00E2563B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CE32A5E77166F17024282EB /* Pods-FinalProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.CICCC.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = inabacker24.FinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FinalProject/FinalProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -521,12 +619,13 @@
 		};
 		410AB6F31E83C37E00E2563B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DE46BA5258110A9A59CB25A /* Pods-FinalProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.CICCC.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = inabacker24.FinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FinalProject/FinalProject-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

@@ -8,9 +8,13 @@
 //  About NSDictionary
 //  http://qiita.com/satoshi0212/items/d67058bcf252f4c840ed
 //  http://iphone-tora.sakura.ne.jp/nsdictionary.html
+//
+//  UIColor-Picker
+//  https://briangrinstead.com/blog/ios-uicolor-picker/
 
 
 #import "ShoppingListViewController.h"
+#import "ShoppingListTableViewCell.h"
 
 @interface ShoppingListViewController ()
 
@@ -25,15 +29,13 @@
     self.shoppingListTableView.dataSource = self;
     [self.shoppingListTableView reloadData];
     
-//  NSDictionary          key          content
-    self.items = @[@{@"ProductName" : @"Apple"}].mutableCopy;
+    self.items = [[NSMutableArray alloc]init];
     
     self.navigationItem.title = @"Shopping List";
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
     
-    
     //For a bar
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.84 green:0.97 blue:0.94 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.76 green:0.89 blue:1.00 alpha:1.0];
     
     //For check marks
     self.shoppingListTableView.tintColor =  [UIColor colorWithRed:0.52 green:0.74 blue:0.65 alpha:1.0];
@@ -69,7 +71,6 @@
     
     NSDictionary *item = self.items[indexPath.row];
     cell.productName.text = [item objectForKey:@"ProductName"];
-//    cell.productPrice.text = ;
 
     if([item[@"completed"]boolValue])
     {
@@ -120,17 +121,6 @@
        [self.items removeObjectAtIndex:indexPath.row];
        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
    }
-}
-
-
-
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"addShoppingListSegue"])
-    {
-        ((addShoppingListViewController*)segue.destinationViewController).addSHPDelegate = self;
-    }
 }
 
 

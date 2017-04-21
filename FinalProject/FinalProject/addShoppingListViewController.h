@@ -9,6 +9,8 @@
 // http://stackoverflow.com/questions/4864239/using-a-bool-property
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+@class ShoppingListViewController;
 
 @protocol addSHPDelegate <NSObject>
 
@@ -21,16 +23,17 @@
 @property (weak,nonatomic)id<addSHPDelegate>addSHPDelegate;
 
 @property (weak, nonatomic) IBOutlet UITableView *AddSPLView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchController *searchController;
+
 
 //For A-Z index
 @property (copy,nonatomic)NSDictionary *groceryList;
 @property (copy,nonatomic)NSArray *keys;
 
+
 //This code is to put the result of reserching
-@property (strong,nonatomic) NSMutableArray *totalString;
 @property (strong,nonatomic) NSMutableArray *filteredString;
 @property (nonatomic, assign) BOOL isFilltered;
-
 
 @end
