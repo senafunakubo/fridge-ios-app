@@ -15,8 +15,7 @@
 // NSBundle
 // http://iphone-tora.sakura.ne.jp/nsbundle.html
 
-
-// 検索で見つからない時に自分で書けるようにするのも欲しい
+//When we cannnot find the result of the search, I wanna use the table which we can write by ourselves
 
 #import "addShoppingListViewController.h"
 #import "ShoppingListViewController.h"
@@ -48,7 +47,6 @@
     self.tableView.sectionIndexTrackingBackgroundColor = trakingBackgroundColor;
     
     
-    //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
     NSBundle *bundle = [NSBundle mainBundle];
     
     //To read the plist file
@@ -56,6 +54,7 @@
     
     self.groceryList = [NSDictionary dictionaryWithContentsOfFile:path];
     
+    //sorted
     self.keys = [[self.groceryList allKeys]sortedArrayUsingSelector:@selector(compare:)];
     
 }
@@ -70,7 +69,7 @@
 {
     if(tableView.tag ==1)
     {
-      return [self.keys count];
+      return [self.groceryList count];
     }
     else
     {
@@ -83,6 +82,7 @@
 {
     if(tableView.tag == 1)
     {
+
         NSString *key =self.keys[section];
         
         NSArray *keyValues = self.groceryList[key];
