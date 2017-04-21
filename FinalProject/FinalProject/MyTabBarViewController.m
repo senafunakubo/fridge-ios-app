@@ -26,20 +26,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-//- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-//{
-//    // setting delegate
-//    if([viewController isMemberOfClass:[FridgeItemsTableViewController class]]) {
-//        ((FridgeItemsTableViewController*)viewController).fridgeItemDelegate = self;
-//        [(FridgeItemsTableViewController*)viewController fridgeListDidSelect];
-//    }
-//    else if([viewController isMemberOfClass:[FridgeCollectionViewController class]]) {
-//        ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
-//        ((FridgeCollectionViewController*)viewController).fridgeItemCVDelegate = self;
-//    }
-//}
-
 -(void)addFood:(NSMutableArray<Product*>*)productArray
 {
     self.productArray = productArray;

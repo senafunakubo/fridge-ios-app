@@ -16,9 +16,7 @@
 #import "Product.h"
 
 @interface MyTabBarViewController : UITabBarController
-////<UITabBarControllerDelegate,FridgeItemDelegate,FridgeItemCVDelegate,FavouriteVCDelegate>
 
-//@property (strong, nonatomic)Fridge* fridgeInTabbar;
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
 -(void)addFood:(NSMutableArray<Product*>*)productArray;
 @end
