@@ -12,8 +12,6 @@
 
 @protocol shoppingListDelegate
 
--(float)thePriceOfProducts;
-
 @end
 
 @interface ShoppingListViewController : UIViewController<addSHPDelegate,UIAlertViewDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -23,6 +21,6 @@
 @property (nonatomic) NSMutableArray *items;
 @property (nonatomic) NSArray *categories;
 
-//-(void)caculatePrice;
+//-(void)showTheGroceries;
 
 @end
