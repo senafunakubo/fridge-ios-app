@@ -19,7 +19,7 @@
 
 @protocol FavouriteVCDelegate
 
--(NSMutableArray<Product*>*)fridgeItemCVDidCreate;
+//-(NSMutableArray<Product*>*)fridgeItemCVDidCreate;
 
 @end
 
@@ -37,7 +37,7 @@
 @property (strong,nonatomic) NSMutableArray<Product*>* favouriteArray;
 @property (strong,nonatomic) NSMutableArray* foodImageArray;
 
--(void)fridgeCVDidSelect;
+//-(void)fridgeCVDidSelect;
 -(void)addFavouriteArray:(NSMutableArray<Product*>*)productArray;
 
 @end
