@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-@import Firebase;
 
 @interface AppDelegate ()
 
@@ -19,6 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [FIRApp configure];
+//    self.ref = [[FIRDatabase database] reference];
+//    _ref = [[FIRDatabase database] reference];
 //    assert(false);
     return YES;
 }

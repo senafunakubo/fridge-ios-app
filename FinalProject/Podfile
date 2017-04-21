@@ -9,5 +9,6 @@ target 'FinalProject' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Crash'
+pod 'Firebase/Database'
 
 end
