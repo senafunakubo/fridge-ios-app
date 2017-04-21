@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -427,26 +428,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ch9-Ch-ePe">
-                                <rect key="frame" x="140" y="562" width="96" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Swich"/>
-                                <connections>
-                                    <action selector="Swich:" destination="m1M-an-iWo" eventType="touchUpInside" id="Lhj-RG-Sfd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="CHB-3P-sO3"/>
                     <navigationItem key="navigationItem" id="7PL-ez-owu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BVz-xg-GuD">
-                            <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="ye4-Fb-Zak" kind="push" id="le7-hP-fz3"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="BVz-xg-GuD">
+                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="ye4-Fb-Zak" kind="push" id="le7-hP-fz3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Switch" id="Jsg-LH-Xnw">
+                                <connections>
+                                    <action selector="Swich:" destination="m1M-an-iWo" id="5B2-U7-OS7"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="favouriteCollectionView" destination="Kqv-bE-0q2" id="cbY-qH-nx1"/>
@@ -455,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSj-Ol-37n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308.5" y="770.5"/>
+            <point key="canvasLocation" x="346" y="782"/>
         </scene>
         <!--Item-->
         <scene sceneID="smL-aq-9RM">
@@ -644,9 +643,12 @@
                                             <rect key="frame" x="20" y="4" width="112" height="99"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xzc-gd-hoJ">
-                                            <rect key="frame" x="167" y="43" width="168" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" id="Xzc-gd-hoJ">
+                                            <rect key="frame" x="157" y="23" width="168" height="61"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <string key="text">Label
+
+</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -664,14 +666,29 @@
                             <outlet property="delegate" destination="uO7-KS-Qsb" id="HEq-Pj-NCy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nh4-4B-6vN"/>
+                    <navigationItem key="navigationItem" id="Nh4-4B-6vN">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="WMa-gV-YDc">
+                            <rect key="frame" x="31" y="7" width="302" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="56v-gr-zyY">
+                            <connections>
+                                <action selector="recipeSerchButton:" destination="uO7-KS-Qsb" id="N64-os-c0B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="recipeSerchName" destination="WMa-gV-YDc" id="DPm-d2-HNb"/>
                         <outlet property="recipesTableView" destination="dMk-fP-o0c" id="8b5-Er-jvZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWa-RE-E5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="-894"/>
+            <point key="canvasLocation" x="1766.5" y="-894.5"/>
         </scene>
         <!--Recipe Web View Controller-->
         <scene sceneID="TCy-HN-n2M">
@@ -767,7 +784,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yFC-Gn-MlC"/>
+        <segue reference="le7-hP-fz3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.79078469600000001" green="0.91440889319999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

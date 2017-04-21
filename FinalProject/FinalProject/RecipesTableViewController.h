@@ -16,14 +16,19 @@
 
 @interface RecipesTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,RecipeWebViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *recipesTableView;
+
 @property (strong,nonatomic) Recipe * recipe;
 @property (strong,nonatomic) NSArray * objLabel;
 @property (strong,nonatomic) NSArray * objImageUrl;
 @property (strong,nonatomic) NSArray * objUrlShareAs;
 @property (strong, nonatomic) NSString * clickedUrl;
 @property (strong, nonatomic) NSMutableArray<Product*>* productArray;
+@property (strong, nonatomic) NSString * productNameStr;
 
+@property (strong, nonatomic) IBOutlet UITableView *recipesTableView;
+@property (weak, nonatomic) IBOutlet UITextField *recipeSerchName;
+
+- (IBAction)recipeSerchButton:(id)sender;
 - (void)getJSON:(NSString*)productNameStr;
 
 @end

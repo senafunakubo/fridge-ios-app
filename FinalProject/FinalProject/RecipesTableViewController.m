@@ -24,12 +24,20 @@
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
     self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
-
-    NSString * productNameStr = [[self.productArray valueForKey:@"_productName"] componentsJoinedByString:@","];
-    [self getJSON:productNameStr];
     
 }
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    //Check everytime when this page open
+    NSString * productNameStrNew = [[self.productArray valueForKey:@"_productName"] componentsJoinedByString:@","];
+    //If new foods have added tableview will update 
+    if(![productNameStrNew isEqualToString:self.productNameStr])
+        {
+            self.productNameStr = productNameStrNew;
+            self.recipeSerchName.text = self.productNameStr;
+            [self getJSON:productNameStrNew];
+        }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -131,4 +139,10 @@
     return self.clickedUrl;
 }
 
+- (IBAction)recipeSerchButton:(id)sender {
+
+    self.productNameStr = self.recipeSerchName.text;
+    [self getJSON:self.productNameStr];
+    
+}
 @end
