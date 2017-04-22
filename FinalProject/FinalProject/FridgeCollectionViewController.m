@@ -7,6 +7,8 @@
 //
 
 #import "FridgeCollectionViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface FridgeCollectionViewController ()
 
@@ -35,8 +37,12 @@ static NSString * const reuseIdentifier = @"Cell";
     lpgr.delaysTouchesBegan = YES;
     [self.collectionView addGestureRecognizer:lpgr];
     
-    
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    // Optional: Place the button in the center of your view.
+    loginButton.center = self.view.center;
+    [self.view addSubview:loginButton];
 }
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.fridgeCollectionView reloadData];
