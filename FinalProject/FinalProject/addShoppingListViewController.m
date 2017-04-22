@@ -220,12 +220,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray* keyArray = [self.groceryList valueForKey:self.keys[indexPath.section]];
+    NSString* keyValue = keyArray[indexPath.row];
+    NSLog(@"%@",keyValue);
+    
+    [self.addSHPDelegate getKeyValue:keyValue];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 //    AppDelegate *ap = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    ShoppingListViewController *shoppingListView = [self.storyboard instantiateViewControllerWithIdentifier:@"shoppingList"];
-    
-    [self.navigationController pushViewController:shoppingListView animated:YES];
+    //comment out
+//    ShoppingListViewController *shoppingListView = [self.storyboard instantiateViewControllerWithIdentifier:@"shoppingList"];
+//    
+//    [self.navigationController pushViewController:shoppingListView animated:YES];
 }
 
 
