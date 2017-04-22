@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *shoppingListTableView;
 @property (nonatomic) NSMutableArray *items;
 @property (nonatomic) NSArray *categories;
+@property (nonatomic) NSMutableArray *shoppinfListArray;
 
 //-(void)showTheGroceries;
 

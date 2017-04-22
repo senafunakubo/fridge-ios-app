@@ -30,6 +30,7 @@
     [self.shoppingListTableView reloadData];
     
     self.items = [[NSMutableArray alloc]init];
+    self.shoppinfListArray = [[NSMutableArray alloc]init];
     
     self.navigationItem.title = @"Shopping List";
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
@@ -44,6 +45,11 @@
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.34 green:0.66 blue:0.84 alpha:1.0];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.shoppingListTableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,7 +60,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
+    return self.shoppinfListArray.count;
 }
 
 
@@ -69,17 +75,21 @@
         cell = [[ShoppingListTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shoppingListTableView"];
     }
     
-    NSDictionary *item = self.items[indexPath.row];
-    cell.productName.text = [item objectForKey:@"ProductName"];
+    cell.productName.text = self.shoppinfListArray[indexPath.row];
+    
+//    NSDictionary *item = self.items[indexPath.row];
+//    cell.productName.text = [item objectForKey:@"ProductName"];
 
-    if([item[@"completed"]boolValue])
-    {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    
+    //comment out
+//    if([item[@"completed"]boolValue])
+//    {
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//    }
+//    else
+//    {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
     
     return cell;
 }
@@ -123,5 +133,17 @@
    }
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addShoppingListSegue"])
+    {
+        ((addShoppingListViewController*)segue.destinationViewController).addSHPDelegate = self;
+    }
+}
+
+-(void)getKeyValue:(NSString*)keyValue
+{
+    [self.shoppinfListArray addObject:keyValue];
+}
 
 @end

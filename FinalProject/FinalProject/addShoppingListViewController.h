@@ -13,7 +13,7 @@
 @class ShoppingListViewController;
 
 @protocol addSHPDelegate <NSObject>
-
+-(void)getKeyValue:(NSString*)keyValue;
 @end
 
 
