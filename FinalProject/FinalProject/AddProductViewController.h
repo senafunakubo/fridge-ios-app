@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Product.h"
 #import "SelectFoodImageTableViewController.h"
+#import "UIScrollViewBackground.h"
 
 @protocol AddProductDelegate
 

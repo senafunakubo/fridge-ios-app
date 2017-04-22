@@ -10,6 +10,8 @@
 
 @interface AddProductViewController ()
 
+@property (strong, nonatomic) UIScrollView* scollView;
+
 @end
 
 @implementation AddProductViewController
@@ -19,6 +21,7 @@
     // Do any additional setup after loading the view.
     
     self.isSwichToggled = NO;
+    
     
     self.addProductImageView.image = [UIImage imageNamed:@"noimage"];
     //when textfield is tapped datepicker show
@@ -58,6 +61,8 @@
     
     [self.view addSubview:self.addProductTypeTextField];
     
+    
+    self.view.backgroundColor = [UIColor clearColor];
     //for take photo
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -71,8 +76,47 @@
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
+    
+    
+    [self setupBackgroundScollView];
 
 }
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+}
+
+-(void) setupBackgroundScollView
+{
+   
+    ((UIScrollViewBackground*)self.view).backgroundColor = [UIColor whiteColor];
+    ((UIScrollViewBackground*)self.view).scrollEnabled = YES;
+    ((UIScrollViewBackground*)self.view).pagingEnabled = YES;
+    ((UIScrollViewBackground*)self.view).showsVerticalScrollIndicator = YES;
+    ((UIScrollViewBackground*)self.view).showsHorizontalScrollIndicator = YES;
+    ((UIScrollViewBackground*)self.view).contentSize = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height+200);
+}
+//-(UIScrollView*) scollView
+//{
+//    
+//    if(!_scollView)
+//    {
+//        _scollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+//        _scollView.backgroundColor = [UIColor redColor];
+//        _scollView.scrollEnabled = YES;
+//        _scollView.pagingEnabled = YES;
+//        _scollView.showsVerticalScrollIndicator = YES;
+//        _scollView.showsHorizontalScrollIndicator = YES;
+//        _scollView.contentSize = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height*2);
+//        
+//    }
+//
+//    
+//    return _scollView;
+//}
 
 
 - (void)didReceiveMemoryWarning {

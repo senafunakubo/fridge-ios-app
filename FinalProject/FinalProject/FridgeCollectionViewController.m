@@ -111,6 +111,7 @@ static NSString * const reuseIdentifier = @"Cell";
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
+    [self modalOpen];
 }
 
 ////HeaderCollectionReusableView @implementation
@@ -157,5 +158,59 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
+- (void)modalOpen {
+    //create subview background
+    self.modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
+    self.modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
+    [self.view addSubview:self.modalBg];
+    
+    //initialize UIView
+    UIView *view =[[UIView alloc] initWithFrame:CGRectMake(20,200,280,100)];
+    view.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
+    
+    
+    [view setAlpha:0.0];
+    view.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
+    
+    // アニメーション
+    [UIView beginAnimations:nil context:NULL];
+    // 秒数設定
+    [UIView setAnimationDuration:0.4];
+    [view setAlpha:1];
+    
+    view.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    [self.modalBg addSubview:view];
+    [UIView commitAnimations];
+    
+    //label
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.frame = CGRectMake(0, 20, 280, 25);
+    titleLabel.text = @"subview";
+    titleLabel.textAlignment = UITextAlignmentCenter;
+    titleLabel.textColor = [UIColor colorWithRed:0.238 green:0.501 blue:0.593 alpha:1.000];
+    titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    [view addSubview:titleLabel];
+    
+    //button
+    UIButton* noButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    noButton.frame = CGRectMake(0,55,280,30);
+    [noButton setTitle:@"Close" forState:UIControlStateNormal];
+    
+    noButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [noButton.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    noButton.tintColor = [UIColor colorWithRed:0.238 green:0.501 blue:0.593 alpha:1.000];
+    
+    //click and close subview
+    [noButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [view addSubview:noButton];
+    
+}
+
+- (void)close:(id)sender {
+    //モーダルを閉じる
+    [self.modalBg removeFromSuperview];
+}
 
 @end
