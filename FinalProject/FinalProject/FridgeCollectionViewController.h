@@ -18,7 +18,7 @@
 
 @protocol FridgeItemCVDelegate
 
--(NSMutableArray<Product*>*)fridgeItemCVDidCreate;
+//-(NSMutableArray<Product*>*)fridgeItemCVDidCreate;
 
 @end
 
@@ -31,6 +31,13 @@
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
 @property (strong, nonatomic) IBOutlet UIView* modalBg;
+
+@property (strong, nonatomic) UIView *subView;
+@property (strong, nonatomic) UIButton *button;
+@property (strong, nonatomic) NSMutableArray *buttons;
+@property (nonatomic)int uiButtonX;
+@property (nonatomic)int uiButtonTitleNo;
+
 -(void)fridgeCVDidSelect;
 
 @end

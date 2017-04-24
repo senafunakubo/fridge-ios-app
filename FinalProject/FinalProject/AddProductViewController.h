@@ -14,7 +14,7 @@
 @protocol AddProductDelegate
 
 -(void)productDidCreate:(Product*)product;
--(void)imageArrayDidCreate:(NSString*)foodImage;
+//-(void)imageArrayDidCreate:(NSString*)foodImage;
 @end
 
 @interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource,SelectFoodImageDelegate>

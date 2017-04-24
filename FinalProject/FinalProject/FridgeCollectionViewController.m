@@ -25,6 +25,8 @@ static NSString * const reuseIdentifier = @"Cell";
     self.fridgeCollectionView.dataSource =self;
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
+    self.buttons = [[NSMutableArray alloc]init];
+    
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"fridge"]];
     
     NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
@@ -111,25 +113,10 @@ static NSString * const reuseIdentifier = @"Cell";
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
-    [self modalOpen];
+    Product * product = [self.productArray objectAtIndex:indexPath.row];
+    int productAmount = product.productAmount;
+    [self modalOpen:productAmount];
 }
-
-////HeaderCollectionReusableView @implementation
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    UICollectionReusableView *reusableview = nil;
-//    
-//    if (kind == UICollectionElementKindSectionHeader) {
-//        HeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-//        //NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
-//        //headerView.title.text = title;
-//        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
-//        //headerView.backgroundImage.image = headerImage;
-//        
-//        reusableview = headerView;
-//    }
-//    return reusableview;
-//}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -158,58 +145,84 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
-- (void)modalOpen {
+- (void)modalOpen:(int)productAmount {
     //create subview background
-    self.modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
+    self.modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,520)];
     self.modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
     [self.view addSubview:self.modalBg];
     
     //initialize UIView
-    UIView *view =[[UIView alloc] initWithFrame:CGRectMake(20,200,280,100)];
-    view.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
+    self.subView =[[UIView alloc] initWithFrame:CGRectMake(20,200,280,200)];
+    self.subView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
     
     
-    [view setAlpha:0.0];
-    view.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
+    [self.subView setAlpha:0.0];
+    self.subView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
     
-    // アニメーション
+    //animation
     [UIView beginAnimations:nil context:NULL];
-    // 秒数設定
+    //0.4s
     [UIView setAnimationDuration:0.4];
-    [view setAlpha:1];
+    [self.subView setAlpha:1];
     
-    view.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
-    [self.modalBg addSubview:view];
+    self.subView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    [self.modalBg addSubview:self.subView];
     [UIView commitAnimations];
     
     //label
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.frame = CGRectMake(0, 20, 280, 25);
-    titleLabel.text = @"subview";
+    titleLabel.text = @"Click";
     titleLabel.textAlignment = UITextAlignmentCenter;
     titleLabel.textColor = [UIColor colorWithRed:0.238 green:0.501 blue:0.593 alpha:1.000];
     titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    [view addSubview:titleLabel];
+    [self.subView addSubview:titleLabel];
     
-    //button
-    UIButton* noButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //show buttons
+    self.uiButtonX = 10;
+    self.uiButtonTitleNo = 1;
+    for(int index = 0; index < productAmount; index++)
+    {
+        [self didCreaatButton:index];
+    }
     
-    noButton.frame = CGRectMake(0,55,280,30);
-    [noButton setTitle:@"Close" forState:UIControlStateNormal];
-    
-    noButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [noButton.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
-    noButton.tintColor = [UIColor colorWithRed:0.238 green:0.501 blue:0.593 alpha:1.000];
+    //close button
+    UIButton* closeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    closeBtn.frame = CGRectMake(0,150,280,25);
+    closeBtn.layer.cornerRadius = 20;
+    closeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [closeBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    [closeBtn setTitle:@"Close" forState:UIControlStateNormal];
+    [self.subView addSubview:closeBtn];
     
     //click and close subview
-    [noButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [view addSubview:noButton];
+    [closeBtn addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
+-(void)changeAmount:(UIButton*)button{
+    NSLog(@"%ld!!!",button.tag);
+}
+
+-(void)didCreaatButton:(NSInteger)index
+{
+    self.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.button.tag = index+1;
+    self.button.frame = CGRectMake(self.uiButtonX,55,40,40);
+    self.button.layer.cornerRadius = 20;
+    self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [self.button.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    self.button.backgroundColor = [UIColor blackColor];
+    [self.button setTitle:[@(index+1) stringValue] forState:UIControlStateNormal];
+    [self.button addTarget:self action:@selector(changeAmount:) forControlEvents:UIControlEventTouchDown];
+    [self.subView addSubview:self.button];
+    self.uiButtonX += 50;
+    
+    [self.buttons addObject:self.button];
+}
+
+//close modal
 - (void)close:(id)sender {
-    //モーダルを閉じる
     [self.modalBg removeFromSuperview];
 }
 
