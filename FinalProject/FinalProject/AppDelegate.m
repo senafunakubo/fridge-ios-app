@@ -20,7 +20,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        [FIRApp configure];
+    //    [FIRApp configure];
     //    self.ref = [[FIRDatabase database] reference];
     //    _ref = [[FIRDatabase database] reference];
     //    assert(false);
