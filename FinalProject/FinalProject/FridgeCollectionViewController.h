@@ -13,6 +13,8 @@
 #import "AddProductViewController.h"
 #import "Fridge.h"
 #import "MyTabBarViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #import "UIView+MGBadgeView.h"
 
@@ -22,7 +24,7 @@
 
 @end
 
-@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductDelegate,UIGestureRecognizerDelegate>
+@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductDelegate,UIGestureRecognizerDelegate,FBSDKLoginButtonDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *fridgeCollectionView;
 
