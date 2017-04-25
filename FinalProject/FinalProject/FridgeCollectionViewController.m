@@ -64,23 +64,48 @@ static NSString * const reuseIdentifier = @"Cell";
     else
     {
         NSLog(@"Successfully logged in with facebook.");
-        
-      [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email,name"}]
+    }
+    [self getFacebookData];
+}
+
+
+-(void)getFacebookData{
+  FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+    
+  FIRAuthCredential *credential = [FIRFacebookAuthProvider
+                                         credentialWithAccessToken:accessToken
+                                         .tokenString];
+    
+ //For adding data to Firebase
+  [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser *user, NSError *error)
+    {
+        if (error!=nil)
+        {
+            NSLog(@"Something went wrong with our FB user: %@",error);
+            return;
+        }
+        else
+        {
+            NSLog(@"Successfully logged in with our user: %@",user);
+        }
+    }];
+    
+ //For getting data from User
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email,name"}]
         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
-          {
+         {
               if (error!=nil)
               {
-                 NSLog(@"Failed to start graph request.");
+                 NSLog(@"Failed to start graph request: %@",error);
               }
               else
               {
-                 NSLog(@"fetched user:%@", result);
+                 NSLog(@"fetched user: %@", result);
               }
-          }
-       ];
-    }
+              
+         }];
+       
 }
-
 
 
 - (void)viewDidAppear:(BOOL)animated
