@@ -35,11 +35,14 @@
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
 @property (strong, nonatomic) IBOutlet UIView* modalBg;
 
+//for modal
 @property (strong, nonatomic) UIView *subView;
 @property (strong, nonatomic) UIButton *button;
 @property (strong, nonatomic) NSMutableArray *buttons;
 @property (nonatomic)int uiButtonX;
-@property (nonatomic)int uiButtonTitleNo;
+@property (nonatomic)int countButton;
+@property (nonatomic)NSInteger clickedIndex;
+@property (nonatomic)NSInteger amount;
 
 -(void)fridgeCVDidSelect;
 
