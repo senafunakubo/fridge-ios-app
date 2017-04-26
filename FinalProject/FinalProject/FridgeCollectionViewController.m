@@ -23,7 +23,6 @@ static NSString * const reuseIdentifier = @"Cell";
     self.fridgeCollectionView.dataSource =self;
     
     self.productArray = [[NSMutableArray<Product*> alloc]init];
-    self.buttons = [[NSMutableArray alloc]init];
     
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"fridge"]];
     
@@ -109,12 +108,13 @@ static NSString * const reuseIdentifier = @"Cell";
     [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
 }
 
-//TODO
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
     Product * product = [self.productArray objectAtIndex:indexPath.row];
-    int productAmount = product.productAmount;
-    [self modalOpen:productAmount];
+    self.amount = product.productAmount;
+    self.clickedIndex = indexPath.row;
+    [self modalOpen];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -140,11 +140,14 @@ static NSString * const reuseIdentifier = @"Cell";
         UICollectionViewCell* cell =
         [self.collectionView cellForItemAtIndexPath:indexPath];
         // do stuff with the cell
+        self.clickedIndex = indexPath.row;
+        [self modalOpenDelete];
     }
     
 }
 
-- (void)modalOpen:(int)productAmount {
+- (void)modalOpen{
+    
     //create subview background
     self.modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,520)];
     self.modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
@@ -178,9 +181,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.subView addSubview:titleLabel];
     
     //show buttons
+    self.buttons = [[NSMutableArray alloc]init];
     self.uiButtonX = 10;
-    self.uiButtonTitleNo = 1;
-    for(int index = 0; index < productAmount; index++)
+    for(int index = 0; index < self.amount; index++)
     {
         [self didCreaatButton:index];
     }
@@ -195,18 +198,18 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.subView addSubview:closeBtn];
     
     //click and close subview
-    [closeBtn addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [closeBtn addTarget:self action:@selector(closeModal:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)changeAmount:(UIButton*)button{
-    NSLog(@"%ld!!!",button.tag);
+    button.backgroundColor = [UIColor grayColor];
+    [self.buttons removeObjectAtIndex: button.tag];
 }
 
 -(void)didCreaatButton:(NSInteger)index
 {
     self.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.button.tag = index+1;
+    self.button.tag = index;
     self.button.frame = CGRectMake(self.uiButtonX,55,40,40);
     self.button.layer.cornerRadius = 20;
     self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -221,11 +224,95 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 //close modal
-- (void)close:(id)sender {
+- (void)closeModal:(id)sender {
+    Product * product = [self.productArray objectAtIndex:self.clickedIndex];
+    product.productAmount = self.buttons.count;
+    self.amount = self.buttons.count;
+    if(product.productAmount == 0)
+    {
+        [self.productArray removeObjectAtIndex:self.clickedIndex];
+    }
+    [self.fridgeCollectionView reloadData];
+    self.clickedIndex = 0;
     [self.modalBg removeFromSuperview];
 }
 
-//After clicking the logout button, the user will go back to login view.
+//long press modal open
+- (void)modalOpenDelete{
+    
+    //create subview background
+    self.modalBg =[[UIView alloc] initWithFrame:CGRectMake(0,0,320,720)];
+    self.modalBg.backgroundColor =  [UIColor colorWithWhite:0 alpha:0.3];
+    [self.view addSubview:self.modalBg];
+    
+    //initialize UIView
+    self.subView =[[UIView alloc] initWithFrame:CGRectMake(20,200,280,100)];
+    self.subView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
+    
+    
+    [self.subView setAlpha:0.0];
+    self.subView.backgroundColor = [UIColor colorWithWhite:0 alpha:1];
+    
+    //animation
+    [UIView beginAnimations:nil context:NULL];
+    //0.4s
+    [UIView setAnimationDuration:0.4];
+    [self.subView setAlpha:1];
+    
+    self.subView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    [self.modalBg addSubview:self.subView];
+    [UIView commitAnimations];
+    
+    //label
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.frame = CGRectMake(0, 20, 280, 25);
+    titleLabel.text = @"Delete Food?";
+    titleLabel.textAlignment = UITextAlignmentCenter;
+    titleLabel.textColor = [UIColor colorWithRed:0.238 green:0.501 blue:0.593 alpha:1.000];
+    titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    [self.subView addSubview:titleLabel];
+    
+    //delete button
+    UIButton* deleteBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    deleteBtn.frame = CGRectMake(0,50,140,25);
+    deleteBtn.layer.cornerRadius = 20;
+    deleteBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [deleteBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    [deleteBtn setTitle:@"Delete" forState:UIControlStateNormal];
+    [self.subView addSubview:deleteBtn];
+    
+    //close button
+    UIButton* closeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    closeBtn.frame = CGRectMake(140,50,140,30);
+    closeBtn.layer.cornerRadius = 20;
+    closeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [closeBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    [closeBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.subView addSubview:closeBtn];
+    
+    //click and close subview
+    [deleteBtn addTarget:self action:@selector(deleteObject:) forControlEvents:UIControlEventTouchUpInside];
+    [closeBtn addTarget:self action:@selector(cancelModal:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+//delete button
+- (void)deleteObject:(id)sender {
+
+    //delete object form the array
+    [self.productArray removeObjectAtIndex:self.clickedIndex];
+
+    [self.fridgeCollectionView reloadData];
+    self.clickedIndex = 0;
+    [self.modalBg removeFromSuperview];
+}
+
+//cancel modal
+- (void)cancelModal:(id)sender {
+    [self.modalBg removeFromSuperview];
+}
+
+//(facebook)After clicking the logout button, the user will go back to login view.
 -(void)btnOnClick:(id)sender
 {
     //signs the user out of Firebase App
