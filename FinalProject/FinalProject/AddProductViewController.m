@@ -86,7 +86,25 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    
+    int isEditProduct = [self.addProductDelegate isEditProducts];
+    self.product = [[Product alloc]init];
+    if(isEditProduct == 1)
+    {
+        self.product = [self.addProductDelegate getEditProduct];
+        
+        self.addProductNameTextField.text = self.product.productName;
+        self.addProductImageView.image = [UIImage imageNamed:self.product.productImageName];
+        self.foodImage = self.product.productImageName;
+        self.addProductTypeTextField.text = self.product.productType;
+        self.addProductPriceTextField.text = [NSString stringWithFormat:@"%f", self.product.productPrice];
+        self.addProductAmoutTextField.text = [NSString stringWithFormat:@"%ld", (long)self.product.productAmount ];
+        self.addProductBestBeforeTextField.text = [NSString stringWithFormat:@"%@", self.product.productBestBefore];
+        self.addProductSuperMarketTextField.text = self.product.productSuperMarket;
+        self.addProductMemoTextView.text = self.product.productMemo;
+        //TODO
+        //self.isSwichToggled = self.product.isFavourite;
+    }
 }
 
 -(void) setupBackgroundScollView
@@ -186,8 +204,6 @@
 }
 
 - (IBAction)doneButton:(id)sender {
-    
-    self.product = [[Product alloc]init];
 
     //if foodName is not empty done button is enabled
     if(!(self.addProductNameTextField.text.length == 0))
