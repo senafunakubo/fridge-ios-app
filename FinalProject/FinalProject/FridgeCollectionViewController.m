@@ -36,51 +36,12 @@ static NSString * const reuseIdentifier = @"Cell";
     lpgr.delegate = self;
     lpgr.delaysTouchesBegan = YES;
     [self.collectionView addGestureRecognizer:lpgr];
-
-   
     
-// For Facebook login
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    // Optional: Place the button in the center of your view.
-    loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
-    
-    loginButton.delegate = self;
-    loginButton.readPermissions =
-    @[@"public_profile", @"email"];
+    //For the logout button
+    UIBarButtonItem *btnLogout = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(btnOnClick:)];
+    self.navigationItem.leftBarButtonItem = btnLogout;
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.34 green:0.66 blue:0.84 alpha:1.0];
 }
-
--(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
-{
-    NSLog(@"Did log out of Facebook.");
-}
-
--(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error
-{
-    if(error!=nil)
-    {
-        NSLog(@"Error");
-    }
-    else
-    {
-        NSLog(@"Successfully logged in with facebook.");
-        
-      [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email,name"}]
-        startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
-          {
-              if (error!=nil)
-              {
-                 NSLog(@"Failed to start graph request.");
-              }
-              else
-              {
-                 NSLog(@"fetched user:%@", result);
-              }
-          }
-       ];
-    }
-}
-
 
 
 - (void)viewDidAppear:(BOOL)animated
@@ -262,6 +223,19 @@ static NSString * const reuseIdentifier = @"Cell";
 //close modal
 - (void)close:(id)sender {
     [self.modalBg removeFromSuperview];
+}
+
+//After clicking the logout button, the user will go back to login view.
+-(void)btnOnClick:(id)sender
+{
+    //signs the user out of Firebase App
+    NSError *signOutError;
+    [[FIRAuth auth] signOut:&signOutError];
+    
+    //signs the user out of Facebook App
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

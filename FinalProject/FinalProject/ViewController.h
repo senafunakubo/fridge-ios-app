@@ -8,8 +8,14 @@
 //http://chilitsumo.com/application/iphone-uicollectionview-sample
  
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+@import FirebaseAuth;
+@import Firebase;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<FBSDKLoginButtonDelegate>
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 @end
 
