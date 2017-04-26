@@ -227,6 +227,10 @@ static NSString * const reuseIdentifier = @"Cell";
     Product * product = [self.productArray objectAtIndex:self.clickedIndex];
     product.productAmount = self.buttons.count;
     self.amount = self.buttons.count;
+    if(product.productAmount == 0)
+    {
+        [self.productArray removeObjectAtIndex:self.clickedIndex];
+    }
     [self.fridgeCollectionView reloadData];
     self.clickedIndex = 0;
     [self.modalBg removeFromSuperview];
