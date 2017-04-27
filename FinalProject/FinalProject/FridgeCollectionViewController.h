@@ -40,8 +40,9 @@
 @property (strong, nonatomic) UIButton *button;
 @property (strong, nonatomic) NSMutableArray *buttons;
 @property (nonatomic)int uiButtonX;
+@property (nonatomic)int uiButtonY;
 @property (nonatomic)int countButton;
-@property (nonatomic)NSInteger clickedIndex;
+@property (nonatomic)int clickedIndex;
 @property (nonatomic)NSInteger amount;
 
 @property (nonatomic) int isEditProduct;

@@ -193,10 +193,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //show buttons
     self.buttons = [[NSMutableArray alloc]init];
-    self.uiButtonX = 10;
+    self.uiButtonX = 0;
+    self.uiButtonY = 0;
     for(int index = 0; index < self.amount; index++)
     {
-        [self didCreaatButton:index];
+        [self didCreatButton:index];
     }
     
     //close button
@@ -212,33 +213,57 @@ static NSString * const reuseIdentifier = @"Cell";
     [closeBtn addTarget:self action:@selector(closeModal:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)changeAmount:(UIButton*)button{
-    button.backgroundColor = [UIColor grayColor];
-    [self.buttons removeObjectAtIndex: button.tag];
-}
-
--(void)didCreaatButton:(NSInteger)index
+-(void)didCreatButton:(NSInteger)index
 {
-    self.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button.tag = index;
-    self.button.frame = CGRectMake(self.uiButtonX,55,40,40);
-    self.button.layer.cornerRadius = 20;
-    self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [self.button.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
-    self.button.backgroundColor = [UIColor blackColor];
-    [self.button setTitle:[@(index+1) stringValue] forState:UIControlStateNormal];
+    self.button.frame = CGRectMake(self.uiButtonX+10,self.uiButtonY+55,40,40);
+
+    [self.button setImage:[UIImage imageNamed:@"checkIcon"] forState:UIControlStateNormal];
+    self.button.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.button addTarget:self action:@selector(changeAmount:) forControlEvents:UIControlEventTouchDown];
     [self.subView addSubview:self.button];
-    self.uiButtonX += 50;
+    
+    if(index == 4)
+    {
+        self.uiButtonX = 0;
+        self.uiButtonY += 30;
+    }
+    else
+    {
+        self.uiButtonX += 50;
+    }
     
     [self.buttons addObject:self.button];
 }
 
+-(void)changeAmount:(UIButton*)button{
+    if([[button imageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"checkIcon"]])
+    {
+        [button setImage:[UIImage imageNamed:@"deletedIcon"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [button setImage:[UIImage imageNamed:@"checkIcon"] forState:UIControlStateNormal];
+    }
+}
+
 //close modal
 - (void)closeModal:(id)sender {
+    
+    __block int count = 0;
+    [self.buttons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+     {
+         if([[obj imageForState:UIControlStateNormal] isEqual:[UIImage imageNamed:@"checkIcon"]])
+         {
+             count++;
+         }
+     }];
+    
     Product * product = [self.productArray objectAtIndex:self.clickedIndex];
-    product.productAmount = self.buttons.count;
-    self.amount = self.buttons.count;
+    product.productAmount = count;
+    self.amount = count;
+
     if(product.productAmount == 0)
     {
         [self.productArray removeObjectAtIndex:self.clickedIndex];
