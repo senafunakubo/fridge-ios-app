@@ -104,8 +104,19 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)productDidCreate:(Product *)product
 {
-    self.productArray = [self.fridgeInCV addFridge:product];
-    [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
+//    self.productArray = [self.fridgeInCV addFridge:product];
+//    [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
+    
+    if(self.isEditProduct == 0)//if it is new data
+    {
+        self.productArray = [self.fridgeInCV addFridge:product];
+        [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
+    }
+    else//if it is value changing
+    {
+        [self.productArray replaceObjectAtIndex:self.clickedIndex withObject:product];
+        //self.clickedIndex = 0;
+    }
 }
 
 
@@ -246,7 +257,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:self.modalBg];
     
     //initialize UIView
-    self.subView =[[UIView alloc] initWithFrame:CGRectMake(20,200,280,100)];
+    self.subView =[[UIView alloc] initWithFrame:CGRectMake(20,230,280,100)];
     self.subView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
     
     
@@ -272,32 +283,42 @@ static NSString * const reuseIdentifier = @"Cell";
     titleLabel.font = [UIFont boldSystemFontOfSize:13];
     [self.subView addSubview:titleLabel];
     
+    //edit button
+    UIButton* editBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    editBtn.frame = CGRectMake(0,50,140,25);
+    editBtn.layer.cornerRadius = 20;
+    editBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [editBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    [editBtn setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.subView addSubview:editBtn];
+    
     //delete button
     UIButton* deleteBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    deleteBtn.frame = CGRectMake(0,50,140,25);
+    deleteBtn.frame = CGRectMake(140,50,140,30);
     deleteBtn.layer.cornerRadius = 20;
     deleteBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [deleteBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
     [deleteBtn setTitle:@"Delete" forState:UIControlStateNormal];
     [self.subView addSubview:deleteBtn];
     
-    //close button
-    UIButton* closeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    closeBtn.frame = CGRectMake(140,50,140,30);
-    closeBtn.layer.cornerRadius = 20;
-    closeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [closeBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
-    [closeBtn setTitle:@"Cancel" forState:UIControlStateNormal];
-    [self.subView addSubview:closeBtn];
+    //cancel button
+    UIButton* cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    cancelBtn.frame = CGRectMake(0,80,280,30);
+    cancelBtn.layer.cornerRadius = 20;
+    cancelBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [cancelBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
+    [cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.subView addSubview:cancelBtn];
     
     //click and close subview
-    [deleteBtn addTarget:self action:@selector(deleteObject:) forControlEvents:UIControlEventTouchUpInside];
-    [closeBtn addTarget:self action:@selector(cancelModal:) forControlEvents:UIControlEventTouchUpInside];
+    [deleteBtn addTarget:self action:@selector(deleteProduct:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelBtn addTarget:self action:@selector(cancelModal:) forControlEvents:UIControlEventTouchUpInside];
+    [editBtn addTarget:self action:@selector(openAddProduct:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
 //delete button
-- (void)deleteObject:(id)sender {
+- (void)deleteProduct:(id)sender {
 
     //delete object form the array
     [self.productArray removeObjectAtIndex:self.clickedIndex];
@@ -312,6 +333,39 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.modalBg removeFromSuperview];
 }
 
+//edit open
+-(void)openAddProduct:(id)sender
+{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AddProductViewController* viewController= (AddProductViewController*)[storyboard instantiateViewControllerWithIdentifier:@"addProductViewID"];
+    
+    viewController.addProductDelegate = self;
+    
+    self.isEditProduct = 1;
+    [self.modalBg removeFromSuperview];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+
+-(int)isEditProducts
+{
+    return self.isEditProduct;
+}
+-(Product*)getEditProduct
+{
+        if(!(self.productArray.count == 0))
+        {
+            self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+            Product * product = [self.productArray objectAtIndex:self.clickedIndex];
+            return product;
+        }
+        else
+        {
+            return nil;
+        }
+}
+
 //(facebook)After clicking the logout button, the user will go back to login view.
 -(void)btnOnClick:(id)sender
 {
@@ -324,5 +378,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 @end

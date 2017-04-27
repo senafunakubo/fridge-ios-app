@@ -44,6 +44,8 @@
 @property (nonatomic)NSInteger clickedIndex;
 @property (nonatomic)NSInteger amount;
 
+@property (nonatomic) int isEditProduct;
+
 -(void)fridgeCVDidSelect;
 
 @end
