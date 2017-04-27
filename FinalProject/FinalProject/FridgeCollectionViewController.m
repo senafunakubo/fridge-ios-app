@@ -193,7 +193,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //show buttons
     self.buttons = [[NSMutableArray alloc]init];
-    self.uiButtonX = 10;
+    self.uiButtonX = 0;
+    self.uiButtonY = 0;
     for(int index = 0; index < self.amount; index++)
     {
         [self didCreatButton:index];
@@ -216,13 +217,22 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     self.button = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button.tag = index;
-    self.button.frame = CGRectMake(self.uiButtonX,55,40,40);
+    self.button.frame = CGRectMake(self.uiButtonX+10,self.uiButtonY+55,40,40);
 
     [self.button setImage:[UIImage imageNamed:@"checkIcon"] forState:UIControlStateNormal];
     self.button.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.button addTarget:self action:@selector(changeAmount:) forControlEvents:UIControlEventTouchDown];
     [self.subView addSubview:self.button];
-    self.uiButtonX += 50;
+    
+    if(index == 4)
+    {
+        self.uiButtonX = 0;
+        self.uiButtonY += 30;
+    }
+    else
+    {
+        self.uiButtonX += 50;
+    }
     
     [self.buttons addObject:self.button];
 }
