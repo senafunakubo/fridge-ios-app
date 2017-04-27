@@ -15,6 +15,7 @@
 
 -(void)productDidCreate:(Product*)product;
 -(int)isEditProducts;
+-(void)isDoneEditProducts;
 -(Product*)getEditProduct;
 @end
 

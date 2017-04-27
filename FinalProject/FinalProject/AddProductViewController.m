@@ -230,6 +230,9 @@
     
     [self.addProductDelegate productDidCreate:self.product];
     
+    //chenged to isEditProduct = 0
+    [self.addProductDelegate isDoneEditProducts];
+        
     //close
     [self.navigationController popViewControllerAnimated:YES];
     }
