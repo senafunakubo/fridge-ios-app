@@ -370,6 +370,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.isEditProduct = 1;
     [self.modalBg removeFromSuperview];
     [self.navigationController pushViewController:viewController animated:YES];
+//    self.isEditProduct = 0;
 }
 
 
@@ -390,7 +391,10 @@ static NSString * const reuseIdentifier = @"Cell";
             return nil;
         }
 }
-
+-(void)isDoneEditProducts
+{
+    self.isEditProduct = 0;
+}
 //(facebook)After clicking the logout button, the user will go back to login view.
 -(void)btnOnClick:(id)sender
 {
