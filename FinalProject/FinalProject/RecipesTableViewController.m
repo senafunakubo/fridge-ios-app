@@ -94,14 +94,7 @@
     }
     else
     {
-        NSLog(@"");
-//        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You need to input food " preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-//        
-//        [alert addAction:defaultAction];
-//        [self presentViewController:alert animated:YES completion:nil];
-
+        NSLog(@"Fridge is empty!!!");
     }
 }
 
