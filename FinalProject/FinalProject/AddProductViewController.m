@@ -202,6 +202,8 @@
     
     self.addProductImageView.image = [UIImage imageWithData:data];
     
+    //Product* product = [[Product alloc]init];
+    self.foodImage = imageUrl;
     [self.view endEditing:YES];
 }
 
