@@ -40,6 +40,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem *btnLogout = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(btnOnClick:)];
     self.navigationItem.leftBarButtonItem = btnLogout;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.34 green:0.66 blue:0.84 alpha:1.0];
+    
 }
 
 

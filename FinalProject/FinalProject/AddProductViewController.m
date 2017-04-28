@@ -84,6 +84,12 @@
     _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     _tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:_tapRecognizer];
+    
+    //For stepper
+    self.stepper.value = 1;
+    self.stepper.minimumValue = 1;
+    self.stepper.maximumValue = 10;
+    self.stepper.stepValue = 1;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -213,6 +219,7 @@
 }
 
 - (IBAction)valueChanged:(id)sender {
+    self.addProductAmoutTextField.text = [NSString stringWithFormat:@"%d", (int)self.stepper.value];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info

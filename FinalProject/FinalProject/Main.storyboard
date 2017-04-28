@@ -329,6 +329,7 @@
                         <outlet property="addProductSuperMarketTextField" destination="6Rt-3I-Bc6" id="CLZ-XT-JDD"/>
                         <outlet property="addProductTypeTextField" destination="eH0-HW-sVL" id="Dtf-de-gfG"/>
                         <outlet property="doneButton" destination="4U2-iX-bGo" id="uig-cn-BsL"/>
+                        <outlet property="stepper" destination="HKo-ZN-guq" id="TCt-mD-EgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sd5-H8-xiG" userLabel="First Responder" sceneMemberID="firstResponder"/>

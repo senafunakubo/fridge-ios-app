@@ -44,6 +44,8 @@
 //for keyboard
 @property (nonatomic) UITapGestureRecognizer *tapRecognizer;
 
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
+
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
 
