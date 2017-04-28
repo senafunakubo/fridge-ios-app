@@ -71,6 +71,7 @@ static NSString * const reuseIdentifier = @"Cell";
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
     
+    //if product.productImageName is URL
     if ([product.productImageName containsString:@"https"])
     {
         NSURL *url = [NSURL URLWithString:product.productImageName];

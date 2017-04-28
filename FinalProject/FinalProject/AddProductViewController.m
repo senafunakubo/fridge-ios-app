@@ -197,13 +197,18 @@
     
     NSString * imageUrl = [self parseXML:self.addProductNameTextField.text];
 
-    NSURL *url = [NSURL URLWithString:imageUrl];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    self.addProductImageView.image = [UIImage imageWithData:data];
-    
-    //Product* product = [[Product alloc]init];
-    self.foodImage = imageUrl;
+    if(imageUrl.length == 0)
+    {
+        self.addProductImageView.image = [UIImage imageNamed:@"noimage"];
+        self.foodImage = @"noimage";
+    }
+    else
+    {
+        NSURL *url = [NSURL URLWithString:imageUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        self.addProductImageView.image = [UIImage imageWithData:data];
+        self.foodImage = imageUrl;
+    }
     [self.view endEditing:YES];
 }
 
@@ -336,6 +341,7 @@
     NSString *url = [NSString stringWithFormat:@"https://api.icons8.com/api/iconsets/search?amount=1&term="];
     NSString *urlWithProductName = [NSString stringWithFormat:@"%@%@", url, productNameStr];
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:urlWithProductName]];
+    self.result = @"";
     [xmlParser setDelegate:self];
     [xmlParser parse];
     
