@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FinalProject/AddProductViewController.m"
-            timestampString = "515026169.31017"
+            timestampString = "515029532.259676"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-imageDidSelect:"
             landmarkType = "7">
          </BreakpointContent>

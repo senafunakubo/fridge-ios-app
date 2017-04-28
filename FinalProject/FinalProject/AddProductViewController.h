@@ -37,6 +37,8 @@
 @property (nonatomic, strong) NSArray *pickerNames;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (nonatomic) BOOL isSwichToggled;
+//imageAPL
+@property (strong,nonatomic) NSString* imageUrl;
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
 
