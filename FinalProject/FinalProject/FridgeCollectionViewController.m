@@ -40,6 +40,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem *btnLogout = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(btnOnClick:)];
     self.navigationItem.leftBarButtonItem = btnLogout;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.34 green:0.66 blue:0.84 alpha:1.0];
+    
 }
 
 
@@ -70,7 +71,18 @@ static NSString * const reuseIdentifier = @"Cell";
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
-    foodImage.image = [UIImage imageNamed:product.productImageName];
+    
+    //if product.productImageName is URL
+    if ([product.productImageName containsString:@"https"])
+    {
+        NSURL *url = [NSURL URLWithString:product.productImageName];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        foodImage.image = [UIImage imageWithData:data];
+    }
+    else
+    {
+        foodImage.image = [UIImage imageNamed:product.productImageName];
+    }
     
     [foodImage.badgeView setBadgeValue:product.productAmount];
     [foodImage.badgeView setOutlineWidth:0.0];

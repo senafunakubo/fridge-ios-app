@@ -45,6 +45,8 @@
 
 - (void)getJSON:productNameStr
 {
+    if(!([productNameStr length] == 0))
+    {
     NSString *url = [NSString stringWithFormat:@"https://api.edamam.com/search?app_id=74546fbb&app_key=072ca3c517204af6aa46935287f2ed60&from=0&to=10&q="];
     NSString *urlAsString = [NSString stringWithFormat:@"%@%@", url, productNameStr];
     
@@ -89,6 +91,11 @@
                     NSLog(@"error : %@", error.description);
                 }
             }] resume];
+    }
+    else
+    {
+        NSLog(@"Fridge is empty!!!");
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

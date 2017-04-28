@@ -80,8 +80,17 @@
     
     [self setupBackgroundScollView];
 
+    //for keyboard endEditing
+    _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    _tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:_tapRecognizer];
+    
+    //For stepper
+    self.stepper.value = 1;
+    self.stepper.minimumValue = 1;
+    self.stepper.maximumValue = 10;
+    self.stepper.stepValue = 1;
 }
-
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -110,12 +119,12 @@
 -(void) setupBackgroundScollView
 {
    
-    ((UIScrollViewBackground*)self.view).backgroundColor = [UIColor whiteColor];
+    ((UIScrollViewBackground*)self.view).backgroundColor = [UIColor colorWithRed:0.99 green:0.95 blue:0.83 alpha:1.0];
     ((UIScrollViewBackground*)self.view).scrollEnabled = YES;
     ((UIScrollViewBackground*)self.view).pagingEnabled = YES;
     ((UIScrollViewBackground*)self.view).showsVerticalScrollIndicator = YES;
     ((UIScrollViewBackground*)self.view).showsHorizontalScrollIndicator = YES;
-    ((UIScrollViewBackground*)self.view).contentSize = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height+200);
+    ((UIScrollViewBackground*)self.view).contentSize = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height);
 }
 //-(UIScrollView*) scollView
 //{
@@ -188,6 +197,29 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)getImage:(id)sender {
+    
+    NSString * imageUrl = [self parseXML:self.addProductNameTextField.text];
+
+    if(imageUrl.length == 0)
+    {
+        self.addProductImageView.image = [UIImage imageNamed:@"noimage"];
+        self.foodImage = @"noimage";
+    }
+    else
+    {
+        NSURL *url = [NSURL URLWithString:imageUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        self.addProductImageView.image = [UIImage imageWithData:data];
+        self.foodImage = imageUrl;
+    }
+    [self.view endEditing:YES];
+}
+
+- (IBAction)valueChanged:(id)sender {
+    self.addProductAmoutTextField.text = [NSString stringWithFormat:@"%d", (int)self.stepper.value];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -310,51 +342,63 @@
 }
 
 //imageAPI
-//- (void)getJSON:productNameStr
-//{
-//    NSString *url = [NSString stringWithFormat:@"https://api.icons8.com/api/iconsets/search?term="];
-//    NSString *urlAsString = [NSString stringWithFormat:@"%@%@", url, productNameStr];
-//    
-//    NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
-//    NSString *encodedUrlAsString = [urlAsString stringByAddingPercentEncodingWithAllowedCharacters:set];
-//    
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-//    
-//    [[session dataTaskWithURL:[NSURL URLWithString:encodedUrlAsString]
-//            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//                
-//                NSLog(@"RESPONSE: %@",response);
-//                NSLog(@"DATA: %@",data);
-//                
-//                if (!error) {
-//                    // Success
-//                    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-//                        NSError *jsonError;
-//                        NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-//                        
-//                        NSArray *item = [[jsonResponse objectForKey:@"hits"]valueForKey:@"recipe"];
-//                        
-//                        self.imageUrl = [item valueForKey:@"image"];
-//                        
-//                        
-//                        //[self.tableView reloadData];
-//                        
-//                        if (jsonError) {
-//                            // Error Parsing JSON
-//                            
-//                        } else {
-//                            // Success Parsing JSON
-//                            // Log NSDictionary response:
-//                            NSLog(@"%@",jsonResponse);
-//                        }
-//                    }  else {
-//                        //Web server is returning an error
-//                    }
-//                } else {
-//                    // Fail
-//                    NSLog(@"error : %@", error.description);
-//                }
-//            }] resume];
-//}
+- (NSString*)parseXML:productNameStr
+{
+    //NSXMLPerser inisialize
+    NSString *url = [NSString stringWithFormat:@"https://api.icons8.com/api/iconsets/search?amount=1&term="];
+    NSString *urlWithProductName = [NSString stringWithFormat:@"%@%@", url, productNameStr];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:urlWithProductName]];
+    self.result = @"";
+    [xmlParser setDelegate:self];
+    [xmlParser parse];
+    
+    return self.result;
+}
+    
+//1 delegate method (start)
+-(void) parserDidStartDocument:(NSXMLParser *)parser{
+        
+        NSLog(@"start");
+}
+    
+//2 delegate method (when first tag was read)
+- (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+    
+    NSLog(@"%@",elementName);
+    
+    if ([elementName isEqualToString:@"png"]) {
+        
+        if([[attributeDict objectForKey:@"width"] isEqualToString:@"104"])
+        {
+            //get image url
+            self.result = [attributeDict objectForKey:@"link"];
+        }
+    }
+}
+    
+//3 delegate method (when string was read exept tag)
+- (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+        
+    NSLog(@"%@", string);
+}
+    
+//4 delegate method(when end tag was read)
+- (void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+    
+    NSLog(@"%@",elementName);
+}
+    
+//5 delegate method(done)
+-(void) parserDidEndDocument:(NSXMLParser *)parser{
+        
+    NSLog(@"done");
+
+}
+
+//for keyboard endEditing
+- (void)didTapAnywhere:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
+}
 
 @end

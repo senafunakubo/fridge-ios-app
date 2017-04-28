@@ -17,9 +17,10 @@
 -(int)isEditProducts;
 -(void)isDoneEditProducts;
 -(Product*)getEditProduct;
+
 @end
 
-@interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource,SelectFoodImageDelegate>
+@interface AddProductViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource,SelectFoodImageDelegate,NSXMLParserDelegate>
 
 @property (weak, nonatomic) id<AddProductDelegate> addProductDelegate;
 @property (strong,nonatomic) Product* product;
@@ -39,6 +40,12 @@
 @property (nonatomic) BOOL isSwichToggled;
 //imageAPL
 @property (strong,nonatomic) NSString* imageUrl;
+@property (strong,nonatomic) NSString* result;
+//for keyboard
+@property (nonatomic) UITapGestureRecognizer *tapRecognizer;
+
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
+
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
 
@@ -46,5 +53,7 @@
 - (IBAction)doneButton:(id)sender;
 -(void)showAlertForDoneButtone;
 
-
+- (IBAction)getImage:(id)sender;
+- (IBAction)valueChanged:(id)sender;
+- (NSString*)parseXML:(NSString*)productNameStr;
 @end
