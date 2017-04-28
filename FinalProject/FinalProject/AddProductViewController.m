@@ -309,5 +309,52 @@
     }
 }
 
+//imageAPI
+//- (void)getJSON:productNameStr
+//{
+//    NSString *url = [NSString stringWithFormat:@"https://api.icons8.com/api/iconsets/search?term="];
+//    NSString *urlAsString = [NSString stringWithFormat:@"%@%@", url, productNameStr];
+//    
+//    NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
+//    NSString *encodedUrlAsString = [urlAsString stringByAddingPercentEncodingWithAllowedCharacters:set];
+//    
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//    
+//    [[session dataTaskWithURL:[NSURL URLWithString:encodedUrlAsString]
+//            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//                
+//                NSLog(@"RESPONSE: %@",response);
+//                NSLog(@"DATA: %@",data);
+//                
+//                if (!error) {
+//                    // Success
+//                    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+//                        NSError *jsonError;
+//                        NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+//                        
+//                        NSArray *item = [[jsonResponse objectForKey:@"hits"]valueForKey:@"recipe"];
+//                        
+//                        self.imageUrl = [item valueForKey:@"image"];
+//                        
+//                        
+//                        //[self.tableView reloadData];
+//                        
+//                        if (jsonError) {
+//                            // Error Parsing JSON
+//                            
+//                        } else {
+//                            // Success Parsing JSON
+//                            // Log NSDictionary response:
+//                            NSLog(@"%@",jsonResponse);
+//                        }
+//                    }  else {
+//                        //Web server is returning an error
+//                    }
+//                } else {
+//                    // Fail
+//                    NSLog(@"error : %@", error.description);
+//                }
+//            }] resume];
+//}
 
 @end

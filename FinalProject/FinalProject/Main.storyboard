@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="K8L-En-wnI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="K8L-En-wnI">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Hl-QC-K4A" id="oxv-hR-hOg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxt-7X-Nt7">
@@ -106,7 +106,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="doB-wo-3QN" kind="relationship" relationship="viewControllers" id="7tg-yt-1Vv"/>
-                        <segue destination="UnT-bl-ph7" kind="relationship" relationship="viewControllers" id="1J9-UM-fOL"/>
                         <segue destination="Wgj-EL-r8g" kind="relationship" relationship="viewControllers" id="HVc-Sq-FBH"/>
                         <segue destination="bz4-TU-eFH" kind="relationship" relationship="viewControllers" id="SX2-OU-ZH5"/>
                         <segue destination="0lm-7k-IAR" kind="relationship" relationship="viewControllers" id="79y-jj-s2N"/>
@@ -336,7 +335,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QbJ-Au-TQs" id="qbK-Ab-plH">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22v-2r-UYH">
@@ -433,7 +432,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="InV-qk-zdm" id="L1v-2g-xA4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tq1-uA-7d3">
@@ -515,7 +514,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKm-Ex-2hh" id="VQj-LT-Ud8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KVf-Cf-SdX">
@@ -541,7 +540,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="JVm-ni-OAV"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="shopping" id="JVm-ni-OAV"/>
                     <navigationItem key="navigationItem" id="6jp-Qm-mJl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="REq-ks-2Yx">
                             <connections>
@@ -578,7 +577,7 @@
                                 <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zMZ-Tk-urM" id="8Pl-iq-tR2">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -612,7 +611,7 @@
         <scene sceneID="6Fk-Mi-IDH">
             <objects>
                 <navigationController id="bz4-TU-eFH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="shoppinglist" id="4Vm-bi-VD9"/>
+                    <tabBarItem key="tabBarItem" title="shoppinglist" image="shopping" id="4Vm-bi-VD9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CqD-PX-dM8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -629,7 +628,7 @@
         <scene sceneID="2Bq-KP-WoC">
             <objects>
                 <navigationController id="0lm-7k-IAR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipe" id="fSA-bS-aE7"/>
+                    <tabBarItem key="tabBarItem" title="Recipe" image="recipes" id="fSA-bS-aE7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vjI-W8-bvQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -655,7 +654,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igv-V3-Y2h" id="dew-x0-Bd6">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="106"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="106.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHp-9X-HfW">
@@ -805,6 +804,8 @@
     </scenes>
     <resources>
         <image name="fridge-icon" width="24" height="24"/>
+        <image name="recipes" width="30" height="30"/>
+        <image name="shopping" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
