@@ -45,6 +45,8 @@
 
 - (void)getJSON:productNameStr
 {
+    if(!([productNameStr length] == 0))
+    {
     NSString *url = [NSString stringWithFormat:@"https://api.edamam.com/search?app_id=74546fbb&app_key=072ca3c517204af6aa46935287f2ed60&from=0&to=10&q="];
     NSString *urlAsString = [NSString stringWithFormat:@"%@%@", url, productNameStr];
     
@@ -89,6 +91,18 @@
                     NSLog(@"error : %@", error.description);
                 }
             }] resume];
+    }
+    else
+    {
+        NSLog(@"");
+//        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"You need to input food " preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+//        
+//        [alert addAction:defaultAction];
+//        [self presentViewController:alert animated:YES completion:nil];
+
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
