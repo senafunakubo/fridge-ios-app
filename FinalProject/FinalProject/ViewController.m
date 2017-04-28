@@ -27,7 +27,7 @@
 {
     if(!_inputsContainerView)
     {
-        _inputsContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+        _inputsContainerView = [[UIView alloc] init];
         _inputsContainerView.backgroundColor = [UIColor whiteColor];
         _inputsContainerView.translatesAutoresizingMaskIntoConstraints = false;
         _inputsContainerView.layer.cornerRadius = 5;
@@ -63,8 +63,17 @@
     {
         _nameTextField = [[UITextField alloc]init];
         _nameTextField.placeholder = @"Name";
+        //
+        _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
+        _nameTextField.font = [UIFont systemFontOfSize:15];
+        _nameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _nameTextField.keyboardType = UIKeyboardTypeDefault;
+        _nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        //
         _nameTextField.translatesAutoresizingMaskIntoConstraints = false;
-        
+        _nameTextField.clearsOnBeginEditing = NO;
+        _nameTextField.returnKeyType = UIReturnKeyDone;
+        _nameTextField.delegate = self;
     }
     return _nameTextField;
 }
@@ -86,7 +95,16 @@
         _emailTextField = [[UITextField alloc]init];
         _emailTextField.placeholder = @"Email address";
         _emailTextField.translatesAutoresizingMaskIntoConstraints = false;
-        
+        _emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        //
+        _emailTextField.borderStyle = UITextBorderStyleRoundedRect;
+        _emailTextField.font = [UIFont systemFontOfSize:15];
+        _emailTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _emailTextField.keyboardType = UIKeyboardTypeDefault;
+        _emailTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        //
+
+        _emailTextField.delegate = self;
     }
     return _emailTextField;
 }
@@ -107,8 +125,16 @@
         _passwordTextField = [[UITextField alloc]init];
         _passwordTextField.placeholder = @"Password";
         _passwordTextField.translatesAutoresizingMaskIntoConstraints = false;
+        _passwordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         _passwordTextField.secureTextEntry = true;
-        
+        //
+        _passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
+        _passwordTextField.font = [UIFont systemFontOfSize:15];
+        _passwordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _passwordTextField.keyboardType = UIKeyboardTypeDefault;
+        _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        //
+        _passwordTextField.delegate = self;
     }
     return _passwordTextField;
 }
@@ -117,7 +143,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:219/255.0 green:217/255.0 blue:219/255.0 alpha:1.0];
-    
     
     /*
         Basic Login
@@ -129,7 +154,7 @@
     UITextField *emailTextField = [self addEmailTextField];
     UIView *emailSeparatorView = [self addEmailSeparatorView];
     UITextField *passwordTextField = [self addPasswordTextField];
-
+    
     [self.view addSubview:inputContainer];
     [self.view addSubview:button];
     
@@ -142,6 +167,19 @@
     [self setupInputsContainerView];
     [self setupLoginRegisterButton];
     
+    /////
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 500, 300, 40)];
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.font = [UIFont systemFontOfSize:15];
+    textField.placeholder = @"For writting above stuff";
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    textField.keyboardType = UIKeyboardTypeDefault;
+    textField.returnKeyType = UIReturnKeyDone;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    textField.delegate = self;
+    [self.view addSubview:textField];
+    /////
     
     /*
         Facebook
@@ -168,10 +206,7 @@
             // Show the User the login button
             //// About where to put the button
              loginButton.backgroundColor = [UIColor darkGrayColor];
-             loginButton.frame = CGRectMake(0,0,280,45);
-             
-             ////I need to think about Alignment later////
-             loginButton.center = CGPointMake(185, 100);
+             loginButton.frame = CGRectMake(16,116,self.view.frame.size.width-32,50);
              
              [loginButton setTitle: @"Facebook Login Button" forState: UIControlStateNormal];
              loginButton.delegate = self;
@@ -181,7 +216,7 @@
              loginButton.hidden = false;
          }
      }];//The end of FIRAuth auth
-
+    
 }//The end of viewDidLoad
 
 
@@ -198,13 +233,20 @@
     [self.inputsContainerView.heightAnchor constraintEqualToConstant:120].active = true;
     
     
+    // InputsContainer need to declare x,y,width,height
+    [self.inputsContainerView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = true;
+    [self.inputsContainerView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = true;
+    [self.inputsContainerView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor constant:-24].active = true;
+    [self.inputsContainerView.heightAnchor constraintEqualToConstant:120].active = true;
+    
+    
     // NametextField need to declare x,y,width,height
     [self.nameTextField.leftAnchor constraintEqualToAnchor:self.inputsContainerView.leftAnchor constant:12].active = true;
     [self.nameTextField.topAnchor constraintEqualToAnchor:self.inputsContainerView.topAnchor constant:20].active = true;
-    [self.nameTextField.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor].active = true;
+    [self.nameTextField.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor constant:-10].active = true;
     [self.nameTextField.heightAnchor constraintEqualToAnchor:self.inputsContainerView.heightAnchor multiplier:1/3].active = true;
     
-    // NametextField need to declare x,y,width,height
+    // NameSeparator need to declare x,y,width,height
     [_nameSeparatorView.leftAnchor constraintEqualToAnchor:self.inputsContainerView.leftAnchor].active = true;
     [_nameSeparatorView.topAnchor constraintEqualToAnchor:self.nameTextField.bottomAnchor constant:20].active = true;
     [_nameSeparatorView.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor].active = true;
@@ -213,10 +255,10 @@
     // EmailtextField need to declare x,y,width,height
     [self.emailTextField.leftAnchor constraintEqualToAnchor:self.inputsContainerView.leftAnchor constant:12].active = true;
     [self.emailTextField.topAnchor constraintEqualToAnchor:self.nameSeparatorView.bottomAnchor constant:20].active = true;
-    [self.emailTextField.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor].active = true;
+    [self.emailTextField.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor constant:-10].active = true;
     [self.emailTextField.heightAnchor constraintEqualToAnchor:self.inputsContainerView.heightAnchor multiplier:1/3].active = true;
     
-    // EmailtextField need to declare x,y,width,height
+    // EmailSeparator need to declare x,y,width,height
     [_emailSeparatorView.leftAnchor constraintEqualToAnchor:self.inputsContainerView.leftAnchor].active = true;
     [_emailSeparatorView.topAnchor constraintEqualToAnchor:self.emailTextField.bottomAnchor constant:20].active = true;
     [_emailSeparatorView.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor].active = true;
@@ -225,11 +267,10 @@
     // PasswordtextField need to declare x,y,width,height
     [self.passwordTextField.leftAnchor constraintEqualToAnchor:self.inputsContainerView.leftAnchor constant:12].active = true;
     [self.passwordTextField.topAnchor constraintEqualToAnchor:self.emailSeparatorView.bottomAnchor constant:20].active = true;
-    [self.passwordTextField.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor].active = true;
+    [self.passwordTextField.widthAnchor constraintEqualToAnchor:self.inputsContainerView.widthAnchor constant:-10].active = true;
     [self.passwordTextField.heightAnchor constraintEqualToAnchor:self.inputsContainerView.heightAnchor multiplier:1/3].active = true;
-    
-}
 
+}
 
 //button
 -(void)setupLoginRegisterButton
@@ -321,6 +362,14 @@
     
 }
 
+//- (void)textFieldDidBeginEditing:(UITextField *)textField{
+//    NSLog(@"textFieldDidBeginEditing");
+//}
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    NSString *retStr;
+    retStr=self.nameTextField.text;
+    NSLog(@"%@", retStr);
+    return YES;
+}
 @end

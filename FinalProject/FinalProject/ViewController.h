@@ -13,7 +13,7 @@
 @import FirebaseAuth;
 @import Firebase;
 
-@interface ViewController : UIViewController<FBSDKLoginButtonDelegate>
+@interface ViewController : UIViewController<UITextFieldDelegate,FBSDKLoginButtonDelegate>
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
