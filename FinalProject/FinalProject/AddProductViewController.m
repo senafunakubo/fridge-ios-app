@@ -102,8 +102,20 @@
     {
         self.product = [self.addProductDelegate getEditProduct];
         
+        //if product.productImageName is URL
+        if ([self.product.productImageName containsString:@"https"])
+        {
+            NSURL *url = [NSURL URLWithString:self.product.productImageName];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            self.addProductImageView.image = [UIImage imageWithData:data];
+        }
+        else
+        {
+            self.addProductImageView.image = [UIImage imageNamed:self.product.productImageName];
+        }
+        
+        
         self.addProductNameTextField.text = self.product.productName;
-        self.addProductImageView.image = [UIImage imageNamed:self.product.productImageName];
         self.foodImage = self.product.productImageName;
         self.addProductTypeTextField.text = self.product.productType;
         self.addProductPriceTextField.text = [NSString stringWithFormat:@"%f", self.product.productPrice];
@@ -113,6 +125,7 @@
         self.addProductMemoTextView.text = self.product.productMemo;
         //TODO
         //self.isSwichToggled = self.product.isFavourite;
+        
     }
 }
 

@@ -70,16 +70,27 @@
     Product * product = [self.favouriteArray objectAtIndex:indexPath.row];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FavouriteCollectionViewCell" forIndexPath:indexPath];
     
-        UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
-        nameLabel.text = product.productName;
-        UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
+    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+    nameLabel.text = product.productName;
+    
+    UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
+    if ([product.productImageName containsString:@"https"])
+    {
+        NSURL *url = [NSURL URLWithString:product.productImageName];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        foodImage.image = [UIImage imageWithData:data];
+    }
+    else
+    {
         foodImage.image = [UIImage imageNamed:product.productImageName];
-        return cell;
+    }
+    return cell;
 }
 
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
+    
 }
 
 //TableView
@@ -100,9 +111,17 @@
         cell = [[FavouriteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavouriteTableViewCell"];
     }
     Product * product = [self.favouriteArray objectAtIndex:indexPath.row];
-    if(product.isFavourite == YES)
+    
+    cell.foodNameLabel.text = product.productName;
+    
+    if ([product.productImageName containsString:@"https"])
     {
-        cell.foodNameLabel.text = product.productName;
+        NSURL *url = [NSURL URLWithString:product.productImageName];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        cell.foodImage.image = [UIImage imageWithData:data];
+    }
+    else
+    {
         cell.foodImage.image = [UIImage imageNamed:product.productImageName];
     }
     

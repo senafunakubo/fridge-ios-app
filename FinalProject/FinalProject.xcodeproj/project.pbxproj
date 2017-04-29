@@ -47,6 +47,19 @@
 		68D0B1891BC52DD4536339EF /* libPods-FinalProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3448929A0C350CD07A1E4B /* libPods-FinalProject.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		41ACCDBD1EB4033800DE01D3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		161843151E9F07E100A20F70 /* groceryList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = groceryList.plist; path = FinalProject/groceryList.plist; sourceTree = "<group>"; };
 		1618433C1EA07E3500A20F70 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +124,10 @@
 		41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
+		41ACCDC81EB414F100DE01D3 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		41ACCDC91EB414F100DE01D3 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		41ACCDCC1EB414F100DE01D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		41ACCDCE1EB414F100DE01D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41BB15251E9EE06C00ECCF9B /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
 		41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
 		41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewController.h; sourceTree = "<group>"; };
@@ -165,6 +182,7 @@
 				41D7B5A81EAAFD77009E62CD /* UIScrollViewBackground.m */,
 				1688614F1EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json */,
 				410AB6DC1E83C37E00E2563B /* FinalProject */,
+				41ACCDC71EB414F100DE01D3 /* ShareExtention */,
 				410AB6DB1E83C37E00E2563B /* Products */,
 				2A2A5B7ACBC1EE219BAE9630 /* Pods */,
 				43768FB27DF042FB0CE47CB2 /* Frameworks */,
@@ -316,6 +334,17 @@
 			name = Header;
 			sourceTree = "<group>";
 		};
+		41ACCDC71EB414F100DE01D3 /* ShareExtention */ = {
+			isa = PBXGroup;
+			children = (
+				41ACCDC81EB414F100DE01D3 /* ActionViewController.h */,
+				41ACCDC91EB414F100DE01D3 /* ActionViewController.m */,
+				41ACCDCB1EB414F100DE01D3 /* MainInterface.storyboard */,
+				41ACCDCE1EB414F100DE01D3 /* Info.plist */,
+			);
+			path = ShareExtention;
+			sourceTree = "<group>";
+		};
 		41BB15281E9EE0E100ECCF9B /* BadgeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +376,7 @@
 				B5E47A27946162187F0ED4FE /* [CP] Embed Pods Frameworks */,
 				EB9847D08B26954EC1DB97D3 /* [CP] Copy Pods Resources */,
 				1614539B1EA842AD00E2C715 /* ShellScript */,
+				41ACCDBD1EB4033800DE01D3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -368,7 +398,7 @@
 				TargetAttributes = {
 					410AB6D91E83C37E00E2563B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZEA57MKN6Q;
+						DevelopmentTeam = Y23F6SFGXW;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -524,6 +554,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		41ACCDCB1EB414F100DE01D3 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41ACCDCC1EB414F100DE01D3 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -622,11 +660,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FinalProject/FinalProject.entitlements;
-				DEVELOPMENT_TEAM = ZEA57MKN6Q;
+				DEVELOPMENT_TEAM = Y23F6SFGXW;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = inabacker24.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = ay36230.FinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FinalProject/FinalProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -642,11 +680,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FinalProject/FinalProject.entitlements;
-				DEVELOPMENT_TEAM = ZEA57MKN6Q;
+				DEVELOPMENT_TEAM = Y23F6SFGXW;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = inabacker24.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = ay36230.FinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FinalProject/FinalProject-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

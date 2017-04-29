@@ -25,6 +25,13 @@
     self.productArray = [[NSMutableArray<Product*> alloc]init];
     self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
     
+    //spinner
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = CGPointMake(160, 240);
+    [self.view viewWithTag:12];
+    [self.view addSubview:self.spinner];
+    [self.spinner startAnimating];
+    
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -125,6 +132,8 @@
     cell.recipeImage.image = [UIImage imageWithData:data];
     cell.recipeLabel.text = self.recipe.recipeLabel;
     
+    //spinner stop
+    [self.spinner stopAnimating];
     return cell;
 }
 
