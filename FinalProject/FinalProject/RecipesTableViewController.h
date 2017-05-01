@@ -28,6 +28,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *recipesTableView;
 @property (weak, nonatomic) IBOutlet UITextField *recipeSerchName;
 
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
+
 - (IBAction)recipeSerchButton:(id)sender;
 - (void)getJSON:(NSString*)productNameStr;
 
