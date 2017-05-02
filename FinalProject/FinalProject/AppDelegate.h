@@ -12,7 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, readonly, strong) FIRDatabaseReference * ref;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 
 @end
