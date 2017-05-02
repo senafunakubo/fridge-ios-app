@@ -21,8 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         [FIRApp configure];
-    //    self.ref = [[FIRDatabase database] reference];
-    //    _ref = [[FIRDatabase database] reference];
     
     
 //For connecting App delegate 1
