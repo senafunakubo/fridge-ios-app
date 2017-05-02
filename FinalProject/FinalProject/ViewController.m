@@ -177,9 +177,45 @@
 
 -(void)buttonClicked:(UIButton*)sender
 {
-    NSLog(@"you clicked on button: %@", sender);
+       [[FIRAuth auth]createUserWithEmail:self.emailTextField.text password:self.passwordTextField.text completion:^(FIRUser* user, NSError* error)
+        {
+            if (error)
+            {
+                NSLog(@"error");
+                return;
+            }
+            else
+            {
+                //Successfully authenticated user
+                 NSLog(@"you clicked on button!");
+                    self.loginId = self.nameTextField.text;
+                    self.ref = [[FIRDatabase database]referenceFromURL:[NSString stringWithFormat:@"https://finalproject-2a4df.firebaseio.com/"]];
+                    [self saveData:self.loginId email:self.emailTextField.text];
+                    {
+                        if(error!=nil)
+                        {
+                            NSLog(@"error");
+                            return;
+                        }
+                        else
+                        {
+                            NSLog(@"Saved user Successfully into the firebase DB.");
+                        }
+                    }
+            }
+           
+       }
+       ];
 }
 
+
+- (void)saveData:(NSString *)userName email:(NSString *)email
+{
+    NSString *key = self.loginId;
+    NSDictionary *post = @{@"name": userName,@"email": email};
+    NSDictionary *childUpdate = @{[NSString stringWithFormat:@"/user/%@", key]: post};
+    [_ref updateChildValues:childUpdate];
+}
 
 
 ////Facebook////
@@ -409,9 +445,7 @@
 //- (void)viewDidLoad {
 //    [super viewDidLoad];
 //    self.view.backgroundColor = [UIColor colorWithRed:219/255.0 green:217/255.0 blue:219/255.0 alpha:1.0];
-//    
-//    FIRDatabaseReference *ref = [[FIRDatabase database]referenceFromURL:[NSString stringWithFormat:@"https://finalproject-2a4df.firebaseio.com/"]];
-////    NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/user/%@", key]: post};
+//   
 //    
 //    /*
 //        Basic Login

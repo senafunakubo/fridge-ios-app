@@ -18,7 +18,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.fridgeCollectionView.delegate = self;
     self.fridgeCollectionView.dataSource =self;
     

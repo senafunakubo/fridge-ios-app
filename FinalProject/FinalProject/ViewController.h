@@ -17,5 +17,9 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
+//For database login
+@property FIRDatabaseReference *ref;
+@property NSString *loginId;
+
 @end
 

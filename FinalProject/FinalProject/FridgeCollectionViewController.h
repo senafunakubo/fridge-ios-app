@@ -16,6 +16,7 @@
 #import "ViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 @import FirebaseAuth;
+@import Firebase;
 
 #import "UIView+MGBadgeView.h"
 
@@ -34,6 +35,7 @@
 
 @property (strong,nonatomic) NSMutableArray<Product*>* productArray;
 @property (strong, nonatomic) IBOutlet UIView* modalBg;
+
 
 //for modal
 @property (strong, nonatomic) UIView *subView;
