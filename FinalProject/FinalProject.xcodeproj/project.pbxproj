@@ -124,10 +124,6 @@
 		41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		41A34DDC1E99D18E0059C342 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		41A34DDD1E99D18E0059C342 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
-		41ACCDC81EB414F100DE01D3 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
-		41ACCDC91EB414F100DE01D3 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
-		41ACCDCC1EB414F100DE01D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		41ACCDCE1EB414F100DE01D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41BB15251E9EE06C00ECCF9B /* UIView+MGBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGBadgeView.h"; sourceTree = "<group>"; };
 		41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGBadgeView.m"; sourceTree = "<group>"; };
 		41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewController.h; sourceTree = "<group>"; };
@@ -182,7 +178,6 @@
 				41D7B5A81EAAFD77009E62CD /* UIScrollViewBackground.m */,
 				1688614F1EA85492001B542F /* finalproject-2a4df-firebase-crashreporting-4k09n-48c6d94781.json */,
 				410AB6DC1E83C37E00E2563B /* FinalProject */,
-				41ACCDC71EB414F100DE01D3 /* ShareExtention */,
 				410AB6DB1E83C37E00E2563B /* Products */,
 				2A2A5B7ACBC1EE219BAE9630 /* Pods */,
 				43768FB27DF042FB0CE47CB2 /* Frameworks */,
@@ -332,17 +327,6 @@
 				41A34DB41E9628BC0059C342 /* HeaderCollectionReusableView.m */,
 			);
 			name = Header;
-			sourceTree = "<group>";
-		};
-		41ACCDC71EB414F100DE01D3 /* ShareExtention */ = {
-			isa = PBXGroup;
-			children = (
-				41ACCDC81EB414F100DE01D3 /* ActionViewController.h */,
-				41ACCDC91EB414F100DE01D3 /* ActionViewController.m */,
-				41ACCDCB1EB414F100DE01D3 /* MainInterface.storyboard */,
-				41ACCDCE1EB414F100DE01D3 /* Info.plist */,
-			);
-			path = ShareExtention;
 			sourceTree = "<group>";
 		};
 		41BB15281E9EE0E100ECCF9B /* BadgeView */ = {
@@ -552,14 +536,6 @@
 				410AB6EC1E83C37E00E2563B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		41ACCDCB1EB414F100DE01D3 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				41ACCDCC1EB414F100DE01D3 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
