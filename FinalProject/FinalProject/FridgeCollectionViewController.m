@@ -294,7 +294,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:self.modalBg];
     
     //initialize UIView
-    self.subView =[[UIView alloc] initWithFrame:CGRectMake(20,230,280,100)];
+    self.subView =[[UIView alloc] initWithFrame:CGRectMake(20,230,280,140)];
     self.subView.backgroundColor =  [UIColor colorWithWhite:1 alpha:1];
     
     
@@ -340,7 +340,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //cancel button
     UIButton* cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    cancelBtn.frame = CGRectMake(0,80,280,30);
+    cancelBtn.frame = CGRectMake(0,100,280,30);
     cancelBtn.layer.cornerRadius = 20;
     cancelBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [cancelBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:13]];
