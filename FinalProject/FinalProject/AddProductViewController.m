@@ -175,7 +175,7 @@
 {
     UIDatePicker *picker = (UIDatePicker*)self.addProductBestBeforeTextField.inputView;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    [dateFormat setDateFormat:@"dd-MM-yyyy"];
     self.addProductBestBeforeTextField.text = [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:picker.date]];
     [self.addProductBestBeforeTextField resignFirstResponder];
     
@@ -187,7 +187,7 @@
     [picker setMaximumDate:[NSDate dateWithTimeIntervalSinceNow:86400*730]];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     NSDate *eventDate = picker.date;
-    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    [dateFormat setDateFormat:@"dd-MM-yyyy"];
     
     NSString *dateString = [dateFormat stringFromDate:eventDate];
     self.addProductBestBeforeTextField.text = [NSString stringWithFormat:@"%@",dateString];

@@ -19,6 +19,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    self.currentDate = [self getCurrentDate];
     self.fridgeCollectionView.delegate = self;
     self.fridgeCollectionView.dataSource =self;
     
@@ -72,6 +73,8 @@ static NSString * const reuseIdentifier = @"Cell";
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
     
+    NSInteger difference = [self compairDate:product.productBestBefore];
+    
     //if product.productImageName is URL
     if ([product.productImageName containsString:@"https"])
     {
@@ -89,6 +92,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [foodImage.badgeView setPosition:MGBadgePositionBest];
     [foodImage.badgeView setBadgeColor:[UIColor blueColor]];
 
+    [foodImage.badgeView setBadgeValue:difference];
+    [foodImage.badgeView setOutlineWidth:0.0];
+    [foodImage.badgeView setPosition:MGBadgePositionBottomLeft];
+    [foodImage.badgeView setBadgeColor:[UIColor redColor]];
+    
     return cell;
 }
 
@@ -420,5 +428,43 @@ static NSString * const reuseIdentifier = @"Cell";
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(NSDate*)getCurrentDate
+{
+    NSDate* date = [NSDate date];
+    
+    NSTimeZone* worldTimeZone = [NSTimeZone timeZoneWithName:@"PST"];
+    
+    NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setTimeZone:worldTimeZone];
+    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *currentPSTDateString = [dateFormatter1 stringFromDate:date];
+    
+    //NSString to NSDate
+    NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateFormat:@"yyyy-MM-dd"];
+    //for timezone
+    [dateFormatter2 setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
+    NSDate *currentPSTDate = [dateFormatter2 dateFromString:currentPSTDateString];
+    
+    return currentPSTDate;
+}
+
+//How many days left from today until productBestBefore
+-(NSInteger)compairDate:(NSString*)date
+{
+    //productBestBefore String -> NSDate
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy"];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    NSDate *productBestBefore = [formatter dateFromString:date];
+
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay fromDate:self.currentDate toDate:productBestBefore options:0];
+    NSInteger difference = [components day];
+    
+    return difference;
+}
 
 @end

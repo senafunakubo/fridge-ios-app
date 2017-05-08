@@ -48,7 +48,6 @@
 @property (nonatomic)NSInteger amount;
 
 @property (nonatomic) int isEditProduct;
-
--(void)fridgeCVDidSelect;
+@property (strong, nonatomic) NSDate *currentDate;
 
 @end
