@@ -21,7 +21,8 @@
     // Do any additional setup after loading the view.
     
     self.isSwichToggled = NO;
-    
+
+    self.currentDate = [self getCurrentDate];
     
     self.addProductImageView.image = [UIImage imageNamed:@"noimage"];
     //when textfield is tapped datepicker show
@@ -191,6 +192,8 @@
     
     NSString *dateString = [dateFormat stringFromDate:eventDate];
     self.addProductBestBeforeTextField.text = [NSString stringWithFormat:@"%@",dateString];
+    
+    self.daysDifference.text = [NSString stringWithFormat:@"%ld", (long)[self compairDate:dateString]];
 }
 
 //take photo (only for Using a Physical Device with a camera)
@@ -259,6 +262,7 @@
     self.product.productPrice = self.addProductPriceTextField.text.floatValue;
     self.product.productAmount = self.addProductAmoutTextField.text.integerValue;
     self.product.productBestBefore = self.addProductBestBeforeTextField.text;
+        self.product.daysDifference = [self compairDate:self.product.productBestBefore];
     self.product.productSuperMarket = self.addProductSuperMarketTextField.text;
         
     if(!self.isSwichToggled)
@@ -412,6 +416,45 @@
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
     [self.view endEditing:YES];
+}
+
+-(NSDate*)getCurrentDate
+{
+    NSDate* date = [NSDate date];
+    
+    NSTimeZone* worldTimeZone = [NSTimeZone timeZoneWithName:@"PST"];
+    
+    NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setTimeZone:worldTimeZone];
+    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *currentPSTDateString = [dateFormatter1 stringFromDate:date];
+    
+    //NSString to NSDate
+    NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateFormat:@"yyyy-MM-dd"];
+    //for timezone
+    [dateFormatter2 setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
+    NSDate *currentPSTDate = [dateFormatter2 dateFromString:currentPSTDateString];
+    
+    return currentPSTDate;
+}
+
+//How many days left from today until productBestBefore
+-(NSInteger)compairDate:(NSString*)date
+{
+    //productBestBefore String -> NSDate
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy"];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    NSDate *productBestBefore = [formatter dateFromString:date];
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay fromDate:self.currentDate toDate:productBestBefore options:0];
+    NSInteger difference = [components day];
+    
+    return difference;
 }
 
 @end

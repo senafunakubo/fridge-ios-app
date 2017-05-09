@@ -48,6 +48,5 @@
 @property (nonatomic)NSInteger amount;
 
 @property (nonatomic) int isEditProduct;
-@property (strong, nonatomic) NSDate *currentDate;
 
 @end

@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *foodNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *foodImage;
+@property (weak, nonatomic) IBOutlet UILabel *foodDaysLabel;
 
 @end

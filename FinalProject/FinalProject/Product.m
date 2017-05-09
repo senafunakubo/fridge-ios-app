@@ -10,7 +10,7 @@
 
 @implementation Product
 
--(id)initWithProductName:(NSString *)productName productImageName:(NSString*)productImageName productType:(NSString*)productType productPrice:(float)productPrice productAmount:(NSInteger)productAmount ProductBestBefore:(NSDate *)productBestBefor  productSuperMaket:(NSString *)productSuperMarket isFavourite:(BOOL)isFavourite productMemo:(NSString *)productMemo
+-(id)initWithProductName:(NSString *)productName productImageName:(NSString*)productImageName productType:(NSString*)productType productPrice:(float)productPrice productAmount:(NSInteger)productAmount productBestBefore:(NSDate *)productBestBefor daysDifference:(NSUInteger)daysDifference productSuperMaket:(NSString *)productSuperMarket isFavourite:(BOOL)isFavourite productMemo:(NSString *)productMemo
 {
     self= [super init];
     if(self)
@@ -21,6 +21,7 @@
         self.productPrice = productPrice;
         self.productAmount = productAmount;
         self.productBestBefore = productBestBefor;
+        self.daysDifference = daysDifference;
         self.productSuperMarket = productSuperMarket;
         self.isFavourite = isFavourite;
         self.productName = productName;
