@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addProductNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addProductTypeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addProductBestBeforeTextField;
+@property (weak, nonatomic) IBOutlet UILabel *daysDifference;
 @property (weak, nonatomic) IBOutlet UITextField *addProductPriceTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addProductAmoutTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addProductSuperMarketTextField;
@@ -46,6 +47,7 @@
 
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
+@property (strong, nonatomic) NSDate *currentDate;
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
 

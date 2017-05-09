@@ -84,11 +84,15 @@ static NSString * const reuseIdentifier = @"Cell";
         foodImage.image = [UIImage imageNamed:product.productImageName];
     }
     
+    NSInteger daysDifference = product.daysDifference;
+    UILabel *daysLabel = (UILabel *)[cell viewWithTag:3];
+    daysLabel.text = [NSString stringWithFormat:@"%ddays", daysDifference];
+    
     [foodImage.badgeView setBadgeValue:product.productAmount];
     [foodImage.badgeView setOutlineWidth:0.0];
     [foodImage.badgeView setPosition:MGBadgePositionBest];
     [foodImage.badgeView setBadgeColor:[UIColor blueColor]];
-
+    
     return cell;
 }
 
@@ -419,6 +423,5 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
 
 @end

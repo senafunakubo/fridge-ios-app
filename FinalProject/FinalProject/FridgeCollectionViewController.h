@@ -49,6 +49,4 @@
 
 @property (nonatomic) int isEditProduct;
 
--(void)fridgeCVDidSelect;
-
 @end
