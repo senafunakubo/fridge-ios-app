@@ -11,12 +11,13 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) UIButton* addBasicRegisterButton;
+@property (strong, nonatomic) UIButton* addLoginRegisterButton;
 @property (strong, nonatomic) UITextField* nameTextField;
 @property (strong, nonatomic) UIView* nameSeparatorView;
 @property (strong, nonatomic) UITextField* emailTextField;
 @property (strong, nonatomic) UIView* emailSeparatorView;
 @property (strong, nonatomic) UITextField* passwordTextField;
+@property (strong, nonatomic) UISegmentedControl* loginRegisterSegmentedControl;
 
 @end
 
@@ -27,23 +28,28 @@
     self.view.backgroundColor = [UIColor colorWithRed:219/255.0 green:217/255.0 blue:219/255.0 alpha:1.0];
     
     /*
+     
      Basic Login
+     
      */
-    UIButton *button = [self addBasicRegisterButton];
-    UITextField *nameTextField = [self addNameTextField];
+
     UITextField *emailTextField = [self addEmailTextField];
     UITextField *passwordTextField = [self addPasswordTextField];
+    UIButton *button = [self addLoginRegisterButton];
+    UISegmentedControl *loginRegisterSeg = [self loginRegisterSegmentedControl];
     
     [self.view addSubview:button];
-    [self.view addSubview:nameTextField];
     [self.view addSubview:emailTextField];
     [self.view addSubview:passwordTextField];
+    [self.view addSubview:loginRegisterSeg];
     
     [self setupLoginRegisterButton];
     
     
     /*
+     
      Facebook
+     
      */
     
     // For putting Facebook login
@@ -67,7 +73,7 @@
              // Show the User the login button
              //// About where to put the button
              loginButton.backgroundColor = [UIColor darkGrayColor];
-             loginButton.frame = CGRectMake(16,145,self.view.frame.size.width-32,50);
+             loginButton.frame = CGRectMake(16,445,self.view.frame.size.width-32,50);
              
              [loginButton setTitle: @"Facebook Login Button" forState: UIControlStateNormal];
              loginButton.delegate = self;
@@ -77,28 +83,63 @@
              loginButton.hidden = false;
          }
      }];//The end of FIRAuth auth
+
     
 }//The end of viewDidLoad
 
 
 
-
--(UIButton *)addBasicRegisterButton
+//SegmentedControl
+-(UISegmentedControl *)loginRegisterSegmentedControl
 {
-    if(!_addBasicRegisterButton)
+    
+    if(!_loginRegisterSegmentedControl){
+        _loginRegisterSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Login",@"Register"]];
+        _loginRegisterSegmentedControl.tintColor = [UIColor colorWithRed:7/255.0 green:160/255.0 blue:195/255.0 alpha:1.0];
+        _loginRegisterSegmentedControl.backgroundColor = [UIColor colorWithRed:219/255.0 green:217/255.0 blue:219/255.0 alpha:1.0];
+        _loginRegisterSegmentedControl.frame = CGRectMake(23,130,self.view.frame.size.width-50,30);
+       [_loginRegisterSegmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
+        _loginRegisterSegmentedControl.translatesAutoresizingMaskIntoConstraints = true;
+        _loginRegisterSegmentedControl.selectedSegmentIndex = 0;
+    }
+    return _loginRegisterSegmentedControl;
+}
+
+- (void)segmentAction:(UISegmentedControl *)segment
+{
+    switch (segment.selectedSegmentIndex) {
+        case 0:
+        // login
+            [_addLoginRegisterButton setTitle:@"Login" forState:normal];
+            [_nameTextField removeFromSuperview];
+            break;
+        case 1:
+        // register
+            [_addLoginRegisterButton setTitle:@"Register" forState:normal];
+            UITextField *nameTextField = [self addNameTextField];
+            [self.view addSubview:nameTextField];
+            break;
+    }
+}
+
+
+
+-(UIButton *)addLoginRegisterButton
+{
+    if(!_addLoginRegisterButton)
     {
-        _addBasicRegisterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _addBasicRegisterButton.tintColor = [UIColor whiteColor];
-        _addBasicRegisterButton.backgroundColor = [UIColor colorWithRed:7/255.0 green:160/255.0 blue:195/255.0 alpha:1.0];
-        _addBasicRegisterButton.frame = CGRectMake(0,0,280,45);
-        _addBasicRegisterButton.translatesAutoresizingMaskIntoConstraints = false;
+        _addLoginRegisterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _addLoginRegisterButton.tintColor = [UIColor whiteColor];
+        _addLoginRegisterButton.backgroundColor = [UIColor colorWithRed:7/255.0 green:160/255.0 blue:195/255.0 alpha:1.0];
+        _addLoginRegisterButton.frame = CGRectMake(0,0,280,45);
+        _addLoginRegisterButton.translatesAutoresizingMaskIntoConstraints = false;
     }
     
-    [_addBasicRegisterButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_addBasicRegisterButton setTitle:@"Register" forState:UIControlStateNormal];
-    [_addBasicRegisterButton setExclusiveTouch:YES];
+    [_addLoginRegisterButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_addLoginRegisterButton setTitle:@"Login" forState:UIControlStateNormal];
+    [_addLoginRegisterButton setExclusiveTouch:YES];
     
-    return _addBasicRegisterButton;
+    return _addLoginRegisterButton;
 }
 
 
@@ -106,9 +147,8 @@
 {
     if(!_nameTextField)
     {
-        _nameTextField = [[UITextField alloc]initWithFrame:CGRectMake(16, 246, self.view.frame.size.width-32, 40)];
+        _nameTextField = [[UITextField alloc]initWithFrame:CGRectMake(16, 186, self.view.frame.size.width-32, 40)];
         _nameTextField.placeholder = @"Name";
-        _addBasicRegisterButton.tintColor = [UIColor whiteColor];
         _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
         _nameTextField.font = [UIFont systemFontOfSize:15];
         _nameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -127,7 +167,7 @@
 {
     if(!_emailTextField)
     {
-        _emailTextField = [[UITextField alloc]initWithFrame:CGRectMake(16, 286, self.view.frame.size.width-32, 40)];
+        _emailTextField = [[UITextField alloc]initWithFrame:CGRectMake(16, 226, self.view.frame.size.width-32, 40)];
         _emailTextField.placeholder = @"Email address";
         _emailTextField.translatesAutoresizingMaskIntoConstraints = true;
         _emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -146,7 +186,7 @@
 {
     if(!_passwordTextField)
     {
-        _passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(16, 326, self.view.frame.size.width-32, 40)];
+        _passwordTextField = [[UITextField alloc]initWithFrame:CGRectMake(16, 266, self.view.frame.size.width-32, 40)];
         _passwordTextField.placeholder = @"Password";
         _passwordTextField.translatesAutoresizingMaskIntoConstraints = true;
         _passwordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -168,10 +208,10 @@
 -(void)setupLoginRegisterButton
 {
     // need to declare x,y,width,height
-    [self.addBasicRegisterButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = true;
-    [self.addBasicRegisterButton.topAnchor constraintEqualToAnchor:self.passwordTextField.bottomAnchor constant:12].active = true;
-    [self.addBasicRegisterButton.widthAnchor constraintEqualToAnchor:self.passwordTextField.widthAnchor].active = true;
-    [self.addBasicRegisterButton.heightAnchor constraintEqualToConstant:40].active = true;
+    [self.addLoginRegisterButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = true;
+    [self.addLoginRegisterButton.topAnchor constraintEqualToAnchor:self.passwordTextField.bottomAnchor constant:25].active = true;
+    [self.addLoginRegisterButton.widthAnchor constraintEqualToAnchor:self.passwordTextField.widthAnchor].active = true;
+    [self.addLoginRegisterButton.heightAnchor constraintEqualToConstant:40].active = true;
 }
 
 
@@ -190,7 +230,7 @@
                  NSLog(@"you clicked on button!");
                     self.loginId = self.nameTextField.text;
                     self.ref = [[FIRDatabase database]referenceFromURL:[NSString stringWithFormat:@"https://finalproject-2a4df.firebaseio.com/"]];
-                    [self saveData:self.loginId email:self.emailTextField.text];
+                    [self saveData:self.loginId email:self.emailTextField.text pass:self.passwordTextField.text];
                     {
                         if(error!=nil)
                         {
@@ -209,12 +249,12 @@
 }
 
 
-- (void)saveData:(NSString *)userName email:(NSString *)email
+- (void)saveData:(NSString *)userName email:(NSString *)email pass:(NSString *)pass
 {
-    NSString *key = self.loginId;
-    NSDictionary *post = @{@"name": userName,@"email": email};
-    NSDictionary *childUpdate = @{[NSString stringWithFormat:@"/user/%@", key]: post};
-    [_ref updateChildValues:childUpdate];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSDictionary *post = @{@"uid": userID, @"author": userName, @"email": email, @"password": pass};
+    NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@", userID]: post};
+    [_ref updateChildValues:childUpdates];
 }
 
 
