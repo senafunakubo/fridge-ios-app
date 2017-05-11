@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RecipeWebView.h"
-
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 @protocol RecipeWebViewDelegate
 
 -(NSString*)url;

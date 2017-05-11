@@ -24,6 +24,13 @@
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.recipeWebView loadRequest:urlRequest];
     
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL
+                          URLWithString:urlString];
+    FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] initWithFrame:CGRectMake(270, 25, 0, 0)];
+    shareButton.shareContent = content;
+    [self.navigationController.navigationBar addSubview:shareButton];
+    
 }
 
 - (void)didReceiveMemoryWarning {
