@@ -686,7 +686,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igv-V3-Y2h" id="dew-x0-Bd6">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="106.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="106.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHp-9X-HfW">

@@ -27,6 +27,9 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *favouriteCollectionView;
 @property (weak, nonatomic) IBOutlet UITableView *favouriteTableView;
+@property (nonatomic) int clickedIndex;
+@property (nonatomic) int isEditFavouriteProduct;
+
 - (IBAction)Swich:(id)sender;
 
 @property(weak,nonatomic)id<FavouriteVCDelegate> fridgeVCDelegate;
