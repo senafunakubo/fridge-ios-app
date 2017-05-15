@@ -98,7 +98,9 @@
     [super viewWillAppear:animated];
     
     int isEditProduct = [self.addProductDelegate isEditProducts];
+
     self.product = [[Product alloc]init];
+
     if(isEditProduct == 1)
     {
         self.product = [self.addProductDelegate getEditProduct];

@@ -60,14 +60,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.productArray.count;
+    return ((MyTabBarViewController*)(self.tabBarController)).productArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FridgeCollectionViewCell" forIndexPath:indexPath];
 
-    Product * product = [self.productArray objectAtIndex:indexPath.row];
+    Product * product = [((MyTabBarViewController*)(self.tabBarController)).productArray objectAtIndex:indexPath.row];
+    
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     nameLabel.text = product.productName;
     UIImageView * foodImage = (UIImageView *)[cell viewWithTag:2];
@@ -137,25 +138,21 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)productDidCreate:(Product *)product
 {
-//    self.productArray = [self.fridgeInCV addFridge:product];
-//    [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
-    
     if(self.isEditProduct == 0)//if it is new data
     {
-        self.productArray = [self.fridgeInCV addFridge:product];
-        [((MyTabBarViewController*)(self.tabBarController)) addFood:self.productArray];
+        [self.fridgeInCV addFridge:product];
+        [((MyTabBarViewController*)(self.tabBarController)) addFood:product];
     }
     else//if it is value changing
     {
-        [self.productArray replaceObjectAtIndex:self.clickedIndex withObject:product];
-        //self.clickedIndex = 0;
+        [((MyTabBarViewController*)(self.tabBarController)).productArray replaceObjectAtIndex:self.clickedIndex withObject:product];
     }
 }
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell cliced");
-    Product * product = [self.productArray objectAtIndex:indexPath.row];
+    Product * product = [((MyTabBarViewController*)(self.tabBarController)).productArray objectAtIndex:indexPath.row];
     self.amount = product.productAmount;
     self.clickedIndex = indexPath.row;
     [self modalOpen];
@@ -293,13 +290,13 @@ static NSString * const reuseIdentifier = @"Cell";
          }
      }];
     
-    Product * product = [self.productArray objectAtIndex:self.clickedIndex];
+    Product * product = [((MyTabBarViewController*)(self.tabBarController)).productArray objectAtIndex:self.clickedIndex];
     product.productAmount = count;
     self.amount = count;
 
     if(product.productAmount == 0)
     {
-        [self.productArray removeObjectAtIndex:self.clickedIndex];
+        [((MyTabBarViewController*)(self.tabBarController)).productArray removeObjectAtIndex:self.clickedIndex];
     }
     [self.fridgeCollectionView reloadData];
     self.clickedIndex = 0;
@@ -379,7 +376,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)deleteProduct:(id)sender {
 
     //delete object form the array
-    [self.productArray removeObjectAtIndex:self.clickedIndex];
+    [((MyTabBarViewController*)(self.tabBarController)).productArray removeObjectAtIndex:self.clickedIndex];
 
     [self.fridgeCollectionView reloadData];
     self.clickedIndex = 0;
@@ -403,7 +400,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.isEditProduct = 1;
     [self.modalBg removeFromSuperview];
     [self.navigationController pushViewController:viewController animated:YES];
-//    self.isEditProduct = 0;
+
 }
 
 
@@ -413,10 +410,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(Product*)getEditProduct
 {
-        if(!(self.productArray.count == 0))
+        if(!(((MyTabBarViewController*)(self.tabBarController)).productArray.count == 0))
         {
-            self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
-            Product * product = [self.productArray objectAtIndex:self.clickedIndex];
+//            self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+            Product * product = [((MyTabBarViewController*)(self.tabBarController)).productArray objectAtIndex:self.clickedIndex];
             return product;
         }
         else

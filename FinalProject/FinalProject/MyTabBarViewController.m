@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.delegate = self;
     self.productArray = [[NSMutableArray<Product*> alloc]init];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,9 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)addFood:(NSMutableArray<Product*>*)productArray
+-(void)addFood:(Product *)product
 {
-    self.productArray = productArray;
+    [self.productArray addObject:product];
+//    ((MyTabBarViewController*)(self.tabBarController)).productArray = productArray;
 }
 
 @end

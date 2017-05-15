@@ -41,11 +41,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
-    if(!(self.lastNumberOfproductArray == self.productArray.count))
+//    self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
+    if(!(self.lastNumberOfproductArray == ((MyTabBarViewController*)(self.tabBarController)).productArray.count))
     {
-        [self addFavouriteArray:self.productArray];
-        self.lastNumberOfproductArray = self.productArray.count;
+        [self addFavouriteArray:((MyTabBarViewController*)(self.tabBarController)).productArray];
+        self.lastNumberOfproductArray = ((MyTabBarViewController*)(self.tabBarController)).productArray.count;
     }
     [self.favouriteCollectionView reloadData];
     [self.favouriteTableView reloadData];
@@ -89,7 +89,20 @@
 
 //TODO
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cell cliced");
+    NSLog(@"cell clicked");
+    self.clickedIndex = indexPath.row;
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    AddProductViewController* viewController= (AddProductViewController*)[storyboard instantiateViewControllerWithIdentifier:@"addProductViewID"];
+    
+    viewController.addProductDelegate = self;
+    
+    
+    
+//    self.isEditProduct = 1;
+//    [self.modalBg removeFromSuperview];
+    [self.navigationController pushViewController:viewController animated:YES];
+
     
 }
 
@@ -181,19 +194,49 @@
 
 -(void)addFavouriteArray:(NSMutableArray<Product*>*)productArray
 {
-    [self.productArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+    [((MyTabBarViewController*)(self.tabBarController)).productArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
     {
-        Product * product = [self.productArray objectAtIndex:idx + self.lastNumberOfproductArray];
+        Product * product = [((MyTabBarViewController*)(self.tabBarController)).productArray objectAtIndex:idx + self.lastNumberOfproductArray];
 
         if(product.isFavourite == YES)
         {
             [self.favouriteArray addObject:product];
         }
-        if (idx + self.lastNumberOfproductArray == self.productArray.count - 1) {
+        if (idx + self.lastNumberOfproductArray == ((MyTabBarViewController*)(self.tabBarController)).productArray.count - 1) {
             // *stop=YES break
             *stop = YES;
         }
     }];
 }
 
+//delegate from addProductViewController
+-(int)isEditProducts
+{
+    self.isEditFavouriteProduct = 1;
+    return self.isEditFavouriteProduct;
+}
+-(Product*)getEditProduct
+{
+    Product* product = [self.favouriteArray objectAtIndex:self.clickedIndex];
+    Product* productNew = [[Product alloc ]init];
+    productNew.productName = product.productName;
+    productNew.productImageName = product.productImageName;
+    productNew.productType = product.productType;
+    productNew.productPrice = product.productPrice;
+    productNew.productAmount = product.productAmount;
+    productNew.productBestBefore = product.productBestBefore;
+    productNew.productMemo = product.productMemo;
+    
+    return productNew;
+}
+-(void)productDidCreate:(Product *)product
+{
+    self.productArray = [self.fridgeInCV addFridge:product];//necessary?
+    [((MyTabBarViewController*)(self.tabBarController)) addFood:product];
+
+}
+-(void)isDoneEditProducts
+{
+    self.isEditFavouriteProduct = 0;
+}
 @end
