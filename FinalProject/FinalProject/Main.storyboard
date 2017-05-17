@@ -75,21 +75,10 @@
                     <view key="view" contentMode="scaleToFill" id="fVH-3B-qGb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0gH-hn-cDu">
-                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="0gH-hn-cDu" firstAttribute="centerX" secondItem="fVH-3B-qGb" secondAttribute="centerX" id="bxS-oQ-dws"/>
-                            <constraint firstItem="0gH-hn-cDu" firstAttribute="centerY" secondItem="fVH-3B-qGb" secondAttribute="centerY" id="ugP-oI-q3L"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A3k-oY-RkU"/>
                     <connections>
-                        <outlet property="loadingSpinner" destination="0gH-hn-cDu" id="zO0-Wt-LQg"/>
                         <segue destination="Jf9-xe-ifi" kind="modal" id="TzZ-SL-WWK"/>
                     </connections>
                 </viewController>
@@ -686,7 +675,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igv-V3-Y2h" id="dew-x0-Bd6">
-                                    <rect key="frame" x="0.0" y="0.0" width="286" height="106.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="106.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHp-9X-HfW">
@@ -773,7 +762,7 @@
         <scene sceneID="UFk-gu-jqy">
             <objects>
                 <collectionViewController id="fkO-8s-j2I" customClass="FridgeCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zBu-fn-uK9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="zBu-fn-uK9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
