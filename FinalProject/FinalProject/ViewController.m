@@ -225,7 +225,7 @@
     }
 }
 
-//something wrong//
+
 -(void)handleLogin:(UIButton*)sender{
     [[FIRAuth auth]signInWithEmail:self.emailTextField.text password:self.passwordTextField.text completion:^(FIRUser* user, NSError* error)
      {
