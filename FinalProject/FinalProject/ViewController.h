@@ -15,7 +15,6 @@
 
 @interface ViewController : UIViewController<UITextFieldDelegate,FBSDKLoginButtonDelegate>
 
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 //For database login
 @property FIRDatabaseReference *ref;

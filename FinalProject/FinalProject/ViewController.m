@@ -18,6 +18,7 @@
 @property (strong, nonatomic) UIView* emailSeparatorView;
 @property (strong, nonatomic) UITextField* passwordTextField;
 @property (strong, nonatomic) UISegmentedControl* loginRegisterSegmentedControl;
+//@property (strong, nonatomic) UIActivityIndicatorView* indicator;
 
 @end
 
@@ -26,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:219/255.0 green:217/255.0 blue:219/255.0 alpha:1.0];
+    
+//// If I have time, I'll set it.
+//    UIActivityIndicatorView  *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    indicator.frame = CGRectMake(100.0, 100.0, 50.0, 50.0);
+//    [self.view addSubview:indicator];
     
     /*
      
@@ -65,8 +71,9 @@
              // Move the User to the home screen
              UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
              UIViewController *homeView = [storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+//             [indicator startAnimating];
              [self presentViewController:homeView animated:YES completion:NULL];
-             [self.loadingSpinner stopAnimating];
+
          }
          else
          {
@@ -298,20 +305,17 @@
 {
     
     loginButton.hidden = true;
-    [self.loadingSpinner startAnimating];
     
     if(error!=nil)
     {
         //handle errors here
         loginButton.hidden = false;
-        [self.loadingSpinner stopAnimating];
         NSLog(@"Login Error");
     }
     else if(result.isCancelled)
     {
         //if User click the cancel button while they try to login
         loginButton.hidden = false;
-        [self.loadingSpinner stopAnimating];
     }
     else
     {
