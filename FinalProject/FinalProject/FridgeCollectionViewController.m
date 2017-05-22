@@ -41,6 +41,17 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.leftBarButtonItem = btnLogout;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.34 green:0.66 blue:0.84 alpha:1.0];
     
+    //user is not logged in
+    if([FIRAuth auth].currentUser.uid ==nil)
+    {
+        NSError *signOutError;
+        [[FIRAuth auth] signOut:&signOutError];
+    }
+    else //user is logged in
+    {
+        NSLog(@"For logged out you need to click the button.");
+    }
+    
 }
 
 
@@ -425,7 +436,8 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     self.isEditProduct = 0;
 }
-//(facebook)After clicking the logout button, the user will go back to login view.
+
+//After clicking the logout button, the user will go back to login or register view.
 -(void)btnOnClick:(id)sender
 {
     //signs the user out of Firebase App
