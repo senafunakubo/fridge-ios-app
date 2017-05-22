@@ -162,7 +162,7 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     if([[segue identifier] isEqualToString:@"addProductViewSegue"])
     {
-        ((AddProductViewController*)segue.destinationViewController).addProductDelegate = self;
+        ((AddProductTableViewController*)segue.destinationViewController).addProductTVDelegate = self;
     }
 }
 

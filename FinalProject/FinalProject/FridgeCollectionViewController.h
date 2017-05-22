@@ -10,7 +10,7 @@
 #import "FridgeCollectionViewCell.h"
 #import "Product.h"
 #import "HeaderCollectionReusableView.h"
-#import "AddProductViewController.h"
+#import "AddProductTableViewController.h"
 #import "Fridge.h"
 #import "MyTabBarViewController.h"
 #import "ViewController.h"
@@ -26,7 +26,7 @@
 
 @end
 
-@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductDelegate,UIGestureRecognizerDelegate>
+@interface FridgeCollectionViewController : UICollectionViewController<UICollectionViewDelegate,UICollectionViewDataSource,AddProductTVDelegate,UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *fridgeCollectionView;
 

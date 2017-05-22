@@ -22,6 +22,8 @@
 		41196C8A1E89C15F0085A638 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C891E89C15F0085A638 /* Product.m */; };
 		41196C8E1E89C3D10085A638 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C8D1E89C3D10085A638 /* Food.m */; };
 		41196C911E89C3DB0085A638 /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 41196C901E89C3DB0085A638 /* Drink.m */; };
+		412A4EEF1ED0178900A9A08E /* BestBeforeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412A4EEE1ED0178900A9A08E /* BestBeforeViewController.m */; };
+		412A4EF21ED01AB000A9A08E /* FoodTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412A4EF11ED01AB000A9A08E /* FoodTypeViewController.m */; };
 		41904D471EA05435004750A2 /* FavouriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D461EA05435004750A2 /* FavouriteTableViewCell.m */; };
 		41904D4A1EA05467004750A2 /* FavouriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D491EA05467004750A2 /* FavouriteCollectionViewCell.m */; };
 		41904D731EA41748004750A2 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41904D721EA41748004750A2 /* RecipesTableViewController.m */; };
@@ -43,6 +45,8 @@
 		41BB15271E9EE06C00ECCF9B /* UIView+MGBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB15261E9EE06C00ECCF9B /* UIView+MGBadgeView.m */; };
 		41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */; };
 		41BB152E1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */; };
+		41BCEF421EC973F70068C7F0 /* AddProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BCEF411EC973F70068C7F0 /* AddProductTableViewController.m */; };
+		41BCEF451EC975540068C7F0 /* AddProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BCEF441EC975540068C7F0 /* AddProductTableViewCell.m */; };
 		41D7B5A91EAAFD77009E62CD /* UIScrollViewBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D7B5A81EAAFD77009E62CD /* UIScrollViewBackground.m */; };
 		68D0B1891BC52DD4536339EF /* libPods-FinalProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3448929A0C350CD07A1E4B /* libPods-FinalProject.a */; };
 /* End PBXBuildFile section */
@@ -89,6 +93,10 @@
 		41196C8D1E89C3D10085A638 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		41196C8F1E89C3DB0085A638 /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drink.h; sourceTree = "<group>"; };
 		41196C901E89C3DB0085A638 /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drink.m; sourceTree = "<group>"; };
+		412A4EED1ED0178900A9A08E /* BestBeforeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestBeforeViewController.h; sourceTree = "<group>"; };
+		412A4EEE1ED0178900A9A08E /* BestBeforeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestBeforeViewController.m; sourceTree = "<group>"; };
+		412A4EF01ED01AB000A9A08E /* FoodTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTypeViewController.h; sourceTree = "<group>"; };
+		412A4EF11ED01AB000A9A08E /* FoodTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTypeViewController.m; sourceTree = "<group>"; };
 		41904D451EA05435004750A2 /* FavouriteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteTableViewCell.h; sourceTree = "<group>"; };
 		41904D461EA05435004750A2 /* FavouriteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteTableViewCell.m; sourceTree = "<group>"; };
 		41904D481EA05467004750A2 /* FavouriteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteCollectionViewCell.h; sourceTree = "<group>"; };
@@ -130,6 +138,10 @@
 		41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewController.m; sourceTree = "<group>"; };
 		41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFoodImageTableViewCell.h; sourceTree = "<group>"; };
 		41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFoodImageTableViewCell.m; sourceTree = "<group>"; };
+		41BCEF401EC973F70068C7F0 /* AddProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductTableViewController.h; sourceTree = "<group>"; };
+		41BCEF411EC973F70068C7F0 /* AddProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductTableViewController.m; sourceTree = "<group>"; };
+		41BCEF431EC975540068C7F0 /* AddProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductTableViewCell.h; sourceTree = "<group>"; };
+		41BCEF441EC975540068C7F0 /* AddProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductTableViewCell.m; sourceTree = "<group>"; };
 		41D7B5A71EAAFD77009E62CD /* UIScrollViewBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewBackground.h; sourceTree = "<group>"; };
 		41D7B5A81EAAFD77009E62CD /* UIScrollViewBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewBackground.m; sourceTree = "<group>"; };
 		DE3448929A0C350CD07A1E4B /* libPods-FinalProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinalProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +314,14 @@
 				41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */,
 				41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */,
 				41BB152D1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.m */,
+				41BCEF401EC973F70068C7F0 /* AddProductTableViewController.h */,
+				41BCEF411EC973F70068C7F0 /* AddProductTableViewController.m */,
+				41BCEF431EC975540068C7F0 /* AddProductTableViewCell.h */,
+				41BCEF441EC975540068C7F0 /* AddProductTableViewCell.m */,
+				412A4EED1ED0178900A9A08E /* BestBeforeViewController.h */,
+				412A4EEE1ED0178900A9A08E /* BestBeforeViewController.m */,
+				412A4EF01ED01AB000A9A08E /* FoodTypeViewController.h */,
+				412A4EF11ED01AB000A9A08E /* FoodTypeViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -495,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A34DB51E9628BC0059C342 /* HeaderCollectionReusableView.m in Sources */,
+				41BCEF451EC975540068C7F0 /* AddProductTableViewCell.m in Sources */,
 				41A34DDE1E99D18E0059C342 /* FavouriteViewController.m in Sources */,
 				41904D731EA41748004750A2 /* RecipesTableViewController.m in Sources */,
 				41A34D9A1E8A0C670059C342 /* FridgeItemsTableViewCell.m in Sources */,
@@ -511,11 +532,13 @@
 				41196C8E1E89C3D10085A638 /* Food.m in Sources */,
 				41A34DA31E8A119A0059C342 /* MyTabBarViewController.m in Sources */,
 				41A34D9D1E8A0C8D0059C342 /* FridgeItemsTableViewController.m in Sources */,
+				41BCEF421EC973F70068C7F0 /* AddProductTableViewController.m in Sources */,
 				41A34DB11E9239CB0059C342 /* HeaderView.m in Sources */,
 				167A60191E9C169800202FAA /* ShoppingListViewController.m in Sources */,
 				167A60231E9C7BB400202FAA /* addShoppingListViewController.m in Sources */,
 				41904D761EA51ADC004750A2 /* Recipe.m in Sources */,
 				41BB152B1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m in Sources */,
+				412A4EF21ED01AB000A9A08E /* FoodTypeViewController.m in Sources */,
 				41196C911E89C3DB0085A638 /* Drink.m in Sources */,
 				410AB6E51E83C37E00E2563B /* ViewController.m in Sources */,
 				41904D801EA5C38D004750A2 /* RecipeWebViewController.m in Sources */,
@@ -523,6 +546,7 @@
 				410AB6E21E83C37E00E2563B /* AppDelegate.m in Sources */,
 				41A34DA01E8A0F1D0059C342 /* AddProductViewController.m in Sources */,
 				410AB6DF1E83C37E00E2563B /* main.m in Sources */,
+				412A4EEF1ED0178900A9A08E /* BestBeforeViewController.m in Sources */,
 				41904D471EA05435004750A2 /* FavouriteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,4 +1,4 @@
-//
+
 //  AddFoodViewController.m
 //  FinalProject
 //
@@ -177,9 +177,12 @@
 -(void)showSelectedDate
 {
     UIDatePicker *picker = (UIDatePicker*)self.addProductBestBeforeTextField.inputView;
+    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd-MM-yyyy"];
+    
     self.addProductBestBeforeTextField.text = [NSString stringWithFormat:@"%@",[dateFormat stringFromDate:picker.date]];
+    
     [self.addProductBestBeforeTextField resignFirstResponder];
     
 }
@@ -361,7 +364,7 @@
 }
 
 //imageAPI
-- (NSString*)parseXML:productNameStr
+- (NSString*)parseXML:(NSString*)productNameStr
 {
     //NSXMLPerser inisialize
     NSString *url = [NSString stringWithFormat:@"https://api.icons8.com/api/iconsets/search?amount=1&term="];
