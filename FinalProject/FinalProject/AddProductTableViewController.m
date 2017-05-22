@@ -37,21 +37,8 @@
     [datePicker setDate:[NSDate date]];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
-    //    [self.addProductBestBeforeTextField setInputView:datePicker];
+
     
-    //Done button of picker
-    //    UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    //    [toolbar setTintColor:[UIColor grayColor]];
-    //    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(showSelectedDate)];
-    //    UIBarButtonItem *space = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    //    [toolbar setItems:[NSArray arrayWithObjects:space,doneButton,nil]];
-    //    [self.addProductBestBeforeTextField setInputAccessoryView:toolbar];
-    
-    
-    
-    
-    
-    self.view.backgroundColor = [UIColor clearColor];
     //for take photo
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -226,25 +213,25 @@
 }
 
 
-////take photo (only for Using a Physical Device with a camera)
-//- (IBAction)takePhoto:(id)sender {
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.allowsEditing = YES;
-//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//
-//    [self presentViewController:picker animated:YES completion:NULL];
-//}
-//
-//- (IBAction)selectPhoto:(id)sender {
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.allowsEditing = YES;
-//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//
-//    [self presentViewController:picker animated:YES completion:NULL];
-//}
-//
+//take photo (only for Using a Physical Device with a camera)
+- (IBAction)takePhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)selectPhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
 - (IBAction)getImage:(id)sender {
     
     NSString * imageUrlStr = [self parseXML:self.cellTextFieldArray[1].text];
