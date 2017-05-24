@@ -216,6 +216,11 @@
 {
     self.dateFromPicker = date;
 }
+-(NSDate*)getSelectedDate
+{
+    NSDate * date = self.dateFromPicker;
+    return date;
+}
 -(void)typeSelected:(NSString *)type
 {
     self.typeFromPicker = type;

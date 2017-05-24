@@ -41,7 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
 @property (strong, nonatomic) NSDate *currentDate;
-@property (strong, nonatomic) NSDate *dateFromPicker;
+@property (strong,nonatomic) NSDate *dateFromPicker;
 @property (strong, nonatomic) NSDateFormatter *dateformatter;
 
 @property (strong,nonatomic) NSString* typeFromPicker;

@@ -10,14 +10,13 @@
 
 @protocol BestBeforeViewDelegate
 -(void)dateSelected:(NSDate*)date;
+-(NSDate*)getSelectedDate;
 @end
 
 @interface BestBeforeViewController : UIViewController
 @property (weak,nonatomic) id<BestBeforeViewDelegate>bestBeforeViewDelegate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *BestBeforeDatePicker;
-//@property (strong,nonatomic) UIDatePicker* datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-//- (IBAction)DateChanged:(id)sender;
--(NSDate*)getDateWithTimeZone:(NSString*)date;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
