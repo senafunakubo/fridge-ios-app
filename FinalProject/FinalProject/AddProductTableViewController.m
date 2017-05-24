@@ -69,6 +69,14 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    int isEditProduct = [self.addProductTVDelegate isEditProducts];
+    if(isEditProduct == 1)
+    {
+        self.product = [self.addProductTVDelegate getEditProduct];
+        self.foodImage = self.product.productImageName;
+        self.dateFromPicker = self.product.productBestBefore;
+        self.typeFromPicker = self.product.productType;
+    }
     [self.addProductTableView reloadData];
 }
 
@@ -94,6 +102,7 @@
     if(indexPath.section == 0)
     {
         AddProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"addProductImageTV"];
+        
         if(!cell)
         {
             cell = [[AddProductTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addProductImageTV"];

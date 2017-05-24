@@ -201,7 +201,7 @@
         <!--Add Product Table View Controller-->
         <scene sceneID="H6C-KP-qI5">
             <objects>
-                <tableViewController id="WyU-YO-epL" customClass="AddProductTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="addProductTViewID" id="WyU-YO-epL" customClass="AddProductTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CQu-3p-S7s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1090,7 +1090,7 @@
         <scene sceneID="UFk-gu-jqy">
             <objects>
                 <collectionViewController id="fkO-8s-j2I" customClass="FridgeCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="zBu-fn-uK9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zBu-fn-uK9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
