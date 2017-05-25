@@ -57,6 +57,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.isEditProduct = 0;
     [self.fridgeCollectionView reloadData];
 }
 
@@ -403,10 +404,11 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)openAddProduct:(id)sender
 {
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    AddProductTableViewController* viewController= (AddProductTableViewController*)[storyboard instantiateViewControllerWithIdentifier:@"addProductTViewID"];
     
-    AddProductViewController* viewController= (AddProductViewController*)[storyboard instantiateViewControllerWithIdentifier:@"addProductViewID"];
     
-    viewController.addProductDelegate = self;
+    viewController.addProductTVDelegate = self;
     
     self.isEditProduct = 1;
     [self.modalBg removeFromSuperview];
