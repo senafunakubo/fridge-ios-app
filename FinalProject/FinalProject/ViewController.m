@@ -238,6 +238,12 @@
      {
          if (error)
          {
+             UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Username or Password is invalid."  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                 [self dismissViewControllerAnimated:YES completion:nil];
+             }]];
+             [self presentViewController:alertController animated:YES completion:nil];
+             
              NSLog(@"login error!");
              return;
          }
@@ -258,6 +264,12 @@
         {
             if (error)
             {
+                UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"You missed typing somewhere."  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }]];
+                [self presentViewController:alertController animated:YES completion:nil];
+                
                 NSLog(@"error");
                 return;
             }
