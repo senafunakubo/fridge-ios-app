@@ -92,6 +92,10 @@ static NSString * const reuseIdentifier = @"Cell";
         NSData *data = [NSData dataWithContentsOfURL:url];
         foodImage.image = [UIImage imageWithData:data];
     }
+    else if (product.productImage != nil)
+    {
+        foodImage.image = product.productImage;
+    }
     else
     {
         foodImage.image = [UIImage imageNamed:product.productImageName];

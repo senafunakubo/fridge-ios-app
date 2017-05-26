@@ -27,6 +27,8 @@
     self.productArray = ((MyTabBarViewController*)(self.tabBarController)).productArray;
     //self.foodImageArray = [[NSMutableArray alloc]init];
     
+    self.navigationItem.title = @"Favourire List";
+    
     NSMutableArray<Product*>* fridgeItemsArray = [[NSMutableArray alloc]init];
     self.fridgeInCV = [[Fridge alloc]initWithFridgeItemsArray:fridgeItemsArray];
     
@@ -80,6 +82,10 @@
         NSData *data = [NSData dataWithContentsOfURL:url];
         foodImage.image = [UIImage imageWithData:data];
     }
+    else if (product.productImage != nil)
+    {
+        foodImage.image = product.productImage;
+    }
     else
     {
         foodImage.image = [UIImage imageNamed:product.productImageName];
@@ -132,6 +138,10 @@
         NSURL *url = [NSURL URLWithString:product.productImageName];
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.foodImage.image = [UIImage imageWithData:data];
+    }
+    else if (product.productImage != nil)
+    {
+        cell.foodImage.image = product.productImage;
     }
     else
     {

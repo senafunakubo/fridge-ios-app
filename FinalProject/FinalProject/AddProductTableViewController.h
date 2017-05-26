@@ -38,7 +38,7 @@
 //for keyboard
 @property (nonatomic) UITapGestureRecognizer *tapRecognizer;
 
-@property (weak, nonatomic) IBOutlet UIStepper *stepper;
+//@property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
 @property (strong, nonatomic) NSDate *currentDate;
 @property (strong, nonatomic) NSString *currentDateString;
@@ -47,6 +47,9 @@
 
 @property (strong,nonatomic) NSString* typeFromPicker;
 @property (strong, nonatomic) NSMutableArray<UITextField*>* cellTextFieldArray;
+
+@property (nonatomic) int amount;
+@property (strong, nonatomic) UIImage * chosenImage;
 
 - (IBAction)getImage:(id)sender;
 - (IBAction)takePhoto:(id)sender;
