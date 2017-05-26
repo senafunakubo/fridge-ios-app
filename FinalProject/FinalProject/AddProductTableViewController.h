@@ -41,7 +41,8 @@
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
 @property (strong, nonatomic) NSDate *currentDate;
-@property (strong,nonatomic) NSDate *dateFromPicker;
+@property (strong, nonatomic) NSString *currentDateString;
+@property (strong,nonatomic) NSString *dateFromPicker;
 @property (strong, nonatomic) NSDateFormatter *dateformatter;
 
 @property (strong,nonatomic) NSString* typeFromPicker;
@@ -59,4 +60,7 @@
 - (IBAction)valueChanged:(id)sender;
 - (NSString*)parseXML:(NSString*)productNameStr;
 - (void)updateDate;
+
+-(void)getCurrentDate;
+
 @end

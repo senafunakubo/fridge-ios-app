@@ -255,6 +255,15 @@
 			name = Product;
 			sourceTree = "<group>";
 		};
+		412A4EF31ED650C800A9A08E /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				41A34D9E1E8A0F1D0059C342 /* AddProductViewController.h */,
+				41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */,
+			);
+			name = Unused;
+			sourceTree = "<group>";
+		};
 		41904D441EA053E7004750A2 /* Favourite */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,8 +317,7 @@
 		41A34DA51E8A11BF0059C342 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				41A34D9E1E8A0F1D0059C342 /* AddProductViewController.h */,
-				41A34D9F1E8A0F1D0059C342 /* AddProductViewController.m */,
+				412A4EF31ED650C800A9A08E /* Unused */,
 				41BB15291E9F10A700ECCF9B /* SelectFoodImageTableViewController.h */,
 				41BB152A1E9F10A700ECCF9B /* SelectFoodImageTableViewController.m */,
 				41BB152C1E9F10E600ECCF9B /* SelectFoodImageTableViewCell.h */,
