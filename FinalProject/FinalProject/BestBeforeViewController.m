@@ -16,9 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.dateFormatter = [[NSDateFormatter alloc]init];
-    [self.dateFormatter setDateFormat:@"dd-MM-yyyy"];
     
     [self.BestBeforeDatePicker addTarget:self action:@selector(pickerDidChange:) forControlEvents:UIControlEventValueChanged];
 }
@@ -30,17 +27,23 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSDate * selectedDate = [[NSDate alloc]init];
-    selectedDate = [self.bestBeforeViewDelegate getSelectedDate];
-    [self.BestBeforeDatePicker setDate:selectedDate];
-    self.dateLabel.text = [self.dateFormatter stringFromDate:selectedDate];
+    NSString *selectedDateStr = [self.bestBeforeViewDelegate getSelectedDateStr];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSDate *selectedDate = [dateFormatter dateFromString:selectedDateStr];
+    
+    self.BestBeforeDatePicker.date = selectedDate;
+    self.dateLabel.text = selectedDateStr;
 }
 
 -(void)pickerDidChange:(UIDatePicker*)datePicker
 {
-    NSString *dateString = [self.dateFormatter stringFromDate:datePicker.date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *dateString = [ dateFormatter stringFromDate:datePicker.date];
     self.dateLabel.text = dateString;
-    [self.bestBeforeViewDelegate dateSelected:datePicker.date];
+    [self.bestBeforeViewDelegate dateSelected:dateString];
 }
 
 @end

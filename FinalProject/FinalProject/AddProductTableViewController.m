@@ -29,14 +29,16 @@
     [self.dateformatter setDateFormat:@"dd-MM-yyyy"];
     
     self.isSwichToggled = NO;
-    self.currentDate = [self getCurrentDate];
-    self.dateFromPicker = self.currentDate;
+    [self getCurrentDate];
+    self.dateFromPicker = self.currentDateString;
     self.typeFromPicker = @"Other";
+
+    //not nesesary
     //when textfield is tapped datepicker show
-    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
-    [datePicker setDate:[NSDate date]];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
+//    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+//    [datePicker setDate:[NSDate date]];
+//    datePicker.datePickerMode = UIDatePickerModeDate;
+//    [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
 
     
     //for take photo
@@ -70,11 +72,16 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     int isEditProduct = [self.addProductTVDelegate isEditProducts];
+//    self.product.productBestBefore = self.dateFromPicker;
     if(isEditProduct == 1)
     {
         self.product = [self.addProductTVDelegate getEditProduct];
         self.foodImage = self.product.productImageName;
-        self.dateFromPicker = self.product.productBestBefore;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+        
+        self.dateFromPicker = [dateFormatter stringFromDate:self.product.productBestBefore];
         self.typeFromPicker = self.product.productType;
     }
     [self.addProductTableView reloadData];
@@ -152,11 +159,11 @@
             cell = [[AddProductTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addProductBestBeforeTV"];
         }
         
-        cell.addProductBestBeforeLabel.text = [self.dateformatter stringFromDate:self.dateFromPicker];
-        
-        NSString *dateString = [self.dateformatter stringFromDate:self.dateFromPicker];
-        
-        NSString *daysDifference = [NSString stringWithFormat:@"%ld", (long)[self compairDate:dateString]];
+        cell.addProductBestBeforeLabel.text = self.dateFromPicker;
+
+        NSInteger num = [self compairDate:self.dateFromPicker];
+//        NSString *daysDifference = [NSString stringWithFormat:@"%ld", (long)[self compairDate:self.dateFromPicker]];
+        NSString *daysDifference = [NSString stringWithFormat:@"%d", num];
         cell.daysDifference.text = daysDifference;
         
         self.cellTextFieldArray[indexPath.section] = [NSNull null];
@@ -212,14 +219,19 @@
 }
 
 
--(void)dateSelected:(NSDate*)date
+-(void)dateSelected:(NSString*)date
 {
     self.dateFromPicker = date;
 }
--(NSDate*)getSelectedDate
+//-(NSDate*)getSelectedDate
+//{
+//    NSDate * date = self.dateFromPicker;
+//    return date;
+//}
+-(NSString*)getSelectedDateStr
 {
-    NSDate * date = self.dateFromPicker;
-    return date;
+    NSString * currentDateString = self.currentDateString;
+    return currentDateString;
 }
 -(void)typeSelected:(NSString *)type
 {
@@ -317,8 +329,11 @@
     //amount - 2
     self.product.productAmount = self.cellTextFieldArray[2].text.integerValue;
     //bestbefore //difference - 3
-    self.product.productBestBefore = self.dateFromPicker;
-    self.product.daysDifference = [NSString stringWithFormat:@"%ld", (long)[self compairDate:[self.dateformatter stringFromDate:self.dateFromPicker]]].integerValue;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    
+    self.product.productBestBefore = [dateFormatter dateFromString:self.dateFromPicker];
+    self.product.daysDifference = [NSString stringWithFormat:@"%ld", (long)[self compairDate:self.dateFromPicker]].integerValue;
     //type - 4
     self.product.productType = self.typeFromPicker;
     //price - 5
@@ -438,7 +453,7 @@
     [self.view endEditing:YES];
 }
 
--(NSDate*)getCurrentDate
+-(void)getCurrentDate
 {
     NSDate* date = [NSDate date];
     
@@ -446,19 +461,19 @@
     
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
     [dateFormatter1 setTimeZone:worldTimeZone];
-    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter1 setDateFormat:@"dd-MM-yyyy"];
     
     NSString *currentPSTDateString = [dateFormatter1 stringFromDate:date];
     
     //NSString to NSDate
     NSDateFormatter* dateFormatter2 = [[NSDateFormatter alloc] init];
-    [dateFormatter2 setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter2 setDateFormat:@"dd-MM-yyyy"];
     //for timezone
     [dateFormatter2 setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     
     NSDate *currentPSTDate = [dateFormatter2 dateFromString:currentPSTDateString];
-    
-    return currentPSTDate;
+    self.currentDate = currentPSTDate;
+    self.currentDateString = currentPSTDateString;
 }
 
 //How many days left from today until productBestBefore
@@ -468,7 +483,8 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd-MM-yyyy"];
     [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    NSDate *productBestBefore = [formatter dateFromString:date];
+    NSDate *productBestBefore = [[NSDate alloc]init];
+    productBestBefore = [formatter dateFromString:date];
     
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay fromDate:self.currentDate toDate:productBestBefore options:0];
