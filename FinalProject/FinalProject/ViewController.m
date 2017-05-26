@@ -311,6 +311,10 @@
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
 {
     NSLog(@"Did log out of Facebook.");
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    [loginManager logOut];
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    [FBSDKProfile setCurrentProfile:nil];
 }
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error

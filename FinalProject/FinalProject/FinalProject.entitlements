@@ -5,6 +5,7 @@
 	<key>keychain-access-groups</key>
 	<array>
 		<string>$(AppIdentifierPrefix)inabacker24.FinalProject</string>
+		<string>$(AppIdentifierPrefix)ay36230.FinalProject</string>
 	</array>
 </dict>
 </plist>
