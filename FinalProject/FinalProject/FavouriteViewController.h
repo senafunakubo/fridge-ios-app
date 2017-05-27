@@ -13,7 +13,8 @@
 #import "MyTabBarViewController.h"
 
 #import "HeaderCollectionReusableView.h"
-#import "AddProductViewController.h"
+//#import "AddProductViewController.h"
+#import "AddProductTableViewController.h"
 #import "Fridge.h"
 #import "HeaderView.h"
 
@@ -23,7 +24,7 @@
 
 @end
 
-@interface FavouriteViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate, UITableViewDataSource,AddProductDelegate>
+@interface FavouriteViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate, UITableViewDataSource, AddProductTVDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *favouriteCollectionView;
 @property (weak, nonatomic) IBOutlet UITableView *favouriteTableView;
@@ -39,6 +40,18 @@
 @property (nonatomic) NSUInteger lastNumberOfproductArray;
 @property (strong,nonatomic) NSMutableArray<Product*>* favouriteArray;
 @property (strong,nonatomic) NSMutableArray* foodImageArray;
+
+//for modal
+@property (strong, nonatomic) IBOutlet UIView* modalBg;
+@property (strong, nonatomic) UIView *subView;
+@property (strong, nonatomic) UIButton *button;
+@property (strong, nonatomic) NSMutableArray *buttons;
+@property (nonatomic)int uiButtonX;
+@property (nonatomic)int uiButtonY;
+@property (nonatomic)int countButton;
+//@property (nonatomic)int clickedIndex;
+@property (nonatomic)NSInteger amount;
+@property (nonatomic) int isEditProduct;
 
 //-(void)fridgeCVDidSelect;
 -(void)addFavouriteArray:(NSMutableArray<Product*>*)productArray;

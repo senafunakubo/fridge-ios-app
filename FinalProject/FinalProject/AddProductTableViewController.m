@@ -23,24 +23,16 @@
     self.product = [[Product alloc]init];
     self.foodImage = @"noimage";
     self.tableViewIDArray = @[@"addProductImageTV", @"addProductNameTV", @"addProductAmountTV", @"addProductBestBeforeTV", @"addProductTypeTV", @"addProductPriceTV", @"addProductFavouriteTV"];
-    
+    self.amount = 1;
     self.cellTextFieldArray = [[NSMutableArray<UITextField*> alloc]init];
     self.dateformatter = [[NSDateFormatter alloc] init];
     [self.dateformatter setDateFormat:@"dd-MM-yyyy"];
     
-    self.isSwichToggled = NO;
+    self.isSwichToggled = YES;
     [self getCurrentDate];
     self.dateFromPicker = self.currentDateString;
     self.typeFromPicker = @"Other";
-
-    //not nesesary
-    //when textfield is tapped datepicker show
-//    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
-//    [datePicker setDate:[NSDate date]];
-//    datePicker.datePickerMode = UIDatePickerModeDate;
-//    [datePicker addTarget:self action:@selector(dateTextField:) forControlEvents:UIControlEventValueChanged];
-
-    
+ 
     //for take photo
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -62,22 +54,17 @@
     _tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:_tapRecognizer];
     
-    //For stepper
-    self.stepper.value = 1;
-    self.stepper.minimumValue = 1;
-    self.stepper.maximumValue = 10;
-    self.stepper.stepValue = 1;
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     int isEditProduct = [self.addProductTVDelegate isEditProducts];
-//    self.product.productBestBefore = self.dateFromPicker;
     if(isEditProduct == 1)
     {
         self.product = [self.addProductTVDelegate getEditProduct];
         self.foodImage = self.product.productImageName;
-        
+        self.amount = self.product.productAmount;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd-MM-yyyy"];
         
@@ -118,6 +105,10 @@
         {
             cell.addProductImage.image = [UIImage imageNamed:@"noimage"];
         }
+        else if([self.foodImage isEqualToString:@"photo"])
+        {
+            cell.addProductImage.image = self.chosenImage;
+        }
         else if([self.foodImage containsString:@"https"])
         {
             NSURL *url = [NSURL URLWithString:self.foodImage];
@@ -146,7 +137,15 @@
             cell = [[AddProductTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addProductAmountTV"];
         }
         
-        cell.addProductAmoutTextField.text = [[NSNumber numberWithInt:self.product.productAmount] stringValue];
+        //stepper
+        if (![[cell.stepper allTargets] containsObject:self])
+        {
+            [cell.stepper addTarget:self action:@selector(stepperTapped:event:) forControlEvents:UIControlEventValueChanged];
+        }
+        
+        cell.stepper.tag = indexPath.row + indexPath.section * 10000;
+        
+        cell.addProductAmoutTextField.text = [[NSNumber numberWithInt:self.amount] stringValue];
         
         self.cellTextFieldArray[indexPath.section] = cell.addProductAmoutTextField;
         return cell;
@@ -162,7 +161,6 @@
         cell.addProductBestBeforeLabel.text = self.dateFromPicker;
 
         NSInteger num = [self compairDate:self.dateFromPicker];
-//        NSString *daysDifference = [NSString stringWithFormat:@"%ld", (long)[self compairDate:self.dateFromPicker]];
         NSString *daysDifference = [NSString stringWithFormat:@"%d", num];
         cell.daysDifference.text = daysDifference;
         
@@ -218,16 +216,27 @@
     }
 }
 
+- (void)stepperTapped:(UIStepper*)stepper event:(UIEvent *)event{
+    //    UITouch *touch = [[event allTouches] anyObject];
+    //    CGPoint point = [touch locationInView:self.tableView];
+    //    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    
+    int row = stepper.tag % 10000;
+    int section = stepper.tag / 10000;
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    AddProductTableViewCell *cell = (AddProductTableViewCell*)[self.addProductTableView cellForRowAtIndexPath:indexPath];
+    
+    cell.addProductAmoutTextField.text = [[NSNumber numberWithInt:stepper.value] stringValue];
+    
+    self.amount = stepper.value;
+}
 
+//delegate
 -(void)dateSelected:(NSString*)date
 {
     self.dateFromPicker = date;
 }
-//-(NSDate*)getSelectedDate
-//{
-//    NSDate * date = self.dateFromPicker;
-//    return date;
-//}
 -(NSString*)getSelectedDateStr
 {
     NSString * currentDateString = self.currentDateString;
@@ -273,21 +282,24 @@
     
     [self updateDate];
     
-    [self.tableView reloadData];
+    [self.addProductTableView reloadData];
     [self.view endEditing:YES];
 }
 
-//- (IBAction)valueChanged:(id)sender {
-//    self.addProductAmoutTextField.text = [NSString stringWithFormat:@"%d", (int)self.stepper.value];
-//}
-//
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-//{
-//    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    AddProductTableViewCell *cell = (AddProductTableViewCell*)[self.addProductTableView cellForRowAtIndexPath:indexPath];
+    
+    self.chosenImage = info[UIImagePickerControllerEditedImage];
+    self.foodImage = @"photo";
+    cell.addProductImage.image = self.chosenImage;
+    
 //    self.addProductImageView.image = chosenImage;
-//
-//    [picker dismissViewControllerAnimated:YES completion:NULL];
-//}
+
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 //if it is canceled
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -309,7 +321,8 @@
     {
         [self showAlertForDoneButtone];
     }
-    
+    self.amount = 1;
+    self.chosenImage = nil;
 }
 
 
@@ -323,7 +336,7 @@
     {
         self.product.productImageName = @"noimage";
     }
-    
+    self.product.productImage = self.chosenImage;
     //name - 1
     self.product.productName = self.cellTextFieldArray[1].text;
     //amount - 2
@@ -339,9 +352,13 @@
     //price - 5
     self.product.productPrice = self.cellTextFieldArray[5].text.floatValue;
     //favourite - 6
-    if(!self.isSwichToggled)
+    if(self.isSwichToggled == YES)
     {
         self.product.isFavourite = YES;
+    }
+    else if(self.isSwichToggled == NO)
+    {
+        self.product.isFavourite = NO;
     }
 }
 
@@ -383,13 +400,15 @@
 }
 
 - (IBAction)toggleSwich:(UISwitch *)sender {
-    self.isSwichToggled = YES;
+//    self.isSwichToggled = YES;
     if (sender.on) {
         //self.label.text = @"ON";
-        self.product.isFavourite = YES;
+        self.isSwichToggled = YES;
+//        self.product.isFavourite = YES;
     } else {
         //self.label.text = @"OFF";
-        self.product.isFavourite = NO;
+        self.isSwichToggled = NO;
+//        self.product.isFavourite = NO;
     }
 }
 
