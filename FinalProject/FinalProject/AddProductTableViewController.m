@@ -28,7 +28,7 @@
     self.dateformatter = [[NSDateFormatter alloc] init];
     [self.dateformatter setDateFormat:@"dd-MM-yyyy"];
     
-    self.isSwichToggled = NO;
+    self.isSwichToggled = YES;
     [self getCurrentDate];
     self.dateFromPicker = self.currentDateString;
     self.typeFromPicker = @"Other";
@@ -352,9 +352,13 @@
     //price - 5
     self.product.productPrice = self.cellTextFieldArray[5].text.floatValue;
     //favourite - 6
-    if(!self.isSwichToggled)
+    if(self.isSwichToggled == YES)
     {
         self.product.isFavourite = YES;
+    }
+    else if(self.isSwichToggled == NO)
+    {
+        self.product.isFavourite = NO;
     }
 }
 
@@ -396,13 +400,15 @@
 }
 
 - (IBAction)toggleSwich:(UISwitch *)sender {
-    self.isSwichToggled = YES;
+//    self.isSwichToggled = YES;
     if (sender.on) {
         //self.label.text = @"ON";
-        self.product.isFavourite = YES;
+        self.isSwichToggled = YES;
+//        self.product.isFavourite = YES;
     } else {
         //self.label.text = @"OFF";
-        self.product.isFavourite = NO;
+        self.isSwichToggled = NO;
+//        self.product.isFavourite = NO;
     }
 }
 
